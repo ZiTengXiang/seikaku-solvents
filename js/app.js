@@ -477,7 +477,12 @@
         return '<a class="kami" href="#/gods/' + g.code + '">' + name + "</a>";
       }
       return '<span class="kami-el">' + name + "</span>";
-    }).replace(/\n/g, "<br>");
+    }).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\n/g, "<br>");
+  }
+  // 系譜図の章(章番号が変わってもリンクが切れないよう、中身から探す)
+  function genealogyChapter() {
+    var c = MYTH.chapters.filter(function (c) { return c.blocks.some(function (b) { return b.t === "genealogy"; }); })[0];
+    return c ? c.id : "toc";
   }
 
   function mythBlocks(blocks, self) {
@@ -692,7 +697,7 @@
       "<dt>親神など</dt><dd>" + x.parents.map(link).join("、") + "</dd>" +
       (kids.length ? "<dt>御子神</dt><dd>" + kids.map(function (k) { return link(k.god); }).join("、") + "</dd>" : "") +
       "<dt>化学</dt><dd>" + esc(x.chem) + "</dd></dl>" +
-      '<p class="small" style="margin:10px 0 0"><a href="#/myth/' + g.code + '">神話で読む →</a>(<a href="#/myth/ch10">系譜図</a>)</p></div>';
+      '<p class="small" style="margin:10px 0 0"><a href="#/myth/' + g.code + '">神話で読む →</a>(<a href="#/myth/' + genealogyChapter() + '">系譜図</a>)</p></div>';
   }
 
   // ---- しくみ ----
