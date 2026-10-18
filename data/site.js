@@ -1441,7 +1441,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "すべての者と混ざらなくてよいのです。何者にも濁らされず、あなたのまま流れていきなさい。",
-   "image": null,
+   "image": "assets/images/00010_water.webp",
    "music": "assets/music/00010_water.mp3"
   },
   {
