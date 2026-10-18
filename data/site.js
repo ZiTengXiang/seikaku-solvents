@@ -607,7 +607,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "群れずともよいのです。誰も溶かせぬものを溶かせるなら、それがあなたの翼。ただ、雨の日は無理をなさらぬよう。",
-   "image": null,
+   "image": "assets/images/10111_hfip.webp",
    "music": "assets/music/10111_hfip.mp3"
   },
   {
@@ -641,7 +641,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "交わらぬ相手がいても構わん。己の仕事を涼しい顔で果たせ。それだけで、群れは自然と後ろについてくる。",
-   "image": null,
+   "image": "assets/images/10110_dcm.webp",
    "music": "assets/music/10110_dcm.mp3"
   },
   {
