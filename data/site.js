@@ -709,7 +709,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "誰にも見せない顔のひとつやふたつ、あってよいのよ。疲れたら、霞の中でひと眠りなさいな。",
-   "image": null,
+   "image": "assets/images/10100_chloroform.webp",
    "music": "assets/music/10100_chloroform.mp3"
   },
   {
@@ -743,7 +743,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "すべての者と分かり合えずともよい。分かり合える者を大切にせよ。静かな炎ほど、長く燃える。",
-   "image": null,
+   "image": "assets/images/10011_methanol.webp",
    "music": "assets/music/10011_methanol.mp3"
   },
   {
@@ -777,7 +777,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "あれこれ溶かそうとするな。己に合うものだけを灯せばいい。変わらぬことも、ひとつの道だ。",
-   "image": null,
+   "image": "assets/images/10010_hexane.webp",
    "music": "assets/music/10010_hexane.mp3"
   },
   {
@@ -811,7 +811,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "得意なことが少なくても、香りはちゃんと届くものよ。崩れそうな日は、甘いものでも食べて休みましょう。",
-   "image": null,
+   "image": "assets/images/10001_ethyl_acetate.webp",
    "music": "assets/music/10001_ethyl_acetate.mp3"
   },
   {
@@ -845,7 +845,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "気が向いたら飛んでいけばいいの。でも、火の気のそばでは少しだけ用心してね。燃え尽きるには、まだ早いもの。",
-   "image": null,
+   "image": "assets/images/10000_diethyl_ether.webp",
    "music": "assets/music/10000_diethyl_ether.mp3"
   },
   {
@@ -879,7 +879,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
-   "image": null,
+   "image": "assets/images/01111_pgme.webp",
    "music": "assets/music/01111_pgme.mp3"
   },
   {
@@ -913,7 +913,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "汚れを落とすのに、大きな声は要りません。黙って箒を動かす日々が、いつか誰かの晴れの日になるのです。",
-   "image": null,
+   "image": "assets/images/01110_butoxyethanol.webp",
    "music": "assets/music/01110_butoxyethanol.mp3"
   },
   {
