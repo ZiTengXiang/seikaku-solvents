@@ -339,3 +339,8 @@ main { flex: 1; padding-bottom: 64px; outline: none; }
 .fade-in { animation: fade .35s ease both; }
 @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .fade-in { animation: none; } * { transition: none !important; } }
+
+/* トップのご注意(フィクションである旨) */
+.disclaimer { margin: 20px 0 4px; padding: 14px 16px; border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; background: var(--surface); font-size: .9rem; line-height: 1.75; }
+.disclaimer p { margin: 0; }
+.disclaimer .disclaimer-head { font-family: var(--serif); font-weight: 700; letter-spacing: .08em; margin-bottom: 6px; }

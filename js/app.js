@@ -166,6 +166,11 @@
       '<div class="btn-row"><a class="btn" href="#/quiz" data-start>診断をはじめる</a>' +
       (answered > 0 && answered < N_Q ? '<a class="btn ghost" href="#/quiz">続きから(' + answered + "/" + N_Q + ")</a>" : "") +
       '<a class="btn ghost" href="#/gods">三十二柱を見る</a></div>' +
+      '<aside class="disclaimer" role="note" aria-label="ご注意">' +
+      '<p class="disclaimer-head">ご注意 ― この物語はフィクションです</p>' +
+      "<p>本作に登場する神々・精霊・神話、神名や「言寄さし」の言葉は、すべて創作による<strong>架空のもの</strong>です。" +
+      "実在の神社・祭神・宗教団体・宗派・思想信条とは<strong>一切関係ありません</strong>。特定の宗教や信仰を勧めたり、批評したりする意図もありません。</p>" +
+      "</aside>" +
       (sample.length ? '<div class="hero-gallery">' + sample.map(function (g) {
         return '<figure><a href="#/gods/' + g.code + '">' + portrait(g, true) + "</a></figure>";
       }).join("") + "</div>" : "") +
