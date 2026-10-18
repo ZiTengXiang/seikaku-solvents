@@ -416,6 +416,7 @@ def main():
             "profile": g["profile"], "song": songs.get(code),
             "kotoyosashi": kotoyosashi.get(code, ""),
             "image": vurl(image),
+            "true_form": vurl(f"assets/images/true/{code}_{slug}.webp"),  # まことの御姿(CPK モデル)
             "music": vurl(music),
         })
     # 楽譜(縦をそろえた譜面)。曲ごとに別ファイルにして、開いたときだけ読み込む

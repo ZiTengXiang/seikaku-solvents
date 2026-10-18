@@ -46,6 +46,7 @@
     wirePortraits();
     wireAudio();
     wireScores();
+    wireFlips();
   }
   function setNav(name) {
     document.querySelectorAll("[data-nav]").forEach(function (a) {
@@ -79,6 +80,29 @@
     return '<img class="portrait" src="' + esc(g.image) + '" width="600" height="877" alt="' +
       esc(g.god + "(" + g.solvent + "の神様)の絵姿") + '"' + (eager ? "" : ' loading="lazy"') +
       ' data-placeholder="' + esc(ph) + '">';
+  }
+  // 柱の詳細ページの絵姿: 押すとカードをめくるように裏返り、「まことの御姿」(CPK モデル)に切り替わる
+  function flipCard(g) {
+    if (!g.image || !g.true_form) return portrait(g, true);
+    var label = g.god + "の絵姿。押すと、まことの御姿(" + g.solvent + "の分子)に裏返ります";
+    return '<button type="button" class="flip" aria-pressed="false" aria-label="' + esc(label) + '">' +
+      '<span class="flip-inner"><span class="flip-face flip-front">' + portrait(g, true) + "</span>" +
+      '<span class="flip-face flip-back"><img class="portrait" data-src="' + esc(g.true_form) + '" width="600" height="877" alt="' +
+      esc(g.god + "のまことの御姿(" + g.solvent + "の分子の空間充填モデル)") + '">' +
+      '<span class="flip-caption">まことの御姿<small>' + esc(g.solvent) + " の分子(CPK モデル)</small></span></span></span></button>" +
+      '<p class="flip-hint small muted">絵姿を押すと、まことの御姿に裏返ります。' +
+      '<a href="#/about">絵姿と、まことの御姿について</a></p>';
+  }
+  function wireFlips() {
+    app.querySelectorAll("button.flip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var back = btn.querySelector(".flip-back img[data-src]");
+        if (back) { back.src = back.getAttribute("data-src"); back.removeAttribute("data-src"); }  // 初めて裏返すときに読む
+        var on = !btn.classList.contains("flipped");
+        btn.classList.toggle("flipped", on);
+        btn.setAttribute("aria-pressed", String(on));
+      });
+    });
   }
   function wirePortraits() {
     app.querySelectorAll("img.portrait[data-placeholder]").forEach(function (img) {
@@ -434,7 +458,7 @@
         (g.borderline[i] ? " ⚠" : "") + "</td><td>" + (c ? esc((bit === "1" ? c.one : c.zero).replace(/\*\*/g, "")) : "") + "</td></tr>";
     }).join("");
     render(
-      '<div class="detail"><div class="portrait-wrap">' + portrait(g, true) + "</div>" +
+      '<div class="detail"><div class="portrait-wrap">' + flipCard(g) + "</div>" +
       "<div>" +
       '<p class="eyebrow" style="margin-top:6px">コード ' + g.code + "</p>" +
       '<h1 class="god-name">' + nameRuby(g) + "</h1>" +
@@ -738,6 +762,7 @@
       "<li>回答はお使いのブラウザの中だけで計算し、どこにも送信しません。アクセス解析やCookieは使っていません(途中の回答と配色の設定だけ、ブラウザ内に保存します)。</li>" +
       "<li>神様の絵姿は画像生成モデル <b>Animagine XL 4.0</b>(CreativeML Open RAIL++-M ライセンス)による AI 生成です。</li>" +
       '<li>楽曲は<a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a>で作曲・合成しました。</li>' +
+      '<li>まことの御姿は、各溶媒の分子を <a href="https://github.com/HiroYokoyama/python_molecular_editor">MoleditPy</a> の CPK(空間充填)表示の設定(元素色・ファンデルワールス半径・照明)で描き、加工したものです。立体構造は RDKit(ETKDG + MMFF)で求めました。</li>' +
       "<li>溶媒の性質の判定は、32溶媒の中での相対評価を含む遊びのための単純化です。実験の参考にはしないでください。</li>" +
       '<li>ソースコード: <a href="https://github.com/ZiTengXiang/seikaku-solvents">github.com/ZiTengXiang/seikaku-solvents</a>(コードは MIT ライセンス)</li>' +
       "</ul></div>",
