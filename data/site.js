@@ -1325,7 +1325,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "学びは誰のことも拒みません。けれど、読み疲れたら巻物を閉じて。ほつれは、休めば繕えます。",
-   "image": null,
+   "image": "assets/images/00101_dmf.webp?v=32c92990",
    "music": "assets/music/00101_dmf.mp3?v=e241a9f1"
   },
   {
