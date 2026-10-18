@@ -1515,7 +1515,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "多くを語らずともよい。胸の火は、消さずに隠しておけ。燃やすべき時は、おのずと来る。",
-   "image": null,
+   "image": "assets/images/00000_cumene.webp",
    "music": "assets/music/00000_cumene.mp3"
   }
  ],
