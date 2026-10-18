@@ -13,6 +13,7 @@
 画像・楽曲は assets/ に変換済みのものがあれば、そのパスを入れる(無ければ null)。
 """
 import argparse
+import hashlib
 import json
 import re
 import shutil
@@ -200,9 +201,22 @@ def main():
     for name in ("core.py", "questions.json", "gods.json"):
         shutil.copyfile(diag / name, ref / name)
 
+    stamp_index()
+
     n_img = sum(g["image"] is not None for g in gods)
     n_mus = sum(g["music"] is not None for g in gods)
     print(f"data/site.js: {len(gods)}柱・{len(site['questions'])}問 / 画像 {n_img}/32・楽曲 {n_mus}/32")
+
+
+def stamp_index():
+    """index.html が読む CSS・JS・データの ?v= を中身のハッシュにする。
+    GitHub Pages はキャッシュが効くので、中身が変わったら URL も変えて古いものを読ませない。"""
+    index = ROOT / "index.html"
+    html = index.read_bytes().decode("utf-8")  # 改行コードを変えないようバイトで読み書きする
+    for rel in ("css/style.css", "data/site.js", "js/diagnosis.js", "js/app.js"):
+        digest = hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
+        html = re.sub(re.escape(rel) + r"\?v=[0-9a-zA-Z]+", f"{rel}?v={digest}", html)
+    index.write_bytes(html.encode("utf-8"))
 
 
 if __name__ == "__main__":
