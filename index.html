@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>性格そるべんつ</title>
+<meta name="description" content="30の質問から、あなたの性格に近い「溶媒の神様」を占う娯楽用の性格診断。ビッグファイブの5特性を溶媒の性質に読み替えています。">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15130f" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="性格そるべんつ">
+<meta property="og:description" content="30の質問で、あなたとご縁の深い溶媒の神様を占う性格診断。">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // 保存したテーマを最初に当てる(ちらつき防止)。localStorage が使えなくても動く
+  try { var t = localStorage.getItem("seikaku-solvents-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<a class="skip" href="#app">本文へ</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#/" aria-label="性格そるべんつ トップへ">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text">性格そるべんつ</span>
+    </a>
+    <nav class="nav" aria-label="メニュー">
+      <a href="#/quiz" data-nav="quiz">診断</a>
+      <a href="#/gods" data-nav="gods">三十二柱</a>
+      <a href="#/about" data-nav="about">しくみ</a>
+      <button class="theme-toggle" type="button" aria-label="配色を切り替え" title="配色を切り替え"></button>
+    </nav>
+  </div>
+</header>
+
+<main id="app" class="wrap" tabindex="-1">
+  <noscript><p class="notice">この診断は JavaScript で動きます。ブラウザの設定で JavaScript を有効にしてください。</p></noscript>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>娯楽用の診断です。心理検査ではありません。回答はお使いのブラウザの中だけで計算し、どこにも送信しません。</p>
+    <p>画像は Animagine XL 4.0 による AI 生成、楽曲は <a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a> で作曲。
+      <a href="https://github.com/ZiTengXiang/seikaku-solvents">ソースコード</a></p>
+  </div>
+</footer>
+
+<script src="data/site.js"></script>
+<script src="js/diagnosis.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

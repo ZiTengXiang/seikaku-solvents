@@ -1,0 +1,258 @@
+[
+ {
+  "code": "11111",
+  "solvent": "エタノール",
+  "god": "醸照比売",
+  "reading": "かもしてるひめ",
+  "gender": "女神",
+  "slug": "ethanol"
+ },
+ {
+  "code": "11110",
+  "solvent": "アセトン",
+  "god": "爽澄比売",
+  "reading": "さやすみひめ",
+  "gender": "女神",
+  "slug": "acetone"
+ },
+ {
+  "code": "11101",
+  "solvent": "テトラヒドロフラン(THF)",
+  "god": "五環彦",
+  "reading": "いつわひこ",
+  "gender": "男神",
+  "slug": "thf"
+ },
+ {
+  "code": "11100",
+  "solvent": "1,2-ジメトキシエタン(DME)",
+  "god": "双結彦",
+  "reading": "ふたゆいひこ",
+  "gender": "男神",
+  "slug": "dme"
+ },
+ {
+  "code": "11011",
+  "solvent": "tert-ブタノール",
+  "god": "霜固彦",
+  "reading": "しもかためひこ",
+  "gender": "男神",
+  "slug": "tbutanol"
+ },
+ {
+  "code": "11010",
+  "solvent": "1-プロパノール",
+  "god": "穏灯比売",
+  "reading": "おだひともしひめ",
+  "gender": "女神",
+  "slug": "1propanol"
+ },
+ {
+  "code": "11001",
+  "solvent": "2-プロパノール(IPA)",
+  "god": "清祓比売",
+  "reading": "きよはらえひめ",
+  "gender": "女神",
+  "slug": "ipa"
+ },
+ {
+  "code": "11000",
+  "solvent": "ジエチルアミン",
+  "god": "潮狐彦",
+  "reading": "しおぎつねひこ",
+  "gender": "男神",
+  "slug": "diethylamine"
+ },
+ {
+  "code": "10111",
+  "solvent": "ヘキサフルオロイソプロパノール(HFIP)",
+  "god": "白翼比売",
+  "reading": "しらつばさひめ",
+  "gender": "女神",
+  "slug": "hfip"
+ },
+ {
+  "code": "10110",
+  "solvent": "ジクロロメタン(DCM)",
+  "god": "翠狼彦",
+  "reading": "すいろうひこ",
+  "gender": "男神",
+  "slug": "dcm"
+ },
+ {
+  "code": "10101",
+  "solvent": "トリフルオロ酢酸(TFA)",
+  "god": "鋭牙比売",
+  "reading": "とがきばひめ",
+  "gender": "女神",
+  "slug": "tfa"
+ },
+ {
+  "code": "10100",
+  "solvent": "クロロホルム",
+  "god": "眠霞比売",
+  "reading": "ねむがすみひめ",
+  "gender": "女神",
+  "slug": "chloroform"
+ },
+ {
+  "code": "10011",
+  "solvent": "メタノール",
+  "god": "蒼炎彦",
+  "reading": "そうえんひこ",
+  "gender": "男神",
+  "slug": "methanol"
+ },
+ {
+  "code": "10010",
+  "solvent": "ヘキサン",
+  "god": "油灯彦",
+  "reading": "ゆとうひこ",
+  "gender": "男神",
+  "slug": "hexane"
+ },
+ {
+  "code": "10001",
+  "solvent": "酢酸エチル",
+  "god": "果香比売",
+  "reading": "このかひめ",
+  "gender": "女神",
+  "slug": "ethyl_acetate"
+ },
+ {
+  "code": "10000",
+  "solvent": "ジエチルエーテル",
+  "god": "揺炎比売",
+  "reading": "ゆらほむらひめ",
+  "gender": "女神",
+  "slug": "diethyl_ether"
+ },
+ {
+  "code": "01111",
+  "solvent": "PGME",
+  "god": "彩結比売",
+  "reading": "いろむすびひめ",
+  "gender": "女神",
+  "slug": "pgme"
+ },
+ {
+  "code": "01110",
+  "solvent": "2-ブトキシエタノール",
+  "god": "泡清彦",
+  "reading": "あわきよひこ",
+  "gender": "男神",
+  "slug": "butoxyethanol"
+ },
+ {
+  "code": "01101",
+  "solvent": "ピリジン",
+  "god": "六環彦",
+  "reading": "むわひこ",
+  "gender": "男神",
+  "slug": "pyridine"
+ },
+ {
+  "code": "01100",
+  "solvent": "1,4-ジオキサン",
+  "god": "双環比売",
+  "reading": "ふたわひめ",
+  "gender": "女神",
+  "slug": "dioxane"
+ },
+ {
+  "code": "01011",
+  "solvent": "酢酸",
+  "god": "酸凍比売",
+  "reading": "すごりひめ",
+  "gender": "女神",
+  "slug": "acetic_acid"
+ },
+ {
+  "code": "01010",
+  "solvent": "ジプロピレングリコールモノメチルエーテル(DPM)",
+  "god": "和茶彦",
+  "reading": "にこさひこ",
+  "gender": "男神",
+  "slug": "dpm"
+ },
+ {
+  "code": "01001",
+  "solvent": "モルホリン",
+  "god": "椅環彦",
+  "reading": "いわひこ",
+  "gender": "男神",
+  "slug": "morpholine"
+ },
+ {
+  "code": "01000",
+  "solvent": "ジグライム",
+  "god": "長結彦",
+  "reading": "ながゆいひこ",
+  "gender": "男神",
+  "slug": "diglyme"
+ },
+ {
+  "code": "00111",
+  "solvent": "ジメチルスルホキシド(DMSO)",
+  "god": "万納比売",
+  "reading": "よろずおさめひめ",
+  "gender": "女神",
+  "slug": "dmso"
+ },
+ {
+  "code": "00110",
+  "solvent": "トルエン",
+  "god": "琥珀彦",
+  "reading": "こはくひこ",
+  "gender": "男神",
+  "slug": "toluene"
+ },
+ {
+  "code": "00101",
+  "solvent": "N,N-ジメチルホルムアミド(DMF)",
+  "god": "巻帙比売",
+  "reading": "まきふみひめ",
+  "gender": "女神",
+  "slug": "dmf"
+ },
+ {
+  "code": "00100",
+  "solvent": "テトラリン",
+  "god": "琥珀裂彦",
+  "reading": "こはくさきひこ",
+  "gender": "男神",
+  "slug": "tetralin"
+ },
+ {
+  "code": "00011",
+  "solvent": "エチレングリコール",
+  "god": "甘雪比売",
+  "reading": "あまゆきひめ",
+  "gender": "女神",
+  "slug": "ethylene_glycol"
+ },
+ {
+  "code": "00010",
+  "solvent": "水",
+  "god": "清水比売",
+  "reading": "しみずひめ",
+  "gender": "女神",
+  "slug": "water"
+ },
+ {
+  "code": "00001",
+  "solvent": "ギ酸",
+  "god": "蟻火彦",
+  "reading": "ありほひこ",
+  "gender": "男神",
+  "slug": "formic_acid"
+ },
+ {
+  "code": "00000",
+  "solvent": "クメン",
+  "god": "隠炎彦",
+  "reading": "かくれほむらひこ",
+  "gender": "男神",
+  "slug": "cumene"
+ }
+]

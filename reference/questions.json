@@ -1,0 +1,43 @@
+{
+ "scale": {"min": 1, "max": 4, "labels": ["まったく当てはまらない", "あまり当てはまらない", "やや当てはまる", "とても当てはまる"]},
+ "weight_rule": "各問の重みは1を中心に、その質問で特性をどの程度測れそうかの実感で上下させた値(0.86〜1.12、0.01刻み)。各特性6問の重みの合計を0.01単位で奇数にしてあるので、特性スコアがちょうど0.5になることはない。",
+ "traits": [
+  {"key": "E", "name": "外向性", "solvent_property": "揮発性"},
+  {"key": "A", "name": "協調性", "solvent_property": "混和性"},
+  {"key": "O", "name": "開放性", "solvent_property": "溶解力"},
+  {"key": "C", "name": "誠実性", "solvent_property": "化学的安定性"},
+  {"key": "N", "name": "神経症傾向", "solvent_property": "吸湿性"}
+ ],
+ "questions": [
+  {"id": 1, "trait": "E", "reverse": false, "text": "初対面の人とも、すぐに打ち解けて話せる。", "weight": 1.12, "weight_note": "社交性そのものを直接たずねる中核項目"},
+  {"id": 2, "trait": "A", "reverse": false, "text": "困っている人を見ると、放っておけない。", "weight": 1.1, "weight_note": "思いやり(協調性の中核)を直接たずねる"},
+  {"id": 3, "trait": "O", "reverse": false, "text": "新しい考え方や、知らない分野の話を聞くのが好きだ。", "weight": 1.11, "weight_note": "知的好奇心(開放性の中核)を直接たずねる"},
+  {"id": 4, "trait": "C", "reverse": false, "text": "頼まれたことは、期限より前に片づける。", "weight": 1.1, "weight_note": "期限を守る勤勉さ(誠実性の中核)"},
+  {"id": 5, "trait": "N", "reverse": false, "text": "ささいなことで不安になりやすい。", "weight": 1.12, "weight_note": "不安の感じやすさ(神経症傾向の中核)"},
+  {"id": 6, "trait": "E", "reverse": true, "text": "大勢で集まるより、一人で過ごすほうが落ち着く。", "weight": 1.04, "weight_note": "内向性の典型だが、内省好きとも混ざる"},
+  {"id": 7, "trait": "A", "reverse": true, "text": "他人のもめごとには、あまり関心がわかない。", "weight": 0.86, "weight_note": "「もめごとに関わらない」は思慮深さとも読め、向きがあいまい"},
+  {"id": 8, "trait": "O", "reverse": true, "text": "抽象的な議論や空想話には、あまり興味がない。", "weight": 1.05, "weight_note": "抽象・空想への関心で開放性をよく分ける"},
+  {"id": 9, "trait": "C", "reverse": true, "text": "部屋や机の上が散らかりがちだ。", "weight": 0.95, "weight_note": "片づけは生活環境や同居人に左右されやすい"},
+  {"id": 10, "trait": "N", "reverse": true, "text": "たいていのことでは動揺せず、落ち着いていられる。", "weight": 1.06, "weight_note": "情緒の安定をまっすぐたずねる"},
+  {"id": 11, "trait": "E", "reverse": false, "text": "気づくと、会話の輪の中心にいることが多い。", "weight": 1.07, "weight_note": "主張性・存在感で外向性をよく分ける"},
+  {"id": 12, "trait": "A", "reverse": false, "text": "意見がぶつかったときは、まず相手の言い分に耳を傾ける。", "weight": 1.06, "weight_note": "対立時の歩み寄りで協調性をよく分ける"},
+  {"id": 13, "trait": "O", "reverse": false, "text": "絵や音楽、物語に心を強く動かされることがある。", "weight": 1.02, "weight_note": "美的感受性。開放性の指標だが情緒の豊かさとも重なる"},
+  {"id": 14, "trait": "C", "reverse": false, "text": "物事は、計画を立ててから取りかかる。", "weight": 1.05, "weight_note": "計画性で誠実性をよく分ける"},
+  {"id": 15, "trait": "N", "reverse": false, "text": "気分の浮き沈みが激しいほうだ。", "weight": 1.08, "weight_note": "気分の変動は神経症傾向の中核"},
+  {"id": 16, "trait": "E", "reverse": true, "text": "人前では、自分からはあまり話さない。", "weight": 0.95, "weight_note": "人前で話さないのは内向性だけでなく人見知り・不安(神経症傾向)の影響も受ける"},
+  {"id": 17, "trait": "A", "reverse": true, "text": "相手の気持ちより、自分の意見を通すことを優先しがちだ。", "weight": 0.96, "weight_note": "自己主張の強さ(外向性)とも重なる"},
+  {"id": 18, "trait": "O", "reverse": true, "text": "慣れたやり方を変えるのは気が進まない。", "weight": 0.92, "weight_note": "慣れたやり方へのこだわりは誠実性(手順を守る)とも重なる"},
+  {"id": 19, "trait": "C", "reverse": true, "text": "やるべきことを、つい後回しにしてしまう。", "weight": 1.08, "weight_note": "先延ばしは誠実性のはっきりした指標"},
+  {"id": 20, "trait": "N", "reverse": true, "text": "嫌なことがあっても、すぐに気持ちを切り替えられる。", "weight": 1.0, "weight_note": "立ち直りの早さ。標準的な指標"},
+  {"id": 21, "trait": "E", "reverse": false, "text": "予定のない休日は、誰かを誘って出かけたくなる。", "weight": 0.97, "weight_note": "休日の過ごし方は体力や予定など状況に左右される"},
+  {"id": 22, "trait": "A", "reverse": false, "text": "人とは、まず信じるところから付き合い始める。", "weight": 0.99, "weight_note": "信頼の傾向。標準的だが過去の経験にも左右される"},
+  {"id": 23, "trait": "O", "reverse": false, "text": "あれこれ想像をふくらませて考えるのが楽しい。", "weight": 1.04, "weight_note": "空想を楽しむ傾向で開放性をよく分ける"},
+  {"id": 24, "trait": "C", "reverse": false, "text": "細かいところまで気を配って、丁寧に仕上げる。", "weight": 0.98, "weight_note": "丁寧さは完璧主義(神経症傾向)とも重なる"},
+  {"id": 25, "trait": "N", "reverse": false, "text": "人からどう思われているかが、気になってしかたがない。", "weight": 0.91, "weight_note": "人目を気にするのは文化や協調性の影響も大きい"},
+  {"id": 26, "trait": "E", "reverse": true, "text": "にぎやかな場所に長くいると、ぐったり疲れてしまう。", "weight": 0.94, "weight_note": "にぎやかさで疲れるのは感覚の過敏さ(神経症傾向)とも重なる"},
+  {"id": 27, "trait": "A", "reverse": true, "text": "人の失敗に、つい厳しい言葉をかけてしまう。", "weight": 1.04, "weight_note": "人への厳しさで協調性の低さがはっきり出る"},
+  {"id": 28, "trait": "O", "reverse": true, "text": "行ったことのない場所より、なじみの場所に行きたい。", "weight": 0.89, "weight_note": "なじみの場所を好むのは不安や面倒くささとも重なる"},
+  {"id": 29, "trait": "C", "reverse": true, "text": "気分しだいで、決めたことを途中でやめてしまうことがある。", "weight": 0.93, "weight_note": "途中でやめるのは衝動性(神経症傾向)とも重なる"},
+  {"id": 30, "trait": "N", "reverse": true, "text": "ストレスを感じることは、あまりない。", "weight": 0.88, "weight_note": "ストレスの多寡は性格より環境に左右されやすい"}
+ ]
+}

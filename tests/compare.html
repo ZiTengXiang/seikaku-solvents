@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Python/JS 一致テスト</title>
+</head>
+<body>
+<!-- tests/compare_python_js.py が headless ブラウザで開く。ブラウザで直接開いても結果が見られる。 -->
+<pre id="status">running…</pre>
+<script src="../data/site.js"></script>
+<script src="../js/diagnosis.js"></script>
+<script src="cases.js"></script>
+<script>
+(function () {
+  var out = [];
+  var status = document.getElementById("status");
+  // TEST_QUESTIONS があればサイトの質問の代わりに使う(重みなし版で同点の処理を試すため)
+  var data = Object.assign({}, window.SITE_DATA,
+    window.TEST_QUESTIONS ? { questions: window.TEST_QUESTIONS } : {});
+  try {
+    window.TEST_CASES.forEach(function (answers) {
+      var r = SolventDiagnosis.diagnose(answers, data, 5);
+      out.push({
+        scores: r.scores.map(function (s) { return s.value; }),
+        ranking: r.ranking.map(function (g) {
+          return [g.code, g.rank, g.tied, g.distance, g.rms_error, g.error_pct, g.affinity_pct];
+        }),
+      });
+    });
+    var pre = document.createElement("pre");
+    pre.id = "js-output";
+    pre.textContent = JSON.stringify(out);
+    document.body.appendChild(pre);
+    status.textContent = "done: " + out.length + " cases";
+  } catch (e) {
+    status.textContent = "ERROR: " + e;
+  }
+})();
+</script>
+</body>
+</html>

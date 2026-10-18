@@ -1,0 +1,87 @@
+# 性格そるべんつ
+
+30の質問に答えると、あなたの性格に近い「溶媒の神様」を5柱、ご縁の深い順に占う性格診断です。
+
+**▶ https://zitengxiang.github.io/seikaku-solvents/**
+
+ビッグファイブ(性格の5因子モデル)の5特性を溶媒の性質に読み替え、その0/1の組み合わせ32通りすべてに実在の溶媒を割り当てました。32の溶媒は、それぞれの社に祀られる神様として擬人化してあり、絵姿と雅楽風のテーマ曲が付いています。
+
+| ビッグファイブ | 溶媒の性質 | 1 | 0 |
+|---|---|---|---|
+| 外向性 | 揮発性 | 沸点 < 100 °C | 沸点 ≥ 100 °C |
+| 協調性 | 混和性 | 代表8溶媒のすべてと任意の割合で混ざる | 混ざらない相手がいる |
+| 開放性 | 溶解力 | 幅広く溶かす万能型 | 溶かせる範囲が限られる |
+| 誠実性 | 化学的安定性 | 保存しても変質せず、反応に手を出さない | 変質・反応する |
+| 神経症傾向 | 吸湿性 | 水分を強く取り込む | 吸湿が弱い |
+
+> **ご注意**: ビッグファイブに着想を得た**娯楽用**の診断で、心理検査ではありません。質問文は自作で、標準化された尺度ではありません。溶媒の性質の判定も遊びのための単純化です。
+
+## 遊び方
+
+1. トップの「診断をはじめる」から、30の文がどのくらい当てはまるかを4段階で答えます(キーボードなら 1〜4 キー、Backspace で前の問いへ)。
+2. 結果画面に、5特性の値(レーダーチャートとバー)と、ご縁の深い神様5柱が出ます。1位の神様は絵姿・設定・テーマ曲つき。
+3. 「三十二柱」で全員の設定と曲を、「しくみ」で判定基準と計算方法を見られます。
+
+結果のURL(`#/result/<30桁の回答>`)を開けば同じ結果を表示できます。回答は URL のハッシュ部分にしか入らないので、サーバーには送られません。
+
+## 仕組み
+
+- 静的サイト(HTML/CSS/JavaScript、ビルド不要)。GitHub Pages で配信しています。
+- **診断はすべてブラウザの中で計算**し、回答はどこにも送信しません。アクセス解析・Cookie・外部フォントなど、外部への通信はありません(途中の回答と配色の設定だけ `localStorage` に保存します)。
+- 採点:
+  - 各問の得点 = (回答−1)/3(逆転項目は (4−回答)/3)。
+  - 特性スコア = その特性6問の重み付き平均(0〜1)。重みは 0.86〜1.12 で、合計を調整してあるのでちょうど0.5にはならない。
+  - 神様のコード(例: アセトン 11110)との距離 = 差の二乗和。近い順に5柱。
+  - 誤差率(%) = √(距離/5) × 100、親和度(%) = 100 − 誤差率。
+  - 同じ距離の神様は同順位「◯位(同率)」。並びは SHA-256(回答,コード) の順。
+- JS版の計算([js/diagnosis.js](js/diagnosis.js))は Python 版([reference/core.py](reference/core.py))の移植です。同点判定に誤差が入らないよう、BigInt の分数で厳密に計算します。
+
+## ファイル構成
+
+| パス | 内容 |
+|---|---|
+| `index.html`, `css/`, `js/app.js` | 画面 |
+| `js/diagnosis.js` | 診断ロジック(採点・距離・順位・SHA-256) |
+| `data/site.js` | 質問・32柱の設定・判定基準(`tools/build_data.py` が生成) |
+| `assets/images/*.webp` | 神様の絵姿(幅600px) |
+| `assets/music/*.mp3` | テーマ曲(VBR 約100kbps) |
+| `reference/` | Python版ロジックと質問・神様データの写し(テスト用) |
+| `tools/` | 素材の変換スクリプト |
+| `tests/` | Python版とJS版の一致テスト |
+
+## 素材の更新
+
+元データ(このリポジトリの外、`../seikaku_solvents_32.md` と `../solvent_gods/`)から作り直します。Python 3.13 と、このリポジトリ用の venv を使います。
+
+```bash
+python -m venv .venv
+.venv/Scripts/python -m pip install soundfile numpy pillow   # macOS/Linux は .venv/bin/python
+```
+
+```bash
+.venv/Scripts/python tools/convert_images.py   # 画像 PNG → WebP(新しい・増えた画像だけ変換)
+.venv/Scripts/python tools/convert_music.py    # 楽曲 WAV → MP3(1曲ずつ、変換済みは飛ばす)
+.venv/Scripts/python tools/build_data.py       # .md・診断ロジック・曲メモ → data/site.js, reference/
+```
+
+画像・楽曲の変換スクリプトは最後に `build_data.py` も呼ぶので、絵姿が増えたら `convert_images.py` を流してコミットするだけで、サイトのプレースホルダーが絵姿に置き換わります。元フォルダの場所が違うときは `--src <claude-work のパス>` を付けます。
+
+## テスト
+
+```bash
+.venv/Scripts/python tests/compare_python_js.py
+```
+
+3000件あまりの回答パターン(全問同じ・同点の出やすい回答・一様ランダム・偏りのあるランダム)を Python 版と JS 版の両方で診断し、5特性の値・上位5柱の並び・順位・同率フラグ・距離・親和度などが一致するかを確かめます。JS 版は headless の Edge / Chrome で `tests/compare.html` を開いて動かします。サイトと同じ重み付きの質問に加え、同点が多く出る「重みなし」版でも比べます。
+
+## クレジット
+
+- **キャラクター画像**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)による AI 生成です。
+- **楽曲**: [雅楽譜プレイヤー](https://github.com/ZiTengXiang/gagaku-player)で作曲・合成した雅楽風の曲です。
+- **質問文**: IPIP などのビッグファイブ尺度を参考にした自作の文です。
+- 企画・設定・作曲: ZiTengXiang
+
+## ライセンス
+
+- **コード**(HTML/CSS/JavaScript/Python): [MIT License](LICENSE)
+- **画像・楽曲・キャラクター設定**(`assets/` と `data/site.js` の設定文): MIT ライセンスの対象外で、権利は作者(ZiTengXiang)に留保します。このサイトでの鑑賞・SNS での結果の共有は自由ですが、それ以外の転載・再配布・改変はご遠慮ください。画像の利用には、生成に使った Animagine XL 4.0 のライセンス(CreativeML Open RAIL++-M)の利用制限も適用されます。
