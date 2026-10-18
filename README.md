@@ -81,8 +81,9 @@ python -m venv .venv
 
 ## クレジット
 
-- **キャラクター画像**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)による AI 生成です。
-- 「まことの御姿」(柱の詳細ページで絵姿を押すと裏返る画像)は、各溶媒の分子を [MoleditPy](https://github.com/HiroYokoyama/python_molecular_editor) の CPK(空間充填)表示の設定で描き、加工したもの。変換は `tools/convert_true_forms.py`。
+- **キャラクター画像・天大輝星主の背景**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)と [LCM-LoRA](https://huggingface.co/latent-consistency/lcm-lora-sdxl) による AI 生成です。
+- **まことの御姿**(柱の詳細ページで絵姿を押すと裏返る画像): 各溶媒の分子を [MoleditPy](https://github.com/HiroYokoyama/python_molecular_editor) の CPK(空間充填)表示の設定で描き、加工したもの。立体構造は [RDKit](https://www.rdkit.org/)、描画は [PyVista](https://pyvista.org/)。描画は `tools/render_true_forms.py`、変換は `tools/convert_true_forms.py`。
+- **最初の五柱のアイコン**: このサイトのために作成した SVG です。
 - **楽曲**: [雅楽譜プレイヤー](https://github.com/ZiTengXiang/gagaku-player)で作曲・合成した雅楽風の曲です。
 - **言寄さし**: 各柱のキャラクター設定(性格)をもとに、このサイトのために書いたセリフです。
 - **質問文**: IPIP などのビッグファイブ尺度を参考にした自作の文です。

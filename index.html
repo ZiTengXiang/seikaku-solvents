@@ -12,7 +12,7 @@
 <meta property="og:description" content="30の質問で、あなたとご縁の深い溶媒の神様を占う性格診断。">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=88641860">
+<link rel="stylesheet" href="css/style.css?v=81bb9667">
 <script>
   // 保存したテーマを最初に当てる(ちらつき防止)。localStorage が使えなくても動く
   try { var t = localStorage.getItem("seikaku-solvents-theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
@@ -45,8 +45,22 @@
   <div class="wrap">
     <p>娯楽用の診断です。心理検査ではありません。回答はお使いのブラウザの中だけで計算し、どこにも送信しません。</p>
     <p>登場する神々・精霊・神話はすべて架空のもので、実在の神社・宗教団体・思想とは一切関係ありません。</p>
-    <p>画像は Animagine XL 4.0 による AI 生成、楽曲は <a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a> で作曲。
-      <a href="https://github.com/ZiTengXiang/seikaku-solvents">ソースコード</a></p>
+    <dl class="credits" aria-label="クレジット">
+      <dt>絵姿・背景</dt>
+      <dd>画像生成モデル <a href="https://huggingface.co/cagliostrolab/animagine-xl-4.0">Animagine XL 4.0</a>(CreativeML Open RAIL++-M ライセンス)と
+        <a href="https://huggingface.co/latent-consistency/lcm-lora-sdxl">LCM-LoRA</a> による AI 生成。利用には同ライセンスの利用制限が適用されます。</dd>
+      <dt>まことの御姿</dt>
+      <dd>各溶媒の分子を <a href="https://github.com/HiroYokoyama/python_molecular_editor">MoleditPy</a> の CPK(空間充填)表示の設定で描き、加工したもの。
+        立体構造は <a href="https://www.rdkit.org/">RDKit</a>、描画は <a href="https://pyvista.org/">PyVista</a>。</dd>
+      <dt>楽曲・楽譜</dt>
+      <dd><a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a>で作曲・合成した、雅楽風の新作です(古典曲ではありません)。</dd>
+      <dt>アイコン・設定・言寄さし</dt>
+      <dd>このサイトのために作成。質問文は IPIP などのビッグファイブ尺度を参考にした自作の文です。</dd>
+      <dt>権利</dt>
+      <dd>コードは <a href="https://github.com/ZiTengXiang/seikaku-solvents/blob/main/LICENSE">MIT ライセンス</a>。
+        画像・楽曲・設定文は作者(ZiTengXiang)に権利を留保します。鑑賞と結果の共有はご自由に、転載・再配布・改変はご遠慮ください。
+        <a href="https://github.com/ZiTengXiang/seikaku-solvents">ソースコード</a></dd>
+    </dl>
   </div>
 </footer>
 

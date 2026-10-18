@@ -549,3 +549,12 @@ details.score summary { cursor: pointer; font-size: .9rem; color: var(--accent);
   .primordial-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 14px; }
   .primordial-icons img { max-width: 60px; }
 }
+
+/* フッターのクレジット */
+.site-footer .credits { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 10px 0 0; padding-top: 10px; border-top: 1px dashed var(--line); font-size: .78rem; line-height: 1.6; }
+.site-footer .credits dt { font-weight: 700; color: var(--ink); opacity: .8; }
+.site-footer .credits dd { margin: 0; }
+@media (max-width: 560px) {
+  .site-footer .credits { grid-template-columns: 1fr; gap: 0; }
+  .site-footer .credits dd { margin-bottom: 6px; }
+}
