@@ -520,3 +520,6 @@ details.score summary { cursor: pointer; font-size: .9rem; color: var(--accent);
 @media (prefers-reduced-motion: reduce) {
   .flip-inner { transition: none; }
 }
+
+/* しくみページ: ページ内リンク(#/about#how・#forms)の着地点がヘッダーに隠れないように */
+.prose h2[id], .prose h3[id] { scroll-margin-top: 76px; }

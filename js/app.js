@@ -91,7 +91,7 @@
       esc(g.god + "のまことの御姿(" + g.solvent + "の分子の空間充填モデル)") + '">' +
       '<span class="flip-caption">まことの御姿<small>' + esc(g.solvent) + " の分子(CPK モデル)</small></span></span></span></button>" +
       '<p class="flip-hint small muted">絵姿を押すと、まことの御姿に裏返ります。' +
-      '<a href="#/about">絵姿と、まことの御姿について</a></p>';
+      '<a href="#/about#forms">絵姿と、まことの御姿について</a></p>';
   }
   function wireFlips() {
     app.querySelectorAll("button.flip").forEach(function (btn) {
@@ -750,7 +750,7 @@
       "<p>コードどおりに答えると親和度100%、1つの特性だけ正反対なら約55%、すべて正反対なら0%です。距離がまったく同じ神様は同じ順位で「◯位(同率)」と表示し、その並びは回答から決まるハッシュ値(SHA-256)の順にしています(同じ回答なら毎回同じ順)。</p>" +
       "<h2>神様の設定について</h2>" +
       "<ul>" + intro.common.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" +
-      (DATA.about_forms ? "<h3>" + esc(DATA.about_forms.title) + "</h3>" +
+      (DATA.about_forms ? '<h3 id="forms">' + esc(DATA.about_forms.title) + "</h3>" +
         DATA.about_forms.paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") : "") +
       "<h3>性格5軸の読み替え(絵姿)</h3>" +
       "<ul>" + intro.axes.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" +
@@ -767,10 +767,10 @@
       '<li>ソースコード: <a href="https://github.com/ZiTengXiang/seikaku-solvents">github.com/ZiTengXiang/seikaku-solvents</a>(コードは MIT ライセンス)</li>' +
       "</ul></div>",
       "しくみ");
-    if (location.hash.indexOf("#how") > 0) {
-      var el = document.getElementById("how");
-      if (el) el.scrollIntoView();
-    } else window.scrollTo({ top: 0 });
+    // #/about#how・#/about#forms など、2つめの # の後ろの id へ送る
+    var target = location.hash.split("#")[2];
+    var el = target && document.getElementById(target);
+    if (el) el.scrollIntoView(); else window.scrollTo({ top: 0 });
   }
 
   // ---- 楽曲 ----
