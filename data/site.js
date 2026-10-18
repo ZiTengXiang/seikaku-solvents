@@ -1477,7 +1477,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "小さな一歩でも、蟻は山を越える。そわそわしたっていいさ。止まらなければ、ちゃんと着く。",
-   "image": null,
+   "image": "assets/images/00001_formic_acid.webp",
    "music": "assets/music/00001_formic_acid.mp3"
   },
   {
