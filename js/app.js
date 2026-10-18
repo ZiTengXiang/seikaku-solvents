@@ -726,6 +726,8 @@
       "<p>コードどおりに答えると親和度100%、1つの特性だけ正反対なら約55%、すべて正反対なら0%です。距離がまったく同じ神様は同じ順位で「◯位(同率)」と表示し、その並びは回答から決まるハッシュ値(SHA-256)の順にしています(同じ回答なら毎回同じ順)。</p>" +
       "<h2>神様の設定について</h2>" +
       "<ul>" + intro.common.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" +
+      (DATA.about_forms ? "<h3>" + esc(DATA.about_forms.title) + "</h3>" +
+        DATA.about_forms.paragraphs.map(function (t) { return "<p>" + esc(t) + "</p>"; }).join("") : "") +
       "<h3>性格5軸の読み替え(絵姿)</h3>" +
       "<ul>" + intro.axes.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" +
       "<h3>テーマ曲</h3>" +

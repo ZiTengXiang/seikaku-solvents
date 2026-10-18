@@ -448,6 +448,7 @@ def main():
         "character_intro": intro,
         "gods": gods,
         "myth": myth,
+        "about_forms": json.loads((ROOT / "content" / "about_forms.json").read_text(encoding="utf-8")),
         "music_page": {
             **music_page,
             "axes": parse_music_axes(music_readme.read_text(encoding="utf-8")) if music_readme.exists() else [],
