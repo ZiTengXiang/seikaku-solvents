@@ -45,6 +45,7 @@
     document.title = title ? title + " ― 性格そるべんつ" : "性格そるべんつ";
     wirePortraits();
     wireAudio();
+    wireScores();
   }
   function setNav(name) {
     document.querySelectorAll("[data-nav]").forEach(function (a) {
@@ -102,7 +103,8 @@
       (g.music
         ? '<p class="song-title">♪ ' + esc(s.title || g.god + "のテーマ") + "</p>" +
           (s.classical_note ? '<p class="song-note">' + esc(s.classical_note) + "</p>" : "") +
-          '<audio controls preload="none" src="' + esc(g.music) + '">お使いのブラウザでは再生できません。</audio>'
+          '<audio controls preload="none" src="' + esc(g.music) + '">お使いのブラウザでは再生できません。</audio>' +
+          scoreBlock(s.score, g.god)
         : '<p class="song-title muted">♪ 楽曲は準備中です。</p>') +
       "</div>";
   }
@@ -777,6 +779,58 @@
       : '<p class="small muted">♪ 音源は準備中です。</p>';
   }
 
+  // 楽譜: 開いたときに data/scores/<id>.json を読み、拍ごとのマス目(表)で縦をそろえて描く
+  function scoreBlock(score, name) {
+    if (!score) return "";
+    return '<details class="score" data-score-src="' + esc(score.json) + '"><summary>楽譜を見る(縦をそろえた譜面)</summary>' +
+      '<div class="score-body"><p class="small muted">読み込み中…</p></div>' +
+      '<p class="small"><a href="' + esc(score.gaku) + '" download>譜面ファイル(.gaku)をダウンロード</a>' +
+      '(<a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a>で開くと再生できます)</p></details>';
+  }
+  function scoreCell(t) {
+    var cls = t === "." ? "rest" : t === "-" ? "hold" : "";
+    return "<td" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(t) + "</td>";
+  }
+  function renderScore(d) {
+    var h = d.head || {};
+    var info = [h.mode, h.tempo ? "♩=" + h.tempo : "", h.beats ? "1小節" + h.beats + "拍" : ""].filter(Boolean).join(" ・ ");
+    var comments = (d.comments || []).filter(function (c) { return c && c !== h.title; });
+    var html = (info ? '<p class="score-info">' + esc(info) + "</p>" : "") +
+      (comments.length ? '<div class="score-comments">' + comments.map(function (c) { return "<p>" + esc(c) + "</p>"; }).join("") + "</div>" : "") +
+      '<p class="small muted">各列が1拍。「-」は前の音をのばす、「.」は休み、「:3/2」などは音の長さ(拍)です。</p>';
+    d.systems.forEach(function (sy) {
+      html += '<p class="score-sys">' + esc(sy.label) + "</p>";
+      if (!sy.rows) { html += '<pre class="score-raw">' + esc(sy.raw.join("\n")) + "</pre>"; return; }
+      var first = parseInt(sy.label, 10) || 1;
+      var head = "<tr><th></th>" + sy.rows[0].bars.map(function (b, i) {
+        return '<th class="bar-no" colspan="' + b.length + '">' + (first + i) + "</th>";
+      }).join("") + "</tr>";
+      var body = sy.rows.map(function (r) {
+        return '<tr><th scope="row">' + esc(r.part) + "</th>" + r.bars.map(function (b) {
+          return b.map(scoreCell).join("").replace(/<td(?: class="([^"]*)")?>([^<]*)<\/td>$/, function (_, c, t) {
+            return '<td class="' + ((c ? c + " " : "") + "bar-end") + '">' + t + "</td>";
+          });
+        }).join("") + "</tr>";
+      }).join("");
+      html += '<div class="score-scroll"><table class="score-table"><thead>' + head + "</thead><tbody>" + body + "</tbody></table></div>";
+    });
+    return html;
+  }
+  function wireScores() {
+    app.querySelectorAll("details.score[data-score-src]").forEach(function (det) {
+      det.addEventListener("toggle", function () {
+        if (!det.open || det.getAttribute("data-loaded")) return;
+        det.setAttribute("data-loaded", "1");
+        var bodyEl = det.querySelector(".score-body");
+        fetch(det.getAttribute("data-score-src")).then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          return r.json();
+        }).then(function (d) { bodyEl.innerHTML = renderScore(d); })
+          .catch(function () { bodyEl.innerHTML = '<p class="small muted">楽譜を読み込めませんでした。</p>'; det.removeAttribute("data-loaded"); });
+      });
+    });
+  }
+
   function viewMusic(anchor) {
     setNav("music");
     var mp = DATA.music_page || { modes: [], axes: [] };
@@ -792,7 +846,7 @@
         '<p class="small muted">最初の五柱</p></div></div>' +
         '<h4 class="music-sub">曲のイメージ</h4>' + s.notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") +
         '<h4 class="music-sub">曲調</h4>' + metaList(s.meta) + modeLine(m.mode) +
-        audioTag(s.music, s.name + "の曲") + "</article>";
+        audioTag(s.music, s.name + "の曲") + scoreBlock(s.score, s.name) + "</article>";
     }).join("") : "";
 
     var modeButtons = '<button type="button" data-mf="" aria-pressed="' + (musicFilter == null) + '">すべて</button>' +
@@ -813,7 +867,7 @@
         (s.classical_note ? '<p class="song-note">' + esc(s.classical_note) + "</p>" : "") + "</div></div>" +
         '<h4 class="music-sub">曲のイメージ</h4>' + (s.notes || []).map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") +
         '<h4 class="music-sub">曲調</h4>' + metaList(s.meta) + modeLine(m.mode) +
-        audioTag(g.music, g.god + "のテーマ曲「" + s.title + "」") + "</article>";
+        audioTag(g.music, g.god + "のテーマ曲「" + s.title + "」") + scoreBlock(s.score, g.god) + "</article>";
     }).join("");
 
     var modes = mp.modes.map(function (md) {

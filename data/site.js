@@ -331,7 +331,11 @@ window.SITE_DATA = {
     "notes": [
      "祭りの中心の華やかな女神。双調(呂)の明るい旋律を全楽器で。",
      "C の区間で涙もろさ(休符で途切れる下行とテンポの揺れ)を見せてから、宴の主題に戻る。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11111_ethanol.json?v=b352d050",
+     "gaku": "assets/scores/11111_ethanol.gaku"
+    }
    },
    "kotoyosashi": "盃は満たすより、分かち合うものよ。泣きたい夜は泣いて、明日の宴でまた笑いなさい。",
    "image": "assets/images/11111_ethanol.webp",
@@ -365,7 +369,11 @@ window.SITE_DATA = {
     "notes": [
      "さっぱりと明るい社交家。太食調(呂)・♩=96 で最も軽快な部類、全楽器で拍節も整然。",
      "神経症傾向0なので揺らぎなし。B で C#6 まで駆け上がり、終わりは引きずらず短く切る(後に何も残さない)。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11110_acetone.json?v=5a1f8f4f",
+     "gaku": "assets/scores/11110_acetone.gaku"
+    }
    },
    "kotoyosashi": "済んだことは風に流してしまいなさい。澄んだ心でいれば、誰とでもすぐに打ち解けられるわ。",
    "image": "assets/images/11110_acetone.webp",
@@ -399,7 +407,11 @@ window.SITE_DATA = {
     "notes": [
      "五角形の光輪にちなみ1小節5拍。人当たりのよい主題(A)と、気分のむらを表す C natural の翳った B。",
      "誠実性0で打楽器の拍を崩し、C(過酸化物が溜まる)で責の高音へ上ってテンポを煽る。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11101_thf.json?v=4c39d840",
+     "gaku": "assets/scores/11101_thf.gaku"
+    }
    },
    "kotoyosashi": "誰とでも組めるのは才だが、胸の内に澱を溜めてはならぬ。ときどき蓋を開けて、風を通すことだ。",
    "image": "assets/images/11101_thf.webp",
@@ -433,7 +445,11 @@ window.SITE_DATA = {
     "notes": [
      "人懐っこいいたずら者。二本の組紐のように、B では竜笛と篳篥が半句ずつ掛け合う。",
      "開放性1で音域広め、誠実性0で裏拍に食い込む旋律と崩した打楽器。神経症傾向0で揺らぎなし。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11100_dme.json?v=a07b1f63",
+     "gaku": "assets/scores/11100_dme.gaku"
+    }
    },
    "kotoyosashi": "縁は結んで、ほどいて、また結べばいいのさ。面白そうな方へ、まず一歩踏み出してごらん。",
    "image": "assets/images/11100_dme.webp",
@@ -467,7 +483,11 @@ window.SITE_DATA = {
     "notes": [
      "頼れる兄貴分。D〜F# の狭い音域(開放性0)を全楽器で太く、拍節は整然。",
      "B で冬に固まる: ♩=60 に落として同じ音を区切って延ばし、また解けて主題へ戻る。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11011_tbutanol.json?v=7a624bcd",
+     "gaku": "assets/scores/11011_tbutanol.gaku"
+    }
    },
    "kotoyosashi": "揺らがぬことは強さだが、凍りついたら陽に当たれ。固まるのは恥ではない。また解ければよいのだ。",
    "image": "assets/images/11011_tbutanol.webp",
@@ -501,7 +521,11 @@ window.SITE_DATA = {
     "notes": [
      "控えめで温厚。外向性1だが♩=78 と穏やかに、全楽器で柔らかく重ねる(打楽器は薄め)。",
      "開放性0で G4〜E5 の狭い順次進行、誠実性1・神経症傾向0で揺らぎのない整った拍。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11010_1propanol.json?v=4c26ea6a",
+     "gaku": "assets/scores/11010_1propanol.gaku"
+    }
    },
    "kotoyosashi": "目立たなくても、灯りは灯りです。あなたがそこにいるだけで、誰かの足元が照らされているのですよ。",
    "image": "assets/images/11010_1propanol.webp",
@@ -535,7 +559,11 @@ window.SITE_DATA = {
     "notes": [
      "世話焼きの祓いの女神。鉦鼓を多めに鳴らして神楽鈴に見立てる。全楽器で狭い音域。",
      "誠実性0で打楽器が不規則、神経症傾向1で句末にテンポがたゆたい、旋律に駆け寄るような短い音と休符。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/11001_ipa.json?v=046a509a",
+     "gaku": "assets/scores/11001_ipa.gaku"
+    }
    },
    "kotoyosashi": "人の傷を祓うのもよいけれど、ご自分の心配ごとも祓ってあげて。あなたも、労わられてよいのです。",
    "image": "assets/images/11001_ipa.webp",
@@ -570,7 +598,11 @@ window.SITE_DATA = {
      "押しの強いお節介な狐神。同じ音を何度も押し付ける短い動機を、全楽器・強い太鼓で繰り返す。",
      "開放性0で D〜F# に留まり、誠実性0で打楽器が割り込むように崩れる。"
     ],
-    "classical_note": "同名の古典曲「青海波」(盤渉調の舞楽。『源氏物語』「紅葉賀」で光源氏と頭中将が舞う曲)とは別の、この柱のための新作です。曲名は狩衣の青海波紋にちなみます。"
+    "classical_note": "同名の古典曲「青海波」(盤渉調の舞楽。『源氏物語』「紅葉賀」で光源氏と頭中将が舞う曲)とは別の、この柱のための新作です。曲名は狩衣の青海波紋にちなみます。",
+    "score": {
+     "json": "data/scores/11000_diethylamine.json?v=ddc47896",
+     "gaku": "assets/scores/11000_diethylamine.gaku"
+    }
    },
    "kotoyosashi": "頼まれる前に動くのが俺の流儀よ。ただな、相手の潮の満ち引きを見てから飛び込むと、もっと喜ばれるぜ。",
    "image": "assets/images/11000_diethylamine.webp",
@@ -604,7 +636,11 @@ window.SITE_DATA = {
     "notes": [
      "孤高の実力者。協調性0なので笙・竜笛・筝・鉦鼓だけの薄い編成で、竜笛が責の高音まで舞い上がる。",
      "誠実性1で拍は端正、神経症傾向1で句末のテンポの揺れと、B の終わりの震えるような短い音。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10111_hfip.json?v=b30e6f6e",
+     "gaku": "assets/scores/10111_hfip.gaku"
+    }
    },
    "kotoyosashi": "群れずともよいのです。誰も溶かせぬものを溶かせるなら、それがあなたの翼。ただ、雨の日は無理をなさらぬよう。",
    "image": "assets/images/10111_hfip.webp",
@@ -638,7 +674,11 @@ window.SITE_DATA = {
     "notes": [
      "水と交わらない一匹狼。篳篥ひとりを笙と鞨鼓・太鼓(眷属の狼)だけが支える。",
      "開放性1で F#4〜A5 の広い音域を3つの句で行き来し、誠実性1・神経症傾向0で揺るがない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10110_dcm.json?v=a2e50f08",
+     "gaku": "assets/scores/10110_dcm.gaku"
+    }
    },
    "kotoyosashi": "交わらぬ相手がいても構わん。己の仕事を涼しい顔で果たせ。それだけで、群れは自然と後ろについてくる。",
    "image": "assets/images/10110_dcm.webp",
@@ -672,7 +712,11 @@ window.SITE_DATA = {
     "notes": [
      "苛烈な女神。協調性0で笙・竜笛・鞨鼓・太鼓だけ、竜笛が責で鋭く切り込み、鞨鼓は激しく。",
      "開放性1で D7 まで届く広い音域、誠実性0の崩れた打楽器、神経症傾向1で B で♩=104 に荒れる。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10101_tfa.json?v=49642ca8",
+     "gaku": "assets/scores/10101_tfa.gaku"
+    }
    },
    "kotoyosashi": "迷うくらいなら踏み込みなさい。……ただし、焦がしたくないものの前では、牙を一本しまっておくこと。",
    "image": null,
@@ -706,7 +750,11 @@ window.SITE_DATA = {
     "notes": [
      "穏やかな顔の裏に毒を持つ眠りの女神。黄鐘調(律)の C natural で翳りを出し、笙・篳篥・琵琶・鉦鼓で。",
      "B で甘い表の顔を高音で見せ、最後の A から終止にかけて♩=80→70→58 と眠りに落ちていく。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10100_chloroform.json?v=f2abf7c1",
+     "gaku": "assets/scores/10100_chloroform.gaku"
+    }
    },
    "kotoyosashi": "誰にも見せない顔のひとつやふたつ、あってよいのよ。疲れたら、霞の中でひと眠りなさいな。",
    "image": "assets/images/10100_chloroform.webp",
@@ -740,7 +788,11 @@ window.SITE_DATA = {
     "notes": [
      "物静かで信頼できるが、どこか不安げな神。笙・篳篥・筝(泉)・太鼓だけで、狭い音域を整然と。",
      "神経症傾向1で句末にテンポが沈み、句の途中に短い休符(ためらい)を入れる。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10011_methanol.json?v=c56571e0",
+     "gaku": "assets/scores/10011_methanol.gaku"
+    }
    },
    "kotoyosashi": "すべての者と分かり合えずともよい。分かり合える者を大切にせよ。静かな炎ほど、長く燃える。",
    "image": "assets/images/10011_methanol.webp",
@@ -774,7 +826,11 @@ window.SITE_DATA = {
     "notes": [
      "油の者しか相手にしない頑固者。灯明皿ひとつだけの持ち物にならい、篳篥と鞨鼓・太鼓だけ(笙なし)。",
      "開放性0で D を軸にほぼ同じ動機を繰り返し、誠実性1・神経症傾向0でテンポは一切揺れない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10010_hexane.json?v=07093bea",
+     "gaku": "assets/scores/10010_hexane.gaku"
+    }
    },
    "kotoyosashi": "あれこれ溶かそうとするな。己に合うものだけを灯せばいい。変わらぬことも、ひとつの道だ。",
    "image": "assets/images/10010_hexane.webp",
@@ -808,7 +864,11 @@ window.SITE_DATA = {
     "notes": [
      "果実の香りの軽やかな女神。笙・竜笛・筝・鉦鼓の明るい太食調で、跳ねるような短い音。",
      "開放性0で狭い音域、誠実性0で打楽器が不揃い、神経症傾向1で句末が涙ぐむように遅れ、休符で途切れる。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10001_ethyl_acetate.json?v=7769e430",
+     "gaku": "assets/scores/10001_ethyl_acetate.gaku"
+    }
    },
    "kotoyosashi": "得意なことが少なくても、香りはちゃんと届くものよ。崩れそうな日は、甘いものでも食べて休みましょう。",
    "image": "assets/images/10001_ethyl_acetate.webp",
@@ -842,7 +902,11 @@ window.SITE_DATA = {
     "notes": [
      "気まぐれですぐ消える外向性の権化。最速の♩=100、笙・竜笛・鉦鼓だけの軽い編成で、休符の多い旋律。",
      "開放性0で狭い音域、誠実性0で打楽器が気まぐれ、神経症傾向0で揺らぎなし。終わりは一音だけ鳴らしてふっと消える。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/10000_diethyl_ether.json?v=c409efac",
+     "gaku": "assets/scores/10000_diethyl_ether.gaku"
+    }
    },
    "kotoyosashi": "気が向いたら飛んでいけばいいの。でも、火の気のそばでは少しだけ用心してね。燃え尽きるには、まだ早いもの。",
    "image": "assets/images/10000_diethyl_ether.webp",
@@ -876,7 +940,11 @@ window.SITE_DATA = {
     "notes": [
      "水と油を取り持つ調停役。外向性0で♩=72、協調性1で全楽器を重ね、B で虹のように D6 まで広く上る。",
      "誠実性1で整った拍、神経症傾向1で句末のテンポの沈みと、気苦労を表す休符。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01111_pgme.json?v=702dec1c",
+     "gaku": "assets/scores/01111_pgme.gaku"
+    }
    },
    "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
    "image": "assets/images/01111_pgme.webp",
@@ -910,7 +978,11 @@ window.SITE_DATA = {
     "notes": [
      "縁の下の力持ち。太食調の穏やかな呂で全楽器を重ね、B では筝が旋律をなぞってシャボン玉のように粒立つ。",
      "開放性1で C#6 まで、誠実性1・神経症傾向0で揺らぎのない拍。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01110_butoxyethanol.json?v=65b64043",
+     "gaku": "assets/scores/01110_butoxyethanol.gaku"
+    }
    },
    "kotoyosashi": "汚れを落とすのに、大きな声は要りません。黙って箒を動かす日々が、いつか誰かの晴れの日になるのです。",
    "image": "assets/images/01110_butoxyethanol.webp",
@@ -944,7 +1016,11 @@ window.SITE_DATA = {
     "notes": [
      "何にでも口を出す実力者。六角形の光輪にちなみ1小節6拍。B では指さすように同じ音を突き出す。",
      "協調性1で全楽器、開放性1で D7 まで、誠実性0で崩れた打楽器、神経症傾向1で句末のテンポの揺れ。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01101_pyridine.json?v=e32ea4d6",
+     "gaku": "assets/scores/01101_pyridine.gaku"
+    }
    },
    "kotoyosashi": "何でも見えてしまうから、つい口が出る。だがな、言わずに待つのもまた、力のうちだぞ。",
    "image": "assets/images/01101_pyridine.webp",
@@ -978,7 +1054,11 @@ window.SITE_DATA = {
     "notes": [
      "左右対称を愛する神秘の女神。A は音高も長さも前後対称(回文)の旋律、形式も I-A-B-A-Z の対称形。",
      "協調性1で全楽器、開放性1で C#6 まで、誠実性0で打楽器だけがわずかに対称を崩す(放っておくと毒を孕む)。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01100_dioxane.json?v=dbb4eb07",
+     "gaku": "assets/scores/01100_dioxane.gaku"
+    }
    },
    "kotoyosashi": "光と影は、対になってこそ美しいもの。心の片側に澱が溜まったら、もう片側の光で釣り合いを取りなさい。",
    "image": "assets/images/01100_dioxane.webp",
@@ -1012,7 +1092,11 @@ window.SITE_DATA = {
     "notes": [
      "面倒見はよいが言葉が酸っぱい女神。平調(律)で、短く刺すような音を混ぜた狭い旋律を全楽器で。",
      "B で寒さに凍りつく(♩=56、長い音を区切る)。誠実性1で拍は整い、神経症傾向1で句末が沈む。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01011_acetic_acid.json?v=c03a3d95",
+     "gaku": "assets/scores/01011_acetic_acid.gaku"
+    }
    },
    "kotoyosashi": "……べ、別にあなたのために言ってるんじゃないわ。酸っぱい言葉も、ちゃんと効くんだから。冷えないようにしなさいよ。",
    "image": "assets/images/01011_acetic_acid.webp",
@@ -1046,10 +1130,14 @@ window.SITE_DATA = {
     "notes": [
      "においもなく静かに場を和ませる仲裁役。♩=68、全楽器を薄めの打楽器で穏やかに重ねる。",
      "開放性0で G4〜E5 の順次進行、誠実性1・神経症傾向0で一切揺れない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01010_dpm.json?v=958f0d90",
+     "gaku": "assets/scores/01010_dpm.gaku"
+    }
    },
    "kotoyosashi": "まあ、お茶でも一服どうぞ。急がずとも、湯が冷めるころには、たいていのことは収まっていますよ。",
-   "image": null,
+   "image": "assets/images/01010_dpm.webp",
    "music": "assets/music/01010_dpm.mp3"
   },
   {
@@ -1080,10 +1168,14 @@ window.SITE_DATA = {
     "notes": [
      "首を突っ込む世話焼きだが不器用な神。盤渉調(律)で全楽器、つまずくような付点・休符の多い狭い旋律。",
      "誠実性0で打楽器が不揃い、神経症傾向1で句末のテンポが沈む(しっとりした霧雨)。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01001_morpholine.json?v=21812f15",
+     "gaku": "assets/scores/01001_morpholine.gaku"
+    }
    },
    "kotoyosashi": "不器用でもいい、手を差し伸べることをやめないで。……まあ、俺もよく空回りするんだけどね。",
-   "image": null,
+   "image": "assets/images/01001_morpholine.webp",
    "music": "assets/music/01001_morpholine.mp3"
   },
   {
@@ -1114,10 +1206,14 @@ window.SITE_DATA = {
     "notes": [
      "双結彦(DME)の兄神。弟の「下りてから跳ね上がる」動機を、長い音でゆったり引き延ばした主題。",
      "協調性1で全楽器、2回目の A は筝も旋律をなぞって三本の組紐に。開放性0で狭く、誠実性0で打楽器が少し崩れる。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/01000_diglyme.json?v=b42975bc",
+     "gaku": "assets/scores/01000_diglyme.gaku"
+    }
    },
    "kotoyosashi": "弟ほど器用でなくてもいい。長く結んだ縁は、それだけで力になる。ただ、古い煙はときどき払っておけよ。",
-   "image": null,
+   "image": "assets/images/01000_diglyme.webp",
    "music": "assets/music/01000_diglyme.mp3"
   },
   {
@@ -1148,10 +1244,14 @@ window.SITE_DATA = {
     "notes": [
      "あらゆるものを受け入れる大女神。協調性0なので竜笛を外した笙・篳篥・琵琶・筝・太鼓で、重く豪奢に。",
      "開放性1で C6 まで広く、誠実性1で整然、神経症傾向1で C の区間は寒さに凍りつき(♩=52)震える。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00111_dmso.json?v=fcc728fd",
+     "gaku": "assets/scores/00111_dmso.gaku"
+    }
    },
    "kotoyosashi": "どんなものも、まずは受け納めてごらんなさい。ただ、心が冷えたときは、無理に抱えず温まるのが先ですよ。",
-   "image": null,
+   "image": "assets/images/00111_dmso.webp",
    "music": "assets/music/00111_dmso.mp3"
   },
   {
@@ -1182,7 +1282,11 @@ window.SITE_DATA = {
     "notes": [
      "水とは交わらないが何でも受け止める守り神。笙・篳篥・琵琶・太鼓の少人数で、重く揺るがない拍。",
      "開放性1で F#4〜B5 の三つの句、神経症傾向0で揺らぎなし。どの句も主音 E に帰る誠実さ。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00110_toluene.json?v=163b0889",
+     "gaku": "assets/scores/00110_toluene.gaku"
+    }
    },
    "kotoyosashi": "合わぬ相手がいてもいい。受け止められるものを、誠実に受け止め続けよ。琥珀は、時をかけて輝く。",
    "image": null,
@@ -1216,7 +1320,11 @@ window.SITE_DATA = {
     "notes": [
      "何でも知る学問の女神。巻物をほどくように長く上行する A を、笙・篳篥・筝・鞨鼓で。",
      "開放性1で B5 まで。B では旋律がほつれる(半拍の音と休符)。誠実性0で打楽器が崩れ、神経症傾向1で句末が沈む。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00101_dmf.json?v=1b1901c6",
+     "gaku": "assets/scores/00101_dmf.gaku"
+    }
    },
    "kotoyosashi": "学びは誰のことも拒みません。けれど、読み疲れたら巻物を閉じて。ほつれは、休めば繕えます。",
    "image": null,
@@ -1250,7 +1358,11 @@ window.SITE_DATA = {
     "notes": [
      "気まぐれでひびの入りやすい神。笙を外し(光輪なし)竜笛・琵琶・鞨鼓・太鼓で、跳躍と休符でひび割れる旋律。",
      "開放性1で D7 まで飛び、誠実性0で鞨鼓が火花のように不規則、神経症傾向0で揺らぎはない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00100_tetralin.json?v=3ea8c2df",
+     "gaku": "assets/scores/00100_tetralin.gaku"
+    }
    },
    "kotoyosashi": "ひびのひとつやふたつ、入っていた方が光はよく通る。火花を恐れず、好きなものを溶かしにいけ。",
    "image": null,
@@ -1284,7 +1396,11 @@ window.SITE_DATA = {
     "notes": [
      "凍える冬から人を守る甘い女神。笙・竜笛・筝・鉦鼓で、鉦鼓は舞い落ちる雪のようにまばらに。",
      "開放性0で C#5〜F#5 の狭い音域、誠実性1で整然、神経症傾向1で句末のテンポが沈み、休符で気をもむ。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00011_ethylene_glycol.json?v=8f9ac838",
+     "gaku": "assets/scores/00011_ethylene_glycol.gaku"
+    }
    },
    "kotoyosashi": "凍える夜には、この金平糖をひとつどうぞ。心配しすぎてしまうのは、あなたが誠実な証ですよ。",
    "image": null,
@@ -1318,7 +1434,11 @@ window.SITE_DATA = {
     "notes": [
      "すべての始まりの清らかな女神。最も遅い♩=64、笙・竜笛・筝だけで打楽器なし。",
      "開放性0で E を中心に狭く、誠実性1・神経症傾向0で揺らがず、A は何度戻っても変わらない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00010_water.json?v=1f0c4839",
+     "gaku": "assets/scores/00010_water.gaku"
+    }
    },
    "kotoyosashi": "すべての者と混ざらなくてよいのです。何者にも濁らされず、あなたのまま流れていきなさい。",
    "image": null,
@@ -1352,7 +1472,11 @@ window.SITE_DATA = {
     "notes": [
      "蟻を眷属とする小さな社の神。笙・篳篥・鞨鼓・鉦鼓で、半拍の音が蟻のようにせかせか動く。",
      "開放性0で A4〜E5 の狭さ、誠実性0で鞨鼓がそわそわ崩れ、神経症傾向1で句末のテンポが落ち着かない。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00001_formic_acid.json?v=9637b06d",
+     "gaku": "assets/scores/00001_formic_acid.gaku"
+    }
    },
    "kotoyosashi": "小さな一歩でも、蟻は山を越える。そわそわしたっていいさ。止まらなければ、ちゃんと着く。",
    "image": null,
@@ -1386,7 +1510,11 @@ window.SITE_DATA = {
     "notes": [
      "誰とも群れない寡黙な神。笙・篳篥・太鼓だけ、低く狭い旋律を♩=64 で。打楽器もほとんど鳴らない。",
      "B で胸の内の火が一瞬燃え上がる(♩=76、A5 まで上がり太鼓が入る)が、すぐまた静かな A に隠れる。"
-    ]
+    ],
+    "score": {
+     "json": "data/scores/00000_cumene.json?v=726937ff",
+     "gaku": "assets/scores/00000_cumene.gaku"
+    }
    },
    "kotoyosashi": "多くを語らずともよい。胸の火は、消さずに隠しておけ。燃やすべき時は、おのずと来る。",
    "image": null,
@@ -2749,7 +2877,11 @@ window.SITE_DATA = {
       "篳篥が源の動機を倍の長さで吹き出し、竜笛が遅れて加わって責の A6 まで光を放つ。全楽器がそろうのはこの曲だけ。"
      ],
      "music": "assets/music/primordial/ame-no-oteru-hoshi-no-nushi.mp3",
-     "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg"
+     "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg",
+     "score": {
+      "json": "data/scores/ame-no-oteru-hoshi-no-nushi.json?v=c5f8e167",
+      "gaku": "assets/scores/ame-no-oteru-hoshi-no-nushi.gaku"
+     }
     },
     {
      "name": "大炭主",
@@ -2760,7 +2892,11 @@ window.SITE_DATA = {
       "鞨鼓は毎小節の頭に1打、太鼓は4小節ごとに1打の骨組み。管は旋律を足さず、源の動機を骨組みに通すだけ。金属の鉦鼓は使わない。"
      ],
      "music": "assets/music/primordial/oosumi-nushi.mp3",
-     "icon": "assets/icons/oosumi-nushi.svg"
+     "icon": "assets/icons/oosumi-nushi.svg",
+     "score": {
+      "json": "data/scores/oosumi-nushi.json?v=c7200995",
+      "gaku": "assets/scores/oosumi-nushi.gaku"
+     }
     },
     {
      "name": "八塵大主",
@@ -2771,7 +2907,11 @@ window.SITE_DATA = {
       "息が短くなるにつれてテンポが上がって燃え上がり、竜笛が責の高音(C7 まで)で炎のように揺らめく。笙の「比」(C)が火の揺らぎ。鞨鼓の片来・諸来は火のはぜる音。最後は息を収めて♩=38 に戻る。"
      ],
      "music": "assets/music/primordial/yachiri-no-oonushi.mp3",
-     "icon": "assets/icons/yachiri-no-oonushi.svg"
+     "icon": "assets/icons/yachiri-no-oonushi.svg",
+     "score": {
+      "json": "data/scores/yachiri-no-oonushi.json?v=40ced0c4",
+      "gaku": "assets/scores/yachiri-no-oonushi.gaku"
+     }
     },
     {
      "name": "大硝主",
@@ -2782,7 +2922,11 @@ window.SITE_DATA = {
       "竜笛が和(低い音域)で源の動機をゆっくりなぞり、2回目だけ少し縮める。打楽器は鉦鼓の2打のみ。最後は笙が一本の竹(単凢)にほどけて消える。"
      ],
      "music": "assets/music/primordial/oosasara-nushi.mp3",
-     "icon": "assets/icons/oosasara-nushi.svg"
+     "icon": "assets/icons/oosasara-nushi.svg",
+     "score": {
+      "json": "data/scores/oosasara-nushi.json?v=2c3033bc",
+      "gaku": "assets/scores/oosasara-nushi.gaku"
+     }
     },
     {
      "name": "成星大主",
@@ -2793,7 +2937,11 @@ window.SITE_DATA = {
       "竜笛の源の動機を経て、17小節目で太鼓の百・鉦鼓・篳篥と笙の合竹「凢」がそろって星が灯る(核融合)。この合竹が天大輝星主の冒頭につながる。"
      ],
      "music": "assets/music/primordial/naruhoshi-no-oonushi.mp3",
-     "icon": "assets/icons/naruhoshi-no-oonushi.svg"
+     "icon": "assets/icons/naruhoshi-no-oonushi.svg",
+     "score": {
+      "json": "data/scores/naruhoshi-no-oonushi.json?v=4cab4d36",
+      "gaku": "assets/scores/naruhoshi-no-oonushi.gaku"
+     }
     }
    ]
   }

@@ -270,7 +270,7 @@ def parse_music_axes(text):
     return out
 
 
-def parse_primordial_songs(text, icons):
+def parse_primordial_songs(text, icons, scores=None):
     """最初の五柱の曲の README → {"lead": [...], "common": "...", "songs": [...]}。"""
     lead, common, songs, cur = [], "", [], None
     for line in text.splitlines():
@@ -291,9 +291,68 @@ def parse_primordial_songs(text, icons):
             m = re.match(r"^\[([a-z-]+)\.gaku\]", line)
             mp3 = f"assets/music/primordial/{m[1]}.mp3" if m else ""
             cur["music"] = mp3 if mp3 and (ROOT / mp3).exists() else None
+            cur["score"] = (scores or {}).get(m[1]) if m else None
         elif line.startswith("- "):
             cur["notes"].append(strip_md(line[2:].strip()))
     return {"lead": lead, "common": common, "songs": songs}
+
+
+SCORE_PART = re.compile(r"^\[(?P<part>[^\]]+)\]\s*(?P<body>.*)$")
+
+
+def parse_score(text):
+    """整形済みの .gaku(gagaku.formatter の出力)→ 表で描ける形。
+    1段 = 「# ---- n〜m小節」の見出し + 楽器ごとの行。行は | で小節に、小節は空白2つ以上で拍に分かれる
+    (同じ拍の中の音は空白1つ)。全楽器で小節ごとの拍数がそろわない段は rows を None にして、原文で見せる。"""
+    head, comments, systems, cur = {}, [], [], None
+    for line in text.splitlines():
+        s = line.strip()
+        if not s:
+            continue
+        if s.startswith("#"):
+            m = re.match(r"^#\s*-+\s*(.+小節)", s)
+            if m:
+                cur = {"label": m[1], "rows": [], "raw": []}
+                systems.append(cur)
+            elif cur is None:
+                comments.append(s.lstrip("#").strip())
+            continue
+        m = SCORE_PART.match(s)
+        if m and cur is not None:
+            bars = [b.strip() for b in m["body"].split("|")]
+            bars = [re.split(r"\s{2,}", b) for b in bars if b]
+            cur["rows"].append({"part": m["part"], "bars": bars})
+            cur["raw"].append(line.rstrip())
+            continue
+        if cur is None and ":" in s:
+            k, v = s.split(":", 1)
+            head[k.strip()] = v.strip()
+    for sy in systems:
+        shape = {tuple(len(b) for b in r["bars"]) for r in sy["rows"]}
+        if len(shape) != 1:
+            sy["rows"] = None
+        else:
+            sy.pop("raw")
+    return {"head": head, "comments": comments, "systems": systems}
+
+
+def build_scores(src_music, items):
+    """items: [(id, .gaku のパス)] → data/scores/<id>.json と assets/scores/<id>.gaku を書き、
+    {id: {"json": "...?v=", "gaku": "..."}} を返す。"""
+    out_json, out_gaku = ROOT / "data" / "scores", ROOT / "assets" / "scores"
+    out_json.mkdir(parents=True, exist_ok=True)
+    out_gaku.mkdir(parents=True, exist_ok=True)
+    found = {}
+    for sid, path in items:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        body = json.dumps(parse_score(text), ensure_ascii=False, separators=(",", ":"))
+        (out_json / f"{sid}.json").write_bytes(body.encode("utf-8"))
+        shutil.copyfile(path, out_gaku / f"{sid}.gaku")
+        digest = hashlib.sha1(body.encode("utf-8")).hexdigest()[:8]
+        found[sid] = {"json": f"data/scores/{sid}.json?v={digest}", "gaku": f"assets/scores/{sid}.gaku"}
+    return found
 
 
 def strip_md(s):
@@ -347,6 +406,16 @@ def main():
             "image": image if (ROOT / image).exists() else None,
             "music": music if (ROOT / music).exists() else None,
         })
+    # 楽譜(縦をそろえた譜面)。曲ごとに別ファイルにして、開いたときだけ読み込む
+    music_dir = args.src / "solvent_gods" / "music"
+    items = [(f'{g["code"]}_{g["slug"]}', music_dir / f'{g["code"]}_{g["slug"]}.gaku') for g in gods]
+    if primordial_readme.exists():
+        items += [(n, music_dir / "primordial" / f"{n}.gaku")
+                  for n in re.findall(r"^\[([a-z-]+)\.gaku\]", primordial_readme.read_text(encoding="utf-8"), re.M)]
+    scores = build_scores(music_dir, items)
+    for g in gods:
+        if g["song"] is not None:
+            g["song"]["score"] = scores.get(f'{g["code"]}_{g["slug"]}')
     codes = sorted(g["code"] for g in gods)
     if codes != [format(i, "05b") for i in range(32)]:
         raise RuntimeError(f"32柱が揃っていない: {len(codes)}件")
@@ -364,7 +433,7 @@ def main():
         "music_page": {
             **json.loads((ROOT / "content" / "music_page.json").read_text(encoding="utf-8")),
             "axes": parse_music_axes(music_readme.read_text(encoding="utf-8")) if music_readme.exists() else [],
-            "primordial": parse_primordial_songs(primordial_readme.read_text(encoding="utf-8"), icons)
+            "primordial": parse_primordial_songs(primordial_readme.read_text(encoding="utf-8"), icons, scores)
             if primordial_readme.exists() else None,
         },
     }
