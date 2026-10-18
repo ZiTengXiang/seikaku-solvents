@@ -3,6 +3,7 @@
  *   #/quiz        30問の回答
  *   #/result/<30桁の回答>   結果(URLに回答が入るので、そのまま共有・再表示できる。サーバーには送られない)
  *   #/gods        三十二柱の一覧     #/gods/<コード>  一柱の詳細
+ *   #/myth        神話(溶媒の神々の誕生)  #/myth/<章id または コード>  その章・柱の位置へ
  *   #/about       判定基準と診断のしくみ
  */
 (function () {
@@ -438,6 +439,7 @@
       codeChips(g) + profileBlock(g) +
       (g.solvent_note ? '<p class="solvent-note">⚗ ' + esc(g.solvent_note) + "</p>" : "") +
       songBlock(g) +
+      (MYTH ? mythOrigin(g) : "") +
       "<h3>溶媒としての性質</h3>" +
       '<table class="axis-table"><tbody>' + axisRows + "</tbody></table>" +
       (g.borderline.some(Boolean) ? '<p class="small muted">⚠ は境界的な判定(化学的に議論の余地がある)です。</p>' : "") +
@@ -445,6 +447,249 @@
       '<nav class="pager" aria-label="前後の神様"><a href="#/gods/' + prev.code + '">← ' + esc(prev.god) + '</a><a href="#/gods">一覧へ</a><a href="#/gods/' + next.code + '">' + esc(next.god) + " →</a></nav>",
       g.god + "(" + g.solvent + ")");
     window.scrollTo({ top: 0 });
+  }
+
+  // ---- 神話 ----
+  var MYTH = DATA.myth;
+  var NON_GOD_NOTE = { "金霊": "金", "大硝主": "硝", "翠灰": "灰", "黄灰": "灰", "白灰": "灰" };
+  var ASH = { "翠灰": "塩素", "黄灰": "硫黄", "白灰": "フッ素" };
+  var godsByName = {};
+  DATA.gods.forEach(function (g) { godsByName[g.god] = g; });
+  var lineageByCode = {};
+  if (MYTH) MYTH.genealogy.forEach(function (x) { lineageByCode[x.code] = x; });
+  var mythNameRe = DATA.gods.length ? new RegExp(DATA.gods.map(function (g) { return g.god; })
+    .concat(MYTH ? MYTH.primordials.map(function (p) { return p.name; }) : []).concat(["金霊"])
+    .sort(function (a, b) { return b.length - a.length; }).join("|"), "g") : null;
+  var primordialNames = {};
+  if (MYTH) MYTH.primordials.forEach(function (p) { primordialNames[p.name] = p; });
+
+  // 本文中の神名: 溶媒の神は各段落の最初の1回だけ詳細ページへのリンクに、最初の五柱と金霊は字の色だけ変える
+  function mythText(text, self) {
+    var seen = {};
+    return esc(text).replace(mythNameRe, function (name) {
+      var g = godsByName[name];
+      if (g) {
+        if (g.code === self || seen[name]) return name;
+        seen[name] = true;
+        return '<a class="kami" href="#/gods/' + g.code + '">' + name + "</a>";
+      }
+      return '<span class="kami-el">' + name + "</span>";
+    }).replace(/\n/g, "<br>");
+  }
+
+  function mythBlocks(blocks, self) {
+    return blocks.map(function (b) {
+      if (b.t === "p") return "<p>" + mythText(b.text, self) + "</p>";
+      if (b.t === "list") return '<ul class="decl">' + b.items.map(function (it) { return "<li>" + mythText(it, self) + "</li>"; }).join("") + "</ul>";
+      if (b.t === "chem") return '<p class="myth-chem"><span class="myth-tag">⚗ 化学の筋道</span>' + esc(b.text) + "</p>";
+      if (b.t === "reason") return '<p class="myth-reason"><span class="myth-tag">✦ 夫婦神に選んだ理由</span>' + esc(b.text) + "</p>";
+      if (b.t === "primordials") return primordialsHtml();
+      if (b.t === "genealogy") return genealogyHtml();
+      if (b.t === "god") return mythGod(b);
+      return "";
+    }).join("");
+  }
+
+  // 最初の五柱(アイコンは assets/icons/ にあれば使う。無ければ頭文字の丸)
+  function primordialsHtml() {
+    return '<div class="primordials">' + MYTH.primordials.map(function (p, i) {
+      var icon = p.icon ? '<img src="' + esc(p.icon) + '" width="72" height="72" alt="" loading="lazy">'
+        : '<span class="pm-ph" aria-hidden="true">' + esc(p.name.charAt(0)) + "</span>";
+      return '<figure class="pm' + (i === 0 ? " pm-root" : "") + '">' + icon + "<figcaption><ruby>" + esc(p.name) + "<rt>" + esc(p.reading) +
+        '</rt></ruby><span class="pm-role">' + esc(p.role) + "</span></figcaption></figure>";
+    }).join("") + "</div>";
+  }
+
+  function mythGod(b) {
+    var g = godsByCode[b.code];
+    var thumb = g.image ? '<img src="' + esc(g.image) + '" width="600" height="877" alt="" loading="lazy">'
+      : '<span class="mg-ph" aria-hidden="true">' + esc(g.god.charAt(0)) + "</span>";
+    return '<section class="myth-god" id="myth-' + b.code + '">' +
+      '<a class="mg-head" href="#/gods/' + b.code + '"><span class="mg-thumb">' + thumb + "</span>" +
+      '<span class="mg-name"><span class="mg-god">' + nameRuby(g) + "</span>" +
+      '<span class="mg-solvent">' + esc(g.solvent) + " · " + esc(g.gender) + " · " + b.code + "</span></span>" +
+      '<span class="mg-more">設定を見る →</span></a>' +
+      mythBlocks(b.blocks, b.code) + "</section>";
+  }
+
+  function viewMyth(target) {
+    setNav("myth");
+    if (!MYTH) { render("<h1>神話</h1><p>準備中です。</p>", "神話"); return; }
+    var toc = MYTH.chapters.map(function (c) {
+      var gods = c.blocks.filter(function (b) { return b.t === "god"; }).map(function (b) {
+        return '<a href="#/myth/' + b.code + '">' + esc(godsByCode[b.code].god) + "</a>";
+      }).join("");
+      return '<li class="toc-l' + c.level + '"><a class="toc-ch" href="#/myth/' + c.id + '">' + esc(c.title) + "</a>" +
+        (gods ? '<span class="toc-gods">' + gods + "</span>" : "") + "</li>";
+    }).join("");
+    var body = MYTH.chapters.map(function (c) {
+      var h = c.level <= 2 ? "h2" : "h3";
+      return '<section class="myth-ch myth-l' + c.level + '" id="myth-' + c.id + '"><' + h + ">" + esc(c.title) + "</" + h + ">" +
+        mythBlocks(c.blocks) + "</section>";
+    }).join("");
+    render(
+      '<div class="myth-page">' +
+      '<p class="eyebrow" style="padding-top:26px">神話</p><h1>溶媒の神々の誕生</h1>' +
+      MYTH.lead.map(function (p) { return '<p class="lead-p">' + esc(p) + "</p>"; }).join("") +
+      '<aside class="disclaimer" role="note" aria-label="ご注意"><p>' + esc(MYTH.notice) + "</p></aside>" +
+      '<nav class="card myth-toc" id="myth-toc" aria-label="神話の目次"><p class="toc-head">目次</p><ol>' + toc + "</ol></nav>" +
+      body +
+      '<p class="myth-top"><a href="#/myth/toc">↑ 目次へ</a></p></div>',
+      "神話");
+    wireTree();
+    scrollToMyth(target);
+  }
+  function scrollToMyth(target) {
+    var el = target && document.getElementById("myth-" + target);
+    if (el) el.scrollIntoView({ block: "start" });
+    else window.scrollTo({ top: 0 });
+  }
+
+  // ---- 系譜図: 世代(親神の最も深い世代 + 1)ごとに列を立て、親子を線で結ぶ ----
+  function shortSolvent(s) { var m = /\(([^)]+)\)$/.exec(s); return m ? m[1] : s; }
+  function treeLayout() {
+    var codes = MYTH.genealogy.map(function (x) { return x.code; });
+    var parentsOf = {}, childrenOf = {};
+    codes.forEach(function (c) { parentsOf[c] = []; childrenOf[c] = []; });
+    MYTH.genealogy.forEach(function (x) {
+      x.parents.forEach(function (p) {
+        var g = godsByName[p];
+        if (g) { parentsOf[x.code].push(g.code); childrenOf[g.code].push(x.code); }
+      });
+    });
+    var depth = {};
+    function d(c) {
+      if (depth[c]) return depth[c];
+      depth[c] = 1 + parentsOf[c].reduce(function (m, p) { return Math.max(m, d(p)); }, 0);
+      return depth[c];
+    }
+    codes.forEach(d);
+    var cols = [];
+    codes.forEach(function (c) { (cols[depth[c] - 1] = cols[depth[c] - 1] || []).push(c); });
+    var NW = 146, NH = 40, PITCH = 50, COLW = 180, X0 = 30, Y0 = 34;
+    var rows = Math.max.apply(null, cols.map(function (c) { return c.length; }));
+    var H = rows * PITCH, pos = {};
+    // 一列目: 夫婦神を隣り合わせ、ひとりでに現れた神を最後に(系譜表の順)
+    cols[0].forEach(function (c, i) { pos[c] = { x: X0, y: Y0 + (i + 0.5) * H / cols[0].length }; });
+    for (var k = 1; k < cols.length; k++) {
+      var want = {};
+      cols[k].forEach(function (c) {
+        var ys = parentsOf[c].map(function (p) { return pos[p].y; });
+        want[c] = ys.reduce(function (a, b) { return a + b; }, 0) / ys.length;
+      });
+      var col = cols[k].slice().sort(function (a, b) { return want[a] - want[b]; });
+      var ys = [];
+      col.forEach(function (c, i) { ys[i] = Math.max(want[c], i ? ys[i - 1] + PITCH : Y0 + PITCH / 2); });
+      var over = ys[ys.length - 1] - (Y0 + H - PITCH / 2);
+      for (var i = ys.length - 1; i >= 0 && over > 0; i--) {
+        ys[i] -= over;
+        if (i > 0 && ys[i - 1] > ys[i] - PITCH) over = ys[i - 1] - (ys[i] - PITCH); else over = 0;
+      }
+      col.forEach(function (c, i) { pos[c] = { x: X0 + k * COLW, y: ys[i] }; });
+    }
+    return { codes: codes, parentsOf: parentsOf, childrenOf: childrenOf, depth: depth, pos: pos, cols: cols,
+      NW: NW, NH: NH, W: X0 + (cols.length - 1) * COLW + NW + 12, H: Y0 + H + 8, COLW: COLW, X0: X0, Y0: Y0 };
+  }
+
+  var KIND_CLASS = { "第一の夫婦神": "k-founder", "第二の夫婦神": "k-founder", "第三の夫婦神": "k-founder", "ひとりでに": "k-self", "星の灰": "k-ash" };
+  function genealogyHtml() {
+    var L = treeLayout();
+    var COL_LABEL = ["元素から現れた神々", "二代目", "三代目", "四代目", "五代目", "六代目"];
+    var edges = "", nodes = "", heads = "";
+    L.cols.forEach(function (c, k) {
+      heads += '<text class="t-colhead" x="' + (L.X0 + k * L.COLW + L.NW / 2) + '" y="16" text-anchor="middle">' + COL_LABEL[k] + "</text>";
+    });
+    L.codes.forEach(function (c) {
+      var b = L.pos[c];
+      L.parentsOf[c].forEach(function (p) {
+        var a = L.pos[p], x1 = a.x + L.NW, y1 = a.y, x2 = b.x, y2 = b.y, mx = (x1 + x2) / 2;
+        edges += '<path class="t-edge" data-from="' + p + '" data-to="' + c + '" d="M' + x1 + " " + y1 + " C" + mx + " " + y1 + " " + mx + " " + y2 + " " + x2 + " " + y2 + '"/>';
+      });
+    });
+    // 夫婦神の契り(一列目の隣り合う二柱を左の括弧で結ぶ)
+    [["00010", "10011"], ["11111", "10010"], ["01011", "00001"]].forEach(function (pair) {
+      var a = L.pos[pair[0]], b = L.pos[pair[1]];
+      if (!a || !b) return;
+      var x = a.x - 8;
+      edges += '<path class="t-couple" d="M' + a.x + " " + a.y + " H" + x + " V" + b.y + " H" + b.x + '"/>' +
+        '<text class="t-couple-l" x="' + (x - 4) + '" y="' + ((a.y + b.y) / 2 + 4) + '" text-anchor="end">契</text>';
+    });
+    L.codes.forEach(function (c) {
+      var g = godsByCode[c], p = L.pos[c], info = lineageByCode[c];
+      var marks = [], seen = {};
+      info.parents.forEach(function (n) { var m = NON_GOD_NOTE[n]; if (m && !seen[m]) { seen[m] = 1; marks.push(m); } });
+      var tip = g.god + "(" + g.solvent + ")― " + info.kind + "\n親神・関わった神: " + info.parents.map(function (n) { return ASH[n] ? n + "(" + ASH[n] + ")" : n; }).join("、") + "\n" + info.chem;
+      nodes += '<a class="t-node ' + (KIND_CLASS[info.kind] || "k-child") + '" href="#/gods/' + c + '" data-code="' + c + '">' +
+        "<title>" + esc(tip) + "</title>" +
+        '<rect x="' + p.x + '" y="' + (p.y - L.NH / 2) + '" width="' + L.NW + '" height="' + L.NH + '" rx="7"/>' +
+        '<text class="t-name" x="' + (p.x + 9) + '" y="' + (p.y - 3) + '">' + esc(g.god) + "</text>" +
+        '<text class="t-sol" x="' + (p.x + 9) + '" y="' + (p.y + 13) + '">' + esc(shortSolvent(g.solvent)) + "</text>" +
+        marks.map(function (m, i) {
+          var cx = p.x + L.NW - 11 - i * 17, cy = p.y + 8;
+          return '<circle class="t-mark m-' + (m === "金" ? "kin" : m === "硝" ? "sho" : "hai") + '" cx="' + cx + '" cy="' + cy + '" r="7.5"/>' +
+            '<text class="t-mark-l" x="' + cx + '" y="' + (cy + 3.6) + '" text-anchor="middle">' + m + "</text>";
+        }).join("") + "</a>";
+    });
+    return '<div class="tree-legend small">' +
+      '<span><i class="lg k-founder"></i>三対の夫婦神</span><span><i class="lg k-child"></i>御子神</span>' +
+      '<span><i class="lg k-self"></i>ひとりでに現れた神</span><span><i class="lg k-ash"></i>星の灰をまとった神</span>' +
+      '<span><b class="lgm m-kin">金</b>金霊のはたらき</span><span><b class="lgm m-sho">硝</b>大硝主の息</span><span><b class="lgm m-hai">灰</b>星の灰</span></div>' +
+      '<p class="small muted tree-hint">線は親神から御子神へ。神名にカーソルを合わせると(タップでは長押しで)系統が浮かび、クリックで各柱のページへ移ります。最初の五柱(元素の神々)と金霊は、すべての神々の祖として図の外にいます。</p>' +
+      '<div class="tree-scroll"><svg class="tree" width="' + L.W + '" height="' + L.H + '" viewBox="0 0 ' + L.W + " " + L.H + '" role="img" aria-label="三十二柱の系譜図">' +
+      heads + '<g class="t-edges">' + edges + "</g>" + nodes + "</svg></div>" +
+      '<details class="tree-table"><summary>系譜を表で見る</summary><div class="table-scroll"><table class="criteria"><thead><tr><th>柱</th><th>溶媒</th><th>現れ方</th><th>親神・関わった神</th><th>化学の筋道</th></tr></thead><tbody>' +
+      MYTH.genealogy.map(function (x) {
+        var g = godsByCode[x.code];
+        return '<tr><td><a href="#/myth/' + x.code + '">' + esc(g.god) + "</a></td><td>" + esc(g.solvent) + "</td><td>" + esc(x.kind) + "</td><td>" +
+          x.parents.map(function (n) { var p = godsByName[n]; return p ? '<a href="#/gods/' + p.code + '">' + esc(n) + "</a>" : esc(ASH[n] ? n + "(" + ASH[n] + ")" : n); }).join("、") +
+          "</td><td>" + esc(x.chem) + "</td></tr>";
+      }).join("") + "</tbody></table></div></details>";
+  }
+  // 選んだ柱の祖先と子孫を浮かび上がらせる
+  function wireTree() {
+    var svg = app.querySelector("svg.tree");
+    if (!svg) return;
+    var up = {}, down = {};
+    MYTH.genealogy.forEach(function (x) { up[x.code] = []; down[x.code] = down[x.code] || []; });
+    MYTH.genealogy.forEach(function (x) {
+      x.parents.forEach(function (n) { var g = godsByName[n]; if (g) { up[x.code].push(g.code); (down[g.code] = down[g.code] || []).push(x.code); } });
+    });
+    function walk(c, map, acc) { (map[c] || []).forEach(function (n) { if (!acc[n]) { acc[n] = true; walk(n, map, acc); } }); return acc; }
+    function focus(c) {
+      var anc = walk(c, up, {}), des = walk(c, down, {});
+      svg.classList.add("focus");
+      svg.querySelectorAll(".t-node").forEach(function (n) {
+        var k = n.getAttribute("data-code");
+        n.classList.toggle("on", !!(k === c || anc[k] || des[k]));
+        n.classList.toggle("self", k === c);
+      });
+      svg.querySelectorAll(".t-edge").forEach(function (e) {
+        var f = e.getAttribute("data-from"), t = e.getAttribute("data-to");
+        e.classList.toggle("on", !!(((anc[f] || f === c) && (anc[t] || t === c)) || ((des[t] || t === c) && (des[f] || f === c))));
+      });
+    }
+    function clear() { svg.classList.remove("focus"); }
+    svg.querySelectorAll(".t-node").forEach(function (n) {
+      n.addEventListener("mouseenter", function () { focus(n.getAttribute("data-code")); });
+      n.addEventListener("focus", function () { focus(n.getAttribute("data-code")); });
+      n.addEventListener("contextmenu", function (e) { e.preventDefault(); focus(n.getAttribute("data-code")); });
+      n.addEventListener("mouseleave", clear);
+      n.addEventListener("blur", clear);
+    });
+  }
+
+  // 一柱の詳細ページに添える「誕生の神話」
+  function mythOrigin(g) {
+    var x = lineageByCode[g.code];
+    if (!x) return "";
+    var kids = MYTH.genealogy.filter(function (y) { return y.parents.indexOf(g.god) >= 0; }).map(function (y) { return godsByCode[y.code]; });
+    function link(n) { var p = godsByName[n]; return p ? '<a href="#/gods/' + p.code + '">' + esc(n) + "</a>" : esc(ASH[n] ? n + "(" + ASH[n] + ")" : n); }
+    return '<div class="origin"><p class="song-head">誕生の神話</p>' +
+      '<dl class="profile"><dt>現れ方</dt><dd>' + esc(x.kind) + "</dd>" +
+      "<dt>親神など</dt><dd>" + x.parents.map(link).join("、") + "</dd>" +
+      (kids.length ? "<dt>御子神</dt><dd>" + kids.map(function (k) { return link(k.god); }).join("、") + "</dd>" : "") +
+      "<dt>化学</dt><dd>" + esc(x.chem) + "</dd></dl>" +
+      '<p class="small" style="margin:10px 0 0"><a href="#/myth/' + g.code + '">神話で読む →</a>(<a href="#/myth/ch10">系譜図</a>)</p></div>';
   }
 
   // ---- しくみ ----
@@ -502,6 +747,11 @@
     else if (parts[0] === "result" && parts[1]) viewResult(parts[1]);
     else if (parts[0] === "gods" && parts[1]) viewGod(parts[1]);
     else if (parts[0] === "gods") viewGods();
+    else if (parts[0] === "myth") {
+      // 同じ神話ページの中の移動は、描き直さずにその位置へ送る
+      if (app.querySelector(".myth-page")) scrollToMyth(parts[1]);
+      else viewMyth(parts[1]);
+    }
     else if (parts[0] === "about") viewAbout();
     else viewHome();
   }
