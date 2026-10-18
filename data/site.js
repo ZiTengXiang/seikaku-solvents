@@ -1289,7 +1289,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "合わぬ相手がいてもいい。受け止められるものを、誠実に受け止め続けよ。琥珀は、時をかけて輝く。",
-   "image": null,
+   "image": "assets/images/00110_toluene.webp",
    "music": "assets/music/00110_toluene.mp3"
   },
   {
@@ -1365,7 +1365,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "ひびのひとつやふたつ、入っていた方が光はよく通る。火花を恐れず、好きなものを溶かしにいけ。",
-   "image": null,
+   "image": "assets/images/00100_tetralin.webp",
    "music": "assets/music/00100_tetralin.mp3"
   },
   {
