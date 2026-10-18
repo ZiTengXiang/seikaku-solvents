@@ -4,6 +4,7 @@
  *   #/result/<30桁の回答>   結果(URLに回答が入るので、そのまま共有・再表示できる。サーバーには送られない)
  *   #/gods        三十二柱の一覧     #/gods/<コード>  一柱の詳細
  *   #/myth        神話(溶媒の神々の誕生)  #/myth/<章id または コード>  その章・柱の位置へ
+ *   #/music       楽曲(最初の五柱と三十二柱の曲・調子の解説)  #/music/<primordial|gods|modes|axes>
  *   #/about       判定基準と診断のしくみ
  */
 (function () {
@@ -738,6 +739,124 @@
     } else window.scrollTo({ top: 0 });
   }
 
+  // ---- 楽曲 ----
+  var modesByName = {};
+  ((DATA.music_page && DATA.music_page.modes) || []).forEach(function (m) { modesByName[m.name] = m; });
+  var musicFilter = null;  // 調子の名前でしぼりこむ(null = すべて)
+
+  // 「壱越調・♩=94・全8楽器・形式 I A A B A A Z・約57秒」→ 調子・テンポ・編成・形式・長さ
+  function parseMeta(meta) {
+    var out = { mode: "", tempo: "", form: "", length: "", inst: [] };
+    String(meta || "").split("・").forEach(function (p, i) {
+      p = p.trim();
+      if (!p) return;
+      if (i === 0 && /調$/.test(p)) out.mode = p;
+      else if (/^♩/.test(p)) out.tempo = p;
+      else if (/^約/.test(p)) out.length = p.replace(/^約/, "");
+      else if (/^形式|小節$/.test(p)) out.form = p.replace(/^形式\s*/, "");
+      else if (/^小節ごとに/.test(p)) out.tempo += (out.tempo ? "(" : "") + p + (out.tempo ? ")" : "");
+      else out.inst.push(p);
+    });
+    return out;
+  }
+  function metaList(meta) {
+    var m = parseMeta(meta);
+    var rows = [["調子", m.mode], ["テンポ", m.tempo], ["編成", m.inst.join("・")], ["形式", m.form], ["長さ", m.length]];
+    return '<dl class="song-meta">' + rows.filter(function (r) { return r[1]; }).map(function (r) {
+      return "<dt>" + r[0] + "</dt><dd>" + esc(r[1]) + "</dd>";
+    }).join("") + "</dl>";
+  }
+  function modeLine(modeName) {
+    var md = modesByName[modeName];
+    if (!md) return "";
+    return '<p class="mode-line"><a href="#/music/modes" class="mode-tag">' + esc(md.name) + "</a>" +
+      esc(md.scale + "の調子・主音 " + md.tonic + " ― " + md.character) + "</p>";
+  }
+  function audioTag(src, label) {
+    return src ? '<audio controls preload="none" src="' + esc(src) + '" aria-label="' + esc(label) + '">お使いのブラウザでは再生できません。</audio>'
+      : '<p class="small muted">♪ 音源は準備中です。</p>';
+  }
+
+  function viewMusic(anchor) {
+    setNav("music");
+    var mp = DATA.music_page || { modes: [], axes: [] };
+    var pr = mp.primordial;
+    var counts = {};
+    DATA.gods.forEach(function (g) { var m = parseMeta(g.song && g.song.meta).mode; if (m) counts[m] = (counts[m] || 0) + 1; });
+
+    var primordial = pr ? pr.songs.map(function (s) {
+      var m = parseMeta(s.meta);
+      return '<article class="card music-card primordial-card">' +
+        '<div class="music-head">' + (s.icon ? '<img class="music-icon" src="' + esc(s.icon) + '" width="72" height="72" alt="">' : "") +
+        '<div><p class="music-title">' + "<ruby>" + esc(s.name) + "<rt>" + esc(s.reading) + "</rt></ruby></p>" +
+        '<p class="small muted">最初の五柱</p></div></div>' +
+        '<h4 class="music-sub">曲のイメージ</h4>' + s.notes.map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") +
+        '<h4 class="music-sub">曲調</h4>' + metaList(s.meta) + modeLine(m.mode) +
+        audioTag(s.music, s.name + "の曲") + "</article>";
+    }).join("") : "";
+
+    var modeButtons = '<button type="button" data-mf="" aria-pressed="' + (musicFilter == null) + '">すべて</button>' +
+      mp.modes.map(function (md) {
+        return '<button type="button" data-mf="' + esc(md.name) + '" aria-pressed="' + (musicFilter === md.name) + '">' +
+          esc(md.name) + "(" + (counts[md.name] || 0) + ")</button>";
+      }).join("");
+    var list = DATA.gods.filter(function (g) {
+      return g.song && (musicFilter == null || parseMeta(g.song.meta).mode === musicFilter);
+    });
+    var godSongs = list.map(function (g) {
+      var s = g.song, m = parseMeta(s.meta);
+      return '<article class="card music-card">' +
+        '<div class="music-head"><a class="music-thumb" href="#/gods/' + g.code + '">' + portrait(g) + "</a>" +
+        '<div><p class="music-title">♪ ' + esc(s.title) + "</p>" +
+        '<p class="music-god"><a href="#/gods/' + g.code + '">' + nameRuby(g) + "</a> " +
+        '<span class="small muted">' + esc(g.solvent) + " ・ " + g.code + "</span></p>" +
+        (s.classical_note ? '<p class="song-note">' + esc(s.classical_note) + "</p>" : "") + "</div></div>" +
+        '<h4 class="music-sub">曲のイメージ</h4>' + (s.notes || []).map(function (n) { return "<p>" + esc(n) + "</p>"; }).join("") +
+        '<h4 class="music-sub">曲調</h4>' + metaList(s.meta) + modeLine(m.mode) +
+        audioTag(g.music, g.god + "のテーマ曲「" + s.title + "」") + "</article>";
+    }).join("");
+
+    var modes = mp.modes.map(function (md) {
+      return '<div class="card mode-card"><p class="music-title"><ruby>' + esc(md.name) + "<rt>" + esc(md.reading) + "</rt></ruby></p>" +
+        '<p class="small"><b>' + esc(md.scale) + "</b>の調子 ・ 主音 " + esc(md.tonic) + "</p>" +
+        "<p>" + esc(md.character) + "</p>" +
+        (md.examples ? '<p class="small muted">古典曲の例: ' + esc(md.examples) + "</p>" : "") +
+        '<p class="small"><button type="button" class="linklike" data-mf="' + esc(md.name) + '" data-jump="1">このサイトの' + esc(md.name) + "の曲(" +
+        (counts[md.name] || 0) + (md.name === "壱越調" && pr ? "+最初の五柱 " + pr.songs.length : "") + "曲)を見る</button></p></div>";
+    }).join("");
+
+    render(
+      '<div class="music-page"><p class="eyebrow" style="padding-top:26px">楽曲</p><h1>神々の楽曲</h1>' +
+      '<div class="prose"><p>' + esc(mp.lead || "") + "</p></div>" +
+      '<nav class="music-toc" aria-label="楽曲ページの目次"><a href="#/music/primordial">最初の五柱の曲</a>' +
+      '<a href="#/music/gods">三十二柱のテーマ曲</a><a href="#/music/modes">調子の解説</a><a href="#/music/axes">性格と曲調</a></nav>' +
+      (pr ? '<h2 id="music-primordial">最初の五柱の曲</h2><div class="prose">' + pr.lead.map(function (l) { return "<p>" + esc(l) + "</p>"; }).join("") +
+        (pr.common ? '<p class="small"><b>ひと組としての共通点</b>: ' + esc(pr.common) + "</p>" : "") + "</div>" +
+        '<div class="music-grid">' + primordial + "</div>" : "") +
+      '<h2 id="music-gods">三十二柱のテーマ曲</h2>' +
+      '<div class="filters" role="group" aria-label="調子でしぼりこむ">' + modeButtons + "</div>" +
+      '<p class="small muted">' + list.length + " 曲</p>" +
+      '<div class="music-grid">' + godSongs + "</div>" +
+      '<h2 id="music-modes">調子の解説</h2><div class="prose"><p>' + esc(mp.modes_lead || "") + "</p></div>" +
+      '<div class="mode-grid">' + modes + "</div>" +
+      (mp.modes_note ? '<p class="small muted">' + esc(mp.modes_note) + "</p>" : "") +
+      '<h2 id="music-axes">性格と曲調</h2><div class="prose"><p>三十二柱のテーマ曲は、神様の性格5軸(コード)から曲調を決めています。</p><dl class="profile">' +
+      (mp.axes || []).map(function (a) { return "<dt>" + esc(a.label) + "</dt><dd>" + esc(a.text) + "</dd>"; }).join("") +
+      "</dl></div></div>",
+      "楽曲");
+    app.querySelectorAll("[data-mf]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        musicFilter = b.getAttribute("data-mf") || null;
+        var jump = b.hasAttribute("data-jump");
+        var y = window.scrollY;
+        viewMusic(jump ? "gods" : null);
+        if (!jump) window.scrollTo({ top: y });
+      });
+    });
+    var el = anchor && document.getElementById("music-" + anchor);
+    if (el) el.scrollIntoView(); else if (!anchor) window.scrollTo({ top: 0 });
+  }
+
   // ---- ルーティング ----
   function route() {
     var h = location.hash.replace(/^#\/?/, "");
@@ -751,6 +870,12 @@
       // 同じ神話ページの中の移動は、描き直さずにその位置へ送る
       if (app.querySelector(".myth-page")) scrollToMyth(parts[1]);
       else viewMyth(parts[1]);
+    }
+    else if (parts[0] === "music") {
+      // 同じ楽曲ページの中の移動は、描き直さずにその位置へ送る(再生中の曲を止めない)
+      var target = parts[1] && document.getElementById("music-" + parts[1]);
+      if (app.querySelector(".music-page") && target) target.scrollIntoView();
+      else viewMusic(parts[1]);
     }
     else if (parts[0] === "about") viewAbout();
     else viewHome();

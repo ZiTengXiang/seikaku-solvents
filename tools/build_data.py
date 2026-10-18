@@ -254,8 +254,50 @@ def check_myth(myth, codes):
         raise RuntimeError(f"神話の柱が揃っていない: 本文 {len(in_text)}・系譜 {len(in_tree)}")
 
 
+def parse_music_axes(text):
+    """32曲の README の「性格5軸の反映」の箇条 → [{"label": "外向性(揮発性)", "text": "..."}]。"""
+    out, inside = [], False
+    for line in text.splitlines():
+        if line.startswith("- 性格5軸の反映"):
+            inside = True
+            continue
+        if inside:
+            m = re.match(r"^\s+- \*\*(.+?)\*\*:\s*(.+)$", line)
+            if m:
+                out.append({"label": m[1], "text": m[2].strip()})
+            elif not line.startswith("  "):
+                break
+    return out
+
+
+def parse_primordial_songs(text, icons):
+    """最初の五柱の曲の README → {"lead": [...], "common": "...", "songs": [...]}。"""
+    lead, common, songs, cur = [], "", [], None
+    for line in text.splitlines():
+        m = re.match(r"^## (?P<name>[^(]+)\((?P<reading>[^)]+)\)\s*$", line)
+        if m:
+            cur = {"name": m["name"], "reading": m["reading"], "meta": "", "notes": [], "music": None,
+                   "icon": icons.get(m["name"])}
+            songs.append(cur)
+            continue
+        if cur is None:
+            if line.startswith("- **ひと組としての共通点**"):
+                common = strip_md(re.sub(r"^- \*\*ひと組としての共通点\*\*[:：]\s*", "", line)).strip()
+            elif line.strip() and not line.startswith(("#", "-")):
+                lead.append(line.strip())
+            continue
+        if line.startswith("[") and " — " in line:
+            cur["meta"] = line.split(" — ", 1)[1].strip()
+            m = re.match(r"^\[([a-z-]+)\.gaku\]", line)
+            mp3 = f"assets/music/primordial/{m[1]}.mp3" if m else ""
+            cur["music"] = mp3 if mp3 and (ROOT / mp3).exists() else None
+        elif line.startswith("- "):
+            cur["notes"].append(strip_md(line[2:].strip()))
+    return {"lead": lead, "common": common, "songs": songs}
+
+
 def strip_md(s):
-    return re.sub(r"\*\*(.+?)\*\*", r"\1", s)
+    return re.sub(r"`([^`]+)`", r"\1", re.sub(r"\*\*(.+?)\*\*", r"\1", s))
 
 
 def main():
@@ -265,6 +307,7 @@ def main():
     md_path = args.src / "seikaku_solvents_32.md"
     diag = args.src / "solvent_gods" / "diagnosis"
     music_readme = args.src / "solvent_gods" / "music" / "README.md"
+    primordial_readme = args.src / "solvent_gods" / "music" / "primordial" / "README.md"
 
     sections = top_sections(md_path.read_text(encoding="utf-8"))
     list_lines = next(v for k, v in sections.items() if k.startswith("性格そるべんつ"))
@@ -318,6 +361,12 @@ def main():
         "character_intro": intro,
         "gods": gods,
         "myth": myth,
+        "music_page": {
+            **json.loads((ROOT / "content" / "music_page.json").read_text(encoding="utf-8")),
+            "axes": parse_music_axes(music_readme.read_text(encoding="utf-8")) if music_readme.exists() else [],
+            "primordial": parse_primordial_songs(primordial_readme.read_text(encoding="utf-8"), icons)
+            if primordial_readme.exists() else None,
+        },
     }
     if myth:
         check_myth(myth, codes)

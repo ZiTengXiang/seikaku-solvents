@@ -3,6 +3,7 @@
     .venv/Scripts/python tools/convert_music.py [--src C:/Users/shous/claude-work] [--force]
 
 <src>/solvent_gods/music/<コード>_<slug>.wav を1曲ずつ読み、assets/music/<コード>_<slug>.mp3 に書く。
+最初の五柱の曲 <src>/solvent_gods/music/primordial/<名前>.wav は assets/music/primordial/<名前>.mp3 に書く。
 MP3 にしたのは iPhone の Safari を含めてどのブラウザでも再生できるため(libsndfile の LAME を
 soundfile 経由で使う。ffmpeg は要らない)。可変ビットレート(compression_level 0.6、約100kbps)で 1分あたり約0.75MB。
 変換済みで元より新しいものは飛ばす。最後に tools/build_data.py を呼ぶ。
@@ -18,6 +19,7 @@ import soundfile as sf
 
 ROOT = Path(__file__).resolve().parent.parent
 NAME = re.compile(r"^[01]{5}_[a-z0-9_]+\.wav$")
+PRIMORDIAL = re.compile(r"^[a-z][a-z-]+\.wav$")
 QUALITY = 0.6  # soundfile の compression_level(0=最高品質 … 1=最小)
 
 
@@ -31,10 +33,12 @@ def main():
     out_dir = ROOT / "assets" / "music"
     out_dir.mkdir(parents=True, exist_ok=True)
     total = 0
-    for wav in sorted(src_dir.glob("*.wav")):
-        if not NAME.match(wav.name):
-            continue
-        out = out_dir / (wav.stem + ".mp3")
+    # 32柱のテーマ曲(<コード>_<slug>.wav)と、最初の五柱の曲(primordial/<名前>.wav)
+    jobs = [(w, out_dir / (w.stem + ".mp3")) for w in sorted(src_dir.glob("*.wav")) if NAME.match(w.name)]
+    (out_dir / "primordial").mkdir(exist_ok=True)
+    jobs += [(w, out_dir / "primordial" / (w.stem + ".mp3")) for w in sorted((src_dir / "primordial").glob("*.wav"))
+             if PRIMORDIAL.match(w.name)]
+    for wav, out in jobs:
         if not args.force and out.exists() and out.stat().st_mtime >= wav.stat().st_mtime:
             total += out.stat().st_size
             continue
