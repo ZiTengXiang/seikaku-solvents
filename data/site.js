@@ -981,7 +981,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "光と影は、対になってこそ美しいもの。心の片側に澱が溜まったら、もう片側の光で釣り合いを取りなさい。",
-   "image": null,
+   "image": "assets/images/01100_dioxane.webp",
    "music": "assets/music/01100_dioxane.mp3"
   },
   {
