@@ -423,6 +423,7 @@ def main():
 
     # 「共通の要件」のうち、絵姿を作るときの制作上の指示はサイトには出さない(.md には残す)
     intro["common"] = [c for c in intro["common"] if not c.startswith(SITE_HIDDEN_COMMON)]
+    intro["common"] = [c.replace("離れ袖や肩の露出はなし。", "").strip() for c in intro["common"]]
 
     site = {
         "traits": questions["traits"],
