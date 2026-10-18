@@ -523,3 +523,25 @@ details.score summary { cursor: pointer; font-size: .9rem; color: var(--accent);
 
 /* しくみページ: ページ内リンク(#/about#how・#forms)の着地点がヘッダーに隠れないように */
 .prose h2[id], .prose h3[id] { scroll-margin-top: 76px; }
+
+/* 診断結果: 32柱すべて同率のときの「最初の五柱」 */
+.primordial-feature { display: block; background-size: cover; background-position: center; color: #f6efe3; border-color: #8f7034; }
+.primordial-feature .feature-body { max-width: 780px; margin: 0 auto; }
+.primordial-feature .god-name { color: #fff8ec; letter-spacing: .3em; }
+.primordial-feature .solvent-name, .primordial-feature p, .primordial-feature dd { color: #f6efe3; }
+.primordial-feature dt, .primordial-feature .err, .primordial-feature small { color: #d8ccb8; }
+.primordial-feature .affinity b { color: #ffd9a0; }
+.primordial-feature a { color: #ffd9a0; }
+.primordial-feature .song { background: rgb(255 255 255 / .06); border-color: rgb(255 255 255 / .18); }
+.primordial-feature .song-head { color: #e8c77a; }
+.primordial-feature .oracle { color: #fff8ec; border-left-color: #e8c77a; }
+.primordial-feature .solvent-note { background: rgb(255 255 255 / .06); }
+.primordial-icons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 14px 0; }
+.primordial-icons figure { margin: 0; text-align: center; }
+.primordial-icons img { width: 100%; max-width: 72px; height: auto; }
+.primordial-icons figcaption { font-family: var(--serif); font-size: .82rem; line-height: 1.4; }
+.primordial-icons figcaption rt { font-size: .5rem; color: #d8ccb8; }
+.primordial-icons figcaption small { display: block; font-family: var(--sans); font-size: .66rem; }
+.pr-song { margin-top: 10px; }
+.pr-song .song-title { margin-bottom: 4px; }
+.pr-song audio { width: 100%; height: 36px; }

@@ -21,8 +21,8 @@ def load_gods(path=HERE / "gods.json"):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def _item_value(answer, reverse, lo=1, hi=4):
-    """1問の得点(0〜1)。4段階なら通常は (回答-1)/3、逆転項目は (4-回答)/3。"""
+def _item_value(answer, reverse, lo=1, hi=5):
+    """1問の得点(0〜1)。5段階なら通常は (回答-1)/4、逆転項目は (5-回答)/4。中庸(3)はどちらも 1/2。"""
     if isinstance(answer, bool) or not isinstance(answer, int) or not lo <= answer <= hi:
         raise ValueError(f"回答は{lo}〜{hi}の整数: {answer!r}")
     return Fraction(hi - answer, hi - lo) if reverse else Fraction(answer - lo, hi - lo)
@@ -102,4 +102,11 @@ def diagnose(answers, questions=None, gods=None, top_n=5):
         "scores": [{"key": k, "name": names[k]["name"], "solvent_property": names[k]["solvent_property"],
                     "value": float(traits[k])} for k in TRAIT_ORDER],
         "ranking": rank_gods(user, gods, top_n, seed=",".join(map(str, answers))),
+        # 32柱すべてが同じ距離(=全特性ちょうど0.5)。このときサイトは「最初の五柱」を示す
+        "all_tied": all_tied(user, gods),
     }
+
+
+def all_tied(user, gods):
+    """すべての柱との距離が等しいか(5特性すべてがちょうど0.5のときに限る)。"""
+    return len({squared_distance(user, g["code"]) for g in gods}) == 1

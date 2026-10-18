@@ -1,7 +1,8 @@
 /* 性格そるべんつ ― 画面の組み立て(ハッシュでページを切り替える1ページのアプリ)。
  *   #/            トップ
  *   #/quiz        30問の回答
- *   #/result/<30桁の回答>   結果(URLに回答が入るので、そのまま共有・再表示できる。サーバーには送られない)
+ *   #/r/<30桁の回答>   結果(各桁1〜5。URLに回答が入るので、そのまま共有・再表示できる。サーバーには送られない)
+ *   #/result/<30桁>    4段階だったころの結果 URL(5段階に読み替えて表示)
  *   #/gods        三十二柱の一覧     #/gods/<コード>  一柱の詳細
  *   #/myth        神話(溶媒の神々の誕生)  #/myth/<章id または コード>  その章・柱の位置へ
  *   #/music       楽曲(最初の五柱と三十二柱の曲・調子の解説)  #/music/<primordial|gods|modes|axes>
@@ -15,7 +16,7 @@
   var app = document.getElementById("app");
   var N_Q = DATA.questions.length;
   var LO = DATA.scale.min, HI = DATA.scale.max;
-  var STORE_KEY = "seikaku-solvents-progress";
+  var STORE_KEY = "seikaku-solvents-progress-v5";  // 5段階(中庸あり)。4段階のときの途中回答は読まない
   var THEME_KEY = "seikaku-solvents-theme";
   var TRAIT_CHAR = { E: "外", A: "協", O: "開", C: "誠", N: "神" };
   var traitsByKey = {};
@@ -209,7 +210,7 @@
       '<p class="small muted">それぞれの性質が「ある(1)/ない(0)」の組み合わせで 2<sup>5</sup> = 32 通り。そのすべてに実在の溶媒を割り当て、社に祀られる神様として擬人化しました。<a href="#/about">判定基準を見る</a></p>' +
       "<h2>遊び方</h2>" +
       '<ol class="steps">' +
-      '<li class="card">30の文が、自分にどのくらい当てはまるかを4段階で選びます(5分ほど)。</li>' +
+      '<li class="card">30の文が、自分にどのくらい当てはまるかを5段階で選びます(5分ほど)。</li>' +
       '<li class="card">回答から5つの特性を0〜1の値で出し、32柱の神様との近さ(親和度)を計算します。</li>' +
       '<li class="card">ご縁の深い神様が5柱示されます。1位の神様の絵姿・設定・テーマ曲(雅楽風)をどうぞ。</li>' +
       "</ol>" +
@@ -301,7 +302,7 @@
     if (a.some(function (x) { return x == null; })) return;
     store(STORE_KEY, undefined);
     quiz = null;
-    location.hash = "#/result/" + a.join("");
+    location.hash = "#/r/" + a.join("");
   }
   document.addEventListener("keydown", function (e) {
     if (!quiz || !app.querySelector(".quiz") || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -332,7 +333,7 @@
       return '<text x="' + p[0].toFixed(1) + '" y="' + (p[1] + dy).toFixed(1) + '" text-anchor="' + anchor + '">' + esc(s.name) +
         '</text><text class="prop" x="' + p[0].toFixed(1) + '" y="' + (p[1] + dy + 14).toFixed(1) + '" text-anchor="' + anchor + '">' + esc(s.solvent_property) + "</text>";
     }).join("");
-    var godVals = god.code.split("").map(Number);
+    var godVals = god.values || god.code.split("").map(Number);
     var you = scores.map(function (s) { return s.value; });
     var pts = you.map(function (v, i) { var p = pt(i, R * v); return '<circle class="pt" r="3.5" cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '"/>'; }).join("");
     return '<svg class="radar" viewBox="0 0 360 330" role="img" aria-label="5特性のレーダーチャート">' + grid + axes +
@@ -350,15 +351,63 @@
     }).join("") + "</div>";
   }
 
-  function viewResult(code) {
+  // 32柱すべてが同率(5特性すべてちょうど0.5)のとき: 最初の五柱を示す。二位〜五位は出さない
+  function viewPrimordialResult(r, legacy) {
+    var pr = DATA.primordial_result, mp = DATA.music_page || {};
+    var members = (DATA.myth && DATA.myth.primordials) || [];
+    var songs = (mp.primordial && mp.primordial.songs) || [];
+    var star = songs.filter(function (s) { return s.background; })[0];
+    var pseudo = { god: pr.title, code: "½½½½½", values: [0.5, 0.5, 0.5, 0.5, 0.5] };
+    var icons = '<div class="primordial-icons">' + members.map(function (m) {
+      return "<figure>" + (m.icon ? '<img src="' + esc(m.icon) + '" width="72" height="72" alt="">' : "") +
+        "<figcaption><ruby>" + esc(m.name) + "<rt>" + esc(m.reading) + "</rt></ruby><small>" + esc(m.role) + "</small></figcaption></figure>";
+    }).join("") + "</div>";
+    var songList = songs.map(function (s) {
+      return '<div class="pr-song"><p class="song-title">♪ ' + esc(s.name) + "</p>" + audioTag(s.music, s.name + "の曲") + "</div>";
+    }).join("");
+    var aff = 100 - Math.sqrt(1.25 / 5) * 100;
+    var bg = star ? ' style="background-image:linear-gradient(rgb(12 8 20 / .6),rgb(12 8 20 / .86)),url(' + esc(star.background) + ')"' : "";
+    render(
+      '<section class="result-head"><p class="eyebrow">診断結果</p><h1>ご縁の深い神様</h1></section>' +
+      '<article class="card feature primordial-feature"' + bg + ">" +
+      '<div class="feature-body">' +
+      '<span class="rank-badge">三十二柱すべてと同率</span>' +
+      '<h2 class="god-name">' + esc(pr.title) + "</h2>" +
+      '<p class="solvent-name">溶媒の神々が生まれる前の、太祖と元素の神々</p>' + icons +
+      '<div class="scoreline"><span class="affinity">親和度 <b>' + pct(aff) + '%</b></span><span class="err">三十二柱のどの神とも等しく隔たっています(距離 1.2500)</span></div>' +
+      "<p>" + esc(pr.lead) + "</p>" +
+      '<dl class="profile">' + PROFILE_LABELS.map(function (p) {
+        return pr.profile[p[0]] ? "<dt>" + p[1] + "</dt><dd>" + esc(pr.profile[p[0]]) + "</dd>" : "";
+      }).join("") + "</dl>" +
+      '<p class="solvent-note">⚗ ' + esc(pr.note) + "</p>" +
+      '<div class="song"><p class="song-head">' + esc(pr.title) + "の言寄さし</p>" +
+      '<blockquote class="oracle">' + esc(pr.kotoyosashi) + "</blockquote>" + songList + "</div>" +
+      '<p class="small" style="margin-top:12px"><a href="#/myth/ch1">神話「天地のはじめ」で読む →</a> ・ <a href="#/music/primordial">最初の五柱の曲 →</a></p>' +
+      "</div></article>" +
+      (legacy ? '<p class="small muted">この URL は4段階だったころの形式のため、5段階に読み替えて表示しています。</p>' : "") +
+      "<h2>あなたの五つの特性</h2>" +
+      '<div class="card traits"><div>' + radarSvg(r.scores, pseudo) + "</div>" + barsHtml(r.scores) + "</div>" +
+      '<div class="btn-row"><a class="btn" href="#/quiz" data-restart>もう一度診断する</a>' +
+      '<button type="button" class="btn ghost" data-copy>結果のURLをコピー</button>' +
+      '<a class="btn ghost" href="#/gods">三十二柱を見る</a></div>',
+      "結果: " + pr.title);
+    wireResultButtons();
+    window.scrollTo({ top: 0 });
+  }
+
+  // 4段階だったころの結果 URL(#/result/…、各桁1〜4)を5段階に読み替える(3→4、4→5。中庸は無かった)
+  var LEGACY_4 = { 1: 1, 2: 2, 3: 4, 4: 5 };
+  function viewResult(code, legacy) {
     setNav("");
     var answers = code.split("").map(Number);
+    if (legacy) answers = answers.map(function (a) { return LEGACY_4[a] || NaN; });
     var valid = answers.length === N_Q && answers.every(function (a) { return Number.isInteger(a) && a >= LO && a <= HI; });
     if (!valid) {
       render('<h1>結果を表示できません</h1><p>URLの回答が正しくありません(' + N_Q + "桁・各" + LO + "〜" + HI + 'の数字が必要です)。</p><p><a class="btn" href="#/quiz">診断をはじめる</a></p>', "結果");
       return;
     }
     var r = D.diagnose(answers, DATA, 5);
+    if (r.all_tied && DATA.primordial_result) { viewPrimordialResult(r, legacy); return; }
     var top = r.ranking[0], g = top.god;
     var tiedTop = r.ranking.filter(function (x) { return x.rank === 1; }).length;
     var others = r.ranking.slice(1).map(function (x) {
@@ -379,6 +428,7 @@
       codeChips(g) +
       '<div class="scoreline"><span class="affinity">親和度 <b>' + pct(top.affinity_pct) + '%</b></span><span class="err">誤差率 ' + pct(top.error_pct) + "%(距離 " + top.distance.toFixed(4) + ")</span></div>" +
       (tiedTop > 1 ? '<p class="small notice">同じ近さの神様が ' + tiedTop + " 柱いらっしゃいます。並びは回答から決まる順です。</p>" : "") +
+      (legacy ? '<p class="small notice">この URL は4段階だったころの形式のため、5段階に読み替えて表示しています。</p>' : "") +
       profileBlock(g) +
       (g.solvent_note ? '<p class="solvent-note">⚗ ' + esc(g.solvent_note) + "</p>" : "") +
       songBlock(g) +
@@ -397,6 +447,11 @@
     app.querySelectorAll("button.clip").forEach(function (b) {
       b.addEventListener("click", function () { playClip(b); });
     });
+    wireResultButtons();
+    window.scrollTo({ top: 0 });
+  }
+
+  function wireResultButtons() {
     app.querySelector("[data-restart]").addEventListener("click", function () { store(STORE_KEY, undefined); quiz = null; });
     var copy = app.querySelector("[data-copy]");
     copy.addEventListener("click", function () {
@@ -405,7 +460,6 @@
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt("このURLをコピーしてください", url); });
       else prompt("このURLをコピーしてください", url);
     });
-    window.scrollTo({ top: 0 });
   }
 
   // ---- 三十二柱 ----
@@ -741,13 +795,13 @@
       '<div class="prose"><ul class="small">' + (DATA.criteria_notes || []).map(function (n) { return "<li>" + esc(n) + "</li>"; }).join("") + "</ul>" +
       '<h2 id="how">診断のしくみ</h2>' +
       "<ol>" +
-      "<li>30の文(各特性6問、うち3問は逆向きの質問)に、4段階(" + labels + ")で答えます。中間の選択肢はありません。</li>" +
-      "<li>各問の得点を0〜1にします。ふつうの質問は (回答−1)/3、逆向きの質問は (4−回答)/3。</li>" +
-      "<li>特性ごとに6問の得点を平均して、5特性の値(0〜1)を出します。質問ごとに、その特性をどれだけよく測れそうかで少し重み(0.86〜1.12)を付けています。重みの合計を調整してあるので、値がちょうど0.5になることはありません。</li>" +
+      "<li>30の文(各特性6問、うち3問は逆向きの質問)に、5段階(" + labels + ")で答えます。真ん中の「どちらともいえない」も選べます。</li>" +
+      "<li>各問の得点を0〜1にします。ふつうの質問は (回答−1)/4、逆向きの質問は (5−回答)/4。「どちらともいえない」はどちらでも 0.5 です。</li>" +
+      "<li>特性ごとに6問の得点を平均して、5特性の値(0〜1)を出します。質問ごとに、その特性をどれだけよく測れそうかで少し重み(0.86〜1.12)を付けています。ある特性の6問すべてに「どちらともいえない」と答えると、その特性はちょうど0.5になります。</li>" +
       "<li>あなたの5特性と、各神様のコード(例:アセトン 11110 → 1,1,1,1,0)との<b>距離</b> = 差の二乗の和 を求め、近い順に5柱を選びます。計算は分数で厳密に行います。</li>" +
       "</ol>" +
       '<p class="formula">誤差率(%) = √(距離 ÷ 5) × 100<br>親和度(%) = 100 − 誤差率</p>' +
-      "<p>コードどおりに答えると親和度100%、1つの特性だけ正反対なら約55%、すべて正反対なら0%です。距離がまったく同じ神様は同じ順位で「◯位(同率)」と表示し、その並びは回答から決まるハッシュ値(SHA-256)の順にしています(同じ回答なら毎回同じ順)。</p>" +
+      "<p>コードどおりに答えると親和度100%、1つの特性だけ正反対なら約55%、すべて正反対なら0%です。距離がまったく同じ神様は同じ順位で「◯位(同率)」と表示し、その並びは回答から決まるハッシュ値(SHA-256)の順にしています(同じ回答なら毎回同じ順)。全30問に「どちらともいえない」と答えると5特性すべてが0.5になり、三十二柱すべてが同じ距離に並びます。このときは三十二柱ではなく、その源である<b>最初の五柱</b>をお示しします。</p>" +
       "<h2>神様の設定について</h2>" +
       "<ul>" + intro.common.map(function (c) { return "<li>" + esc(c) + "</li>"; }).join("") + "</ul>" +
       (DATA.about_forms ? '<h3 id="forms">' + esc(DATA.about_forms.title) + "</h3>" +
@@ -951,7 +1005,8 @@
     var parts = h.split("#")[0].split("/");
     if (parts[0] !== "quiz") quiz = null;
     if (parts[0] === "quiz") viewQuiz();
-    else if (parts[0] === "result" && parts[1]) viewResult(parts[1]);
+    else if (parts[0] === "r" && parts[1]) viewResult(parts[1]);
+    else if (parts[0] === "result" && parts[1]) viewResult(parts[1], true);  // 4段階のころの URL
     else if (parts[0] === "gods" && parts[1]) viewGod(parts[1]);
     else if (parts[0] === "gods") viewGods();
     else if (parts[0] === "myth") {

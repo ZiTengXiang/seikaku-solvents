@@ -166,6 +166,12 @@
     });
   }
 
+  /** すべての柱との距離が等しいか(5特性すべてがちょうど0.5のときに限る) */
+  function allTied(user, gods) {
+    var d0 = squaredDistance(user, gods[0].code);
+    return gods.every(function (g) { return cmp(squaredDistance(user, g.code), d0) === 0; });
+  }
+
   /** 回答の配列 → { scores: [{key, name, solvent_property, value}], ranking: [...] } */
   function diagnose(answers, data, topN) {
     var traits = scoreTraits(answers, data);
@@ -178,11 +184,13 @@
           value: toFloat(traits[k]) };
       }),
       ranking: rankGods(user, data.gods, topN || 5, answers.join(",")),
+      // 32柱すべてが同じ距離(=全特性ちょうど0.5)。このときは「最初の五柱」を示す
+      all_tied: allTied(user, data.gods),
     };
   }
 
   global.SolventDiagnosis = {
-    TRAIT_ORDER: TRAIT_ORDER, diagnose: diagnose, scoreTraits: scoreTraits, rankGods: rankGods,
+    TRAIT_ORDER: TRAIT_ORDER, diagnose: diagnose, allTied: allTied, scoreTraits: scoreTraits, rankGods: rankGods,
     tieKey: tieKey, sha256Hex: sha256Hex, toFloat: toFloat, frac: frac,
   };
 })(typeof window !== "undefined" ? window : globalThis);

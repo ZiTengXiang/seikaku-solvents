@@ -36,19 +36,19 @@ BROWSERS = [
 
 def make_cases(n, seed):
     rng = random.Random(seed)
-    cases = [[v] * 30 for v in (1, 2, 3, 4)]
-    cases.append([4, 3, 4, 3, 2, 1, 2, 1, 2, 3, 4, 3, 4, 3, 2, 2, 2, 1, 3, 3, 4, 3, 4, 2, 2, 1, 2, 1, 2, 3])
-    cases += [[1 + (i + k) % 4 for i in range(30)] for k in range(4)]
-    cases += [[(1, 4)[(i // 5 + k) % 2] for i in range(30)] for k in range(2)]
+    cases = [[v] * 30 for v in (1, 2, 3, 4, 5)]  # 全問3(中庸)は全柱同点
+    cases.append([5, 3, 4, 3, 2, 1, 2, 1, 2, 3, 5, 3, 4, 3, 2, 2, 2, 1, 3, 3, 4, 3, 5, 2, 2, 1, 2, 1, 2, 3])
+    cases += [[1 + (i + k) % 5 for i in range(30)] for k in range(5)]
+    cases += [[(1, 5)[(i // 5 + k) % 2] for i in range(30)] for k in range(2)]
     for i in range(n):
         if i % 3 == 0:  # 一様ランダム
-            cases.append([rng.randint(1, 4) for _ in range(30)])
+            cases.append([rng.randint(1, 5) for _ in range(30)])
         elif i % 3 == 1:  # 人に近い偏り(中ほどの2・3が多い)
-            cases.append(rng.choices([1, 2, 3, 4], weights=[1, 3, 3, 1], k=30))
+            cases.append(rng.choices([1, 2, 3, 4, 5], weights=[1, 3, 3, 3, 1], k=30))
         else:  # 一部の特性だけ極端(同点が出やすい)
-            base = rng.choices([2, 3], k=30)
+            base = rng.choices([2, 3, 4], k=30)
             for t in rng.sample(range(5), rng.randint(1, 3)):
-                v = rng.choice([1, 4])
+                v = rng.choice([1, 3, 5])
                 for j in range(t, 30, 5):
                     base[j] = v
             cases.append(base)
@@ -59,7 +59,7 @@ def python_results(cases, questions, gods):
     out = []
     for a in cases:
         r = core.diagnose(a, questions, gods, top_n=5)
-        out.append({"scores": [s["value"] for s in r["scores"]],
+        out.append({"scores": [s["value"] for s in r["scores"]], "all_tied": r["all_tied"],
                     "ranking": [[g["code"], g["rank"], g["tied"], g["distance"], g["rms_error"],
                                  g["error_pct"], g["affinity_pct"]] for g in r["ranking"]]})
     return out
@@ -101,6 +101,8 @@ def compare(cases, py, js, label):
     failures, exact_floats, tie_first, tie_any = [], 0, 0, 0
     for i, (a, p, j) in enumerate(zip(cases, py, js)):
         problems = []
+        if p["all_tied"] != j["all_tied"]:
+            problems.append(f"全柱同点 {p['all_tied']} != {j['all_tied']}")
         if p["scores"] != j["scores"]:
             problems.append(f"5特性 {p['scores']} != {j['scores']}")
         if [r[:3] for r in p["ranking"]] != [r[:3] for r in j["ranking"]]:

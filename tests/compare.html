@@ -22,6 +22,7 @@
       var r = SolventDiagnosis.diagnose(answers, data, 5);
       out.push({
         scores: r.scores.map(function (s) { return s.value; }),
+        all_tied: r.all_tied,
         ranking: r.ranking.map(function (g) {
           return [g.code, g.rank, g.tied, g.distance, g.rms_error, g.error_pct, g.affinity_pct];
         }),
