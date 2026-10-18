@@ -504,7 +504,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "目立たなくても、灯りは灯りです。あなたがそこにいるだけで、誰かの足元が照らされているのですよ。",
-   "image": null,
+   "image": "assets/images/11010_1propanol.webp",
    "music": "assets/music/11010_1propanol.mp3"
   },
   {
@@ -538,7 +538,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "人の傷を祓うのもよいけれど、ご自分の心配ごとも祓ってあげて。あなたも、労わられてよいのです。",
-   "image": null,
+   "image": "assets/images/11001_ipa.webp",
    "music": "assets/music/11001_ipa.mp3"
   },
   {
@@ -572,7 +572,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "頼まれる前に動くのが俺の流儀よ。ただな、相手の潮の満ち引きを見てから飛び込むと、もっと喜ばれるぜ。",
-   "image": null,
+   "image": "assets/images/11000_diethylamine.webp",
    "music": "assets/music/11000_diethylamine.mp3"
   },
   {
