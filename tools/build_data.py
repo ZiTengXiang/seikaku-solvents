@@ -297,6 +297,7 @@ def parse_primordial_songs(text, icons, scores=None):
     return {"lead": lead, "common": common, "songs": songs}
 
 
+SITE_HIDDEN_COMMON = ("見た目は若々しいが", "体の線を強調しない")
 SCORE_PART = re.compile(r"^\[(?P<part>[^\]]+)\]\s*(?P<body>.*)$")
 
 
@@ -419,6 +420,9 @@ def main():
     codes = sorted(g["code"] for g in gods)
     if codes != [format(i, "05b") for i in range(32)]:
         raise RuntimeError(f"32柱が揃っていない: {len(codes)}件")
+
+    # 「共通の要件」のうち、絵姿を作るときの制作上の指示はサイトには出さない(.md には残す)
+    intro["common"] = [c for c in intro["common"] if not c.startswith(SITE_HIDDEN_COMMON)]
 
     site = {
         "traits": questions["traits"],
