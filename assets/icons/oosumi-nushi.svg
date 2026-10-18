@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+<title>大炭主(おおすみぬし)</title>
+<desc>炭素の神。六角の格子と六つの点、中心に炭と熾火。</desc>
+<circle cx="64" cy="64" r="60" fill="#f5f0e6" stroke="#2f4a6b" stroke-width="4"/>
+<circle cx="64" cy="64" r="52" fill="none" stroke="#2f4a6b" stroke-width="1.5"/>
+<polygon points="64,30 93.44,47 93.44,81 64,98 34.56,81 34.56,47" fill="none" stroke="#2a2622" stroke-width="4" stroke-linejoin="round"/>
+<line x1="64" y1="49" x2="64" y2="30" stroke="#2a2622" stroke-width="2.5"/><line x1="76.99" y1="56.5" x2="93.44" y2="47" stroke="#2a2622" stroke-width="2.5"/><line x1="76.99" y1="71.5" x2="93.44" y2="81" stroke="#2a2622" stroke-width="2.5"/><line x1="64" y1="79" x2="64" y2="98" stroke="#2a2622" stroke-width="2.5"/><line x1="51.01" y1="71.5" x2="34.56" y2="81" stroke="#2a2622" stroke-width="2.5"/><line x1="51.01" y1="56.5" x2="34.56" y2="47" stroke="#2a2622" stroke-width="2.5"/>
+<polygon points="64,49 76.99,56.5 76.99,71.5 64,79 51.01,71.5 51.01,56.5" fill="#2a2622"/>
+<circle cx="64" cy="30" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/><circle cx="93.44" cy="47" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/><circle cx="93.44" cy="81" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/><circle cx="64" cy="98" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/><circle cx="34.56" cy="81" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/><circle cx="34.56" cy="47" r="5.5" fill="#2a2622" stroke="#f5f0e6" stroke-width="1.5"/>
+<circle cx="64" cy="64" r="4.5" fill="#b5352b"/>
+</svg>

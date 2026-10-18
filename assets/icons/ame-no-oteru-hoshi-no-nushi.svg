@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+<title>天大輝星主(あめのおおてるほしのぬし)</title>
+<desc>恒星の神。金の核から二十四条の光芒が広がる紋。</desc>
+<circle cx="64" cy="64" r="59" fill="#f5f0e6" stroke="#8f7034" stroke-width="6"/>
+<circle cx="64" cy="5" r="1.7" fill="#f5f0e6"/><circle cx="105.72" cy="22.28" r="1.7" fill="#f5f0e6"/><circle cx="123" cy="64" r="1.7" fill="#f5f0e6"/><circle cx="105.72" cy="105.72" r="1.7" fill="#f5f0e6"/><circle cx="64" cy="123" r="1.7" fill="#f5f0e6"/><circle cx="22.28" cy="105.72" r="1.7" fill="#f5f0e6"/><circle cx="5" cy="64" r="1.7" fill="#f5f0e6"/><circle cx="22.28" cy="22.28" r="1.7" fill="#f5f0e6"/>
+<circle cx="64" cy="64" r="51.5" fill="none" stroke="#b5352b" stroke-width="1.5"/>
+<polygon points="64,17 60.6,43 67.4,43" fill="#8f7034"/>
+<polygon points="73.32,29.23 67.31,43.15 71.56,44.28" fill="#b5352b"/>
+<polygon points="87.5,23.3 71.56,44.11 77.44,47.51" fill="#8f7034"/>
+<polygon points="89.46,38.54 77.29,47.6 80.4,50.71" fill="#b5352b"/>
+<polygon points="104.7,40.5 80.49,50.56 83.89,56.44" fill="#8f7034"/>
+<polygon points="98.77,54.68 83.72,56.44 84.85,60.69" fill="#b5352b"/>
+<polygon points="111,64 85,60.6 85,67.4" fill="#8f7034"/>
+<polygon points="98.77,73.32 84.85,67.31 83.72,71.56" fill="#b5352b"/>
+<polygon points="104.7,87.5 83.89,71.56 80.49,77.44" fill="#8f7034"/>
+<polygon points="89.46,89.46 80.4,77.29 77.29,80.4" fill="#b5352b"/>
+<polygon points="87.5,104.7 77.44,80.49 71.56,83.89" fill="#8f7034"/>
+<polygon points="73.32,98.77 71.56,83.72 67.31,84.85" fill="#b5352b"/>
+<polygon points="64,111 67.4,85 60.6,85" fill="#8f7034"/>
+<polygon points="54.68,98.77 60.69,84.85 56.44,83.72" fill="#b5352b"/>
+<polygon points="40.5,104.7 56.44,83.89 50.56,80.49" fill="#8f7034"/>
+<polygon points="38.54,89.46 50.71,80.4 47.6,77.29" fill="#b5352b"/>
+<polygon points="23.3,87.5 47.51,77.44 44.11,71.56" fill="#8f7034"/>
+<polygon points="29.23,73.32 44.28,71.56 43.15,67.31" fill="#b5352b"/>
+<polygon points="17,64 43,67.4 43,60.6" fill="#8f7034"/>
+<polygon points="29.23,54.68 43.15,60.69 44.28,56.44" fill="#b5352b"/>
+<polygon points="23.3,40.5 44.11,56.44 47.51,50.56" fill="#8f7034"/>
+<polygon points="38.54,38.54 47.6,50.71 50.71,47.6" fill="#b5352b"/>
+<polygon points="40.5,23.3 50.56,47.51 56.44,44.11" fill="#8f7034"/>
+<polygon points="54.68,29.23 56.44,44.28 60.69,43.15" fill="#b5352b"/>
+<circle cx="64" cy="64" r="20" fill="#8f7034"/>
+<circle cx="64" cy="64" r="14" fill="none" stroke="#f5f0e6" stroke-width="2"/>
+<circle cx="64" cy="64" r="6" fill="#b5352b"/>
+</svg>

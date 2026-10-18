@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+<title>成星大主(なるほしのおおぬし)</title>
+<desc>水素の神。一粒の光が芽吹く星の芽の紋。</desc>
+<circle cx="64" cy="64" r="60" fill="#f5f0e6" stroke="#2f4a6b" stroke-width="4"/>
+<circle cx="64" cy="64" r="52" fill="none" stroke="#2f4a6b" stroke-width="1.5"/>
+<circle cx="64" cy="64" r="34" fill="none" stroke="#2f4a6b" stroke-width="1.5" stroke-dasharray="3 5"/>
+<path d="M64 36 Q66.5 61.5 92 64 Q66.5 66.5 64 92 Q61.5 66.5 36 64 Q61.5 61.5 64 36Z" fill="#2a2622"/>
+<circle cx="64" cy="64" r="6" fill="#b5352b" stroke="#f5f0e6" stroke-width="2"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+<title>八塵大主(やちりのおおぬし)</title>
+<desc>酸素の神。息吹の渦を八つの塵が巡る紋。</desc>
+<circle cx="64" cy="64" r="60" fill="#f5f0e6" stroke="#2f4a6b" stroke-width="4"/>
+<circle cx="64" cy="64" r="52" fill="none" stroke="#2f4a6b" stroke-width="1.5"/>
+<path d="M64 64 a4 4 0 0 1 8 0 a8 8 0 0 1 -16 0 a12 12 0 0 1 24 0 a16 16 0 0 1 -32 0 a20 20 0 0 1 40 0 a24 24 0 0 1 -48 0" fill="none" stroke="#2a2622" stroke-width="4" stroke-linecap="round"/>
+<circle cx="40" cy="64" r="4.5" fill="#b5352b"/>
+<circle cx="80.07" cy="25.2" r="4" fill="#2a2622"/><circle cx="102.8" cy="47.93" r="4" fill="#2a2622"/><circle cx="102.8" cy="80.07" r="4" fill="#2a2622"/><circle cx="80.07" cy="102.8" r="4" fill="#2a2622"/><circle cx="47.93" cy="102.8" r="4" fill="#2a2622"/><circle cx="25.2" cy="80.07" r="4" fill="#2a2622"/><circle cx="25.2" cy="47.93" r="4" fill="#2a2622"/><circle cx="47.93" cy="25.2" r="4" fill="#2a2622"/>
+</svg>

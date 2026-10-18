@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="t d">
+<title>大硝主(おおささらぬし)</title>
+<desc>窒素の神。大地から伸びる七本の硝石の針晶。</desc>
+<circle cx="64" cy="64" r="60" fill="#f5f0e6" stroke="#2f4a6b" stroke-width="4"/>
+<circle cx="64" cy="64" r="52" fill="none" stroke="#2f4a6b" stroke-width="1.5"/>
+<polygon points="64,90 57.29,89.95 38.58,80.42 33.71,74.56 41.3,75.07 60.02,84.6" fill="#2a2622"/>
+<polygon points="64,90 57.76,87.55 37.01,64.51 34.56,57.3 41.47,60.5 62.21,83.53" fill="#2a2622"/>
+<polygon points="64,90 59.05,85.47 45.07,49.06 45.36,41.45 50.67,46.91 64.65,83.32" fill="#2a2622"/>
+<polygon points="64,90 61,84 61,39 64,32 67,39 67,84" fill="#2a2622"/>
+<polygon points="61,39 64,32 67,39" fill="#b5352b"/>
+<polygon points="64,90 63.35,83.32 77.33,46.91 82.64,41.45 82.93,49.06 68.95,85.47" fill="#2a2622"/>
+<polygon points="64,90 65.79,83.53 86.53,60.5 93.44,57.3 90.99,64.51 70.24,87.55" fill="#2a2622"/>
+<polygon points="64,90 67.98,84.6 86.7,75.07 94.29,74.56 89.42,80.42 70.71,89.95" fill="#2a2622"/>
+<line x1="36" y1="94" x2="92" y2="94" stroke="#2a2622" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="46" y1="101" x2="82" y2="101" stroke="#2a2622" stroke-width="2" stroke-linecap="round"/>
+</svg>
