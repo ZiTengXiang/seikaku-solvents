@@ -99,6 +99,7 @@
       (g.kotoyosashi ? '<blockquote class="oracle">' + esc(g.kotoyosashi) + "</blockquote>" : "") +
       (g.music
         ? '<p class="song-title">♪ ' + esc(s.title || g.god + "のテーマ") + "</p>" +
+          (s.classical_note ? '<p class="song-note">' + esc(s.classical_note) + "</p>" : "") +
           '<audio controls preload="none" src="' + esc(g.music) + '">お使いのブラウザでは再生できません。</audio>'
         : '<p class="song-title muted">♪ 楽曲は準備中です。</p>') +
       "</div>";

@@ -150,6 +150,11 @@ def main():
 
     questions = json.loads((diag / "questions.json").read_text(encoding="utf-8"))
     kotoyosashi = json.loads((ROOT / "content" / "kotoyosashi.json").read_text(encoding="utf-8"))
+    # 古典曲と同じ名前の曲には「別の新作である」旨の注記を付ける
+    classical = json.loads((ROOT / "content" / "classical_titles.json").read_text(encoding="utf-8"))
+    for song in songs.values():
+        if song["title"] in classical:
+            song["classical_note"] = classical[song["title"]]
     diag_gods = {g["code"]: g for g in json.loads((diag / "gods.json").read_text(encoding="utf-8"))}
 
     notes_by_code = {"".join(map(str, v["axes"])): {**v, "name": k} for k, v in solvent_notes.items()}

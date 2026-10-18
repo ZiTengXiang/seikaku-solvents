@@ -244,6 +244,7 @@ main { flex: 1; padding-bottom: 64px; outline: none; }
 .oracle::before { content: "「"; }
 .oracle::after { content: "」"; }
 .song-title { font-family: var(--serif); font-weight: 600; margin: 0 0 6px; }
+.song-note { margin: 0 0 8px; font-size: .78rem; line-height: 1.6; color: var(--muted, inherit); opacity: .85; }
 .song audio { width: 100%; height: 40px; }
 
 .traits { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: center; padding: 20px; }
