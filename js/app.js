@@ -38,6 +38,7 @@
     try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : null; } catch (e) { return null; }
   }
   function render(html, title) {
+    stopClip();
     app.innerHTML = '<div class="fade-in">' + html + "</div>";
     document.title = title ? title + " ― 性格そるべんつ" : "性格そるべんつ";
     wirePortraits();
@@ -85,21 +86,56 @@
   function wireAudio() {
     app.querySelectorAll("audio").forEach(function (a) {
       a.addEventListener("play", function () {
+        stopClip();
         document.querySelectorAll("audio").forEach(function (o) { if (o !== a) o.pause(); });
       });
     });
   }
 
+  // 「〇〇の言寄さし」: 神からの助言のセリフと、テーマ曲
   function songBlock(g) {
-    if (!g.music) {
-      return '<div class="song missing">♪ 楽曲は準備中です。</div>';
-    }
     var s = g.song || {};
-    return '<div class="song"><p class="song-title">♪ ' + esc(s.title || g.god + "のテーマ") + "</p>" +
-      (s.meta ? '<p class="song-meta">' + esc(s.meta) + "</p>" : "") +
-      '<audio controls preload="none" src="' + esc(g.music) + '">お使いのブラウザでは再生できません。</audio>' +
-      (s.notes && s.notes.length ? "<ul>" + s.notes.map(function (n) { return "<li>" + esc(n) + "</li>"; }).join("") + "</ul>" : "") +
+    return '<div class="song"><p class="song-head">' + esc(g.god) + "の言寄さし</p>" +
+      (g.kotoyosashi ? '<blockquote class="oracle">' + esc(g.kotoyosashi) + "</blockquote>" : "") +
+      (g.music
+        ? '<p class="song-title">♪ ' + esc(s.title || g.god + "のテーマ") + "</p>" +
+          '<audio controls preload="none" src="' + esc(g.music) + '">お使いのブラウザでは再生できません。</audio>'
+        : '<p class="song-title muted">♪ 楽曲は準備中です。</p>') +
       "</div>";
+  }
+
+  // 2位以下のカードの試聴: 曲の頭から CLIP_SEC 秒だけ鳴らし、最後は音量を絞って止める
+  var CLIP_SEC = 20, FADE_SEC = 2;
+  var clip = { audio: null, btn: null, timer: null };
+  function stopClip() {
+    if (clip.timer) clearInterval(clip.timer);
+    if (clip.audio) { clip.audio.pause(); clip.audio.removeAttribute("src"); clip.audio.load(); }
+    if (clip.btn) { clip.btn.classList.remove("playing"); clip.btn.innerHTML = clip.btn.getAttribute("data-label"); }
+    clip = { audio: null, btn: null, timer: null };
+  }
+  function playClip(btn) {
+    var same = clip.btn === btn;
+    stopClip();
+    if (same) return;
+    document.querySelectorAll("audio").forEach(function (o) { o.pause(); });
+    var a = new Audio(btn.getAttribute("data-music"));
+    a.volume = 1;
+    clip = { audio: a, btn: btn, timer: null };
+    btn.classList.add("playing");
+    btn.innerHTML = "■ 止める";
+    a.addEventListener("ended", stopClip);
+    a.play().catch(stopClip);
+    clip.timer = setInterval(function () {
+      var t = a.currentTime;
+      if (t >= CLIP_SEC) stopClip();
+      else if (t > CLIP_SEC - FADE_SEC) { try { a.volume = Math.max(0, (CLIP_SEC - t) / FADE_SEC); } catch (e) {} }
+    }, 100);
+  }
+  function clipButton(g) {
+    if (!g.music) return "";
+    var label = "♪ 試聴(" + CLIP_SEC + "秒)";
+    return '<button type="button" class="clip" data-music="' + esc(g.music) + '" data-label="' + esc(label) + '" aria-label="' +
+      esc(g.god + "のテーマ曲を" + CLIP_SEC + "秒試聴") + '">' + label + "</button>";
   }
 
   function profileBlock(g) {
@@ -292,11 +328,12 @@
     var top = r.ranking[0], g = top.god;
     var tiedTop = r.ranking.filter(function (x) { return x.rank === 1; }).length;
     var others = r.ranking.slice(1).map(function (x) {
-      return '<a class="card mini" href="#/gods/' + x.code + '">' + portrait(x.god) +
+      return '<div class="card mini"><a class="mini-link" href="#/gods/' + x.code + '">' + portrait(x.god) +
         '<div class="mini-body"><div class="mini-rank">' + x.rank + "位" + (x.tied ? "(同率)" : "") + "</div>" +
         '<p class="mini-name">' + esc(x.god.god) + "<small>" + esc(x.god.reading) + "</small></p>" +
         '<p class="mini-solvent">' + esc(x.god.solvent) + " · " + x.code + "</p>" +
-        '<div class="mini-aff">親和度 <b>' + pct(x.affinity_pct) + '%</b><span class="err">誤差率 ' + pct(x.error_pct) + "%</span></div></div></a>";
+        '<div class="mini-aff">親和度 <b>' + pct(x.affinity_pct) + '%</b><span class="err">誤差率 ' + pct(x.error_pct) + "%</span></div></div></a>" +
+        (x.god.music ? '<div class="mini-foot">' + clipButton(x.god) + "</div>" : "") + "</div>";
     }).join("");
     render(
       '<section class="result-head"><p class="eyebrow">診断結果</p><h1>ご縁の深い神様</h1></section>' +
@@ -323,6 +360,9 @@
       '<a class="btn ghost" href="#/gods">三十二柱を見る</a></div>' +
       '<p class="small muted">結果のURLには回答が入っています(サーバーには送られません)。URLを開けば同じ結果を表示できます。</p>',
       "結果: " + g.god);
+    app.querySelectorAll("button.clip").forEach(function (b) {
+      b.addEventListener("click", function () { playClip(b); });
+    });
     app.querySelector("[data-restart]").addEventListener("click", function () { store(STORE_KEY, undefined); quiz = null; });
     var copy = app.querySelector("[data-copy]");
     copy.addEventListener("click", function () {

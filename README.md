@@ -19,7 +19,7 @@
 ## 遊び方
 
 1. トップの「診断をはじめる」から、30の文がどのくらい当てはまるかを4段階で答えます(キーボードなら 1〜4 キー、Backspace で前の問いへ)。
-2. 結果画面に、5特性の値(レーダーチャートとバー)と、ご縁の深い神様5柱が出ます。1位の神様は絵姿・設定・テーマ曲つき。
+2. 結果画面に、5特性の値(レーダーチャートとバー)と、ご縁の深い神様5柱が出ます。1位の神様は絵姿・設定と「言寄さし」(神様からのひとこと)・テーマ曲つき。2〜5位もカードからテーマ曲を20秒試聴できます。
 3. 「三十二柱」で全員の設定と曲を、「しくみ」で判定基準と計算方法を見られます。
 
 結果のURL(`#/result/<30桁の回答>`)を開けば同じ結果を表示できます。回答は URL のハッシュ部分にしか入らないので、サーバーには送られません。
@@ -43,6 +43,7 @@
 | `index.html`, `css/`, `js/app.js` | 画面 |
 | `js/diagnosis.js` | 診断ロジック(採点・距離・順位・SHA-256) |
 | `data/site.js` | 質問・32柱の設定・判定基準(`tools/build_data.py` が生成) |
+| `content/kotoyosashi.json` | 各柱の言寄さし(神様からの助言のセリフ)。サイト用に書いた文で、直接編集して `build_data.py` を再実行する |
 | `assets/images/*.webp` | 神様の絵姿(幅600px) |
 | `assets/music/*.mp3` | テーマ曲(VBR 約100kbps) |
 | `reference/` | Python版ロジックと質問・神様データの写し(テスト用) |
@@ -78,10 +79,11 @@ python -m venv .venv
 
 - **キャラクター画像**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)による AI 生成です。
 - **楽曲**: [雅楽譜プレイヤー](https://github.com/ZiTengXiang/gagaku-player)で作曲・合成した雅楽風の曲です。
+- **言寄さし**: 各柱のキャラクター設定(性格)をもとに、このサイトのために書いたセリフです。
 - **質問文**: IPIP などのビッグファイブ尺度を参考にした自作の文です。
 - 企画・設定・作曲: ZiTengXiang
 
 ## ライセンス
 
 - **コード**(HTML/CSS/JavaScript/Python): [MIT License](LICENSE)
-- **画像・楽曲・キャラクター設定**(`assets/` と `data/site.js` の設定文): MIT ライセンスの対象外で、権利は作者(ZiTengXiang)に留保します。このサイトでの鑑賞・SNS での結果の共有は自由ですが、それ以外の転載・再配布・改変はご遠慮ください。画像の利用には、生成に使った Animagine XL 4.0 のライセンス(CreativeML Open RAIL++-M)の利用制限も適用されます。
+- **画像・楽曲・キャラクター設定**(`assets/`、`content/`、`data/site.js` の設定文): MIT ライセンスの対象外で、権利は作者(ZiTengXiang)に留保します。このサイトでの鑑賞・SNS での結果の共有は自由ですが、それ以外の転載・再配布・改変はご遠慮ください。画像の利用には、生成に使った Animagine XL 4.0 のライセンス(CreativeML Open RAIL++-M)の利用制限も適用されます。

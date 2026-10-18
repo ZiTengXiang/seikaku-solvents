@@ -6,6 +6,7 @@
   <src>/seikaku_solvents_32.md            判定基準・溶媒メモ・神様キャラクター設定
   <src>/solvent_gods/diagnosis/           questions.json / gods.json / core.py
   <src>/solvent_gods/music/README.md      曲名・調子・テンポ・曲の狙い
+  content/kotoyosashi.json(このリポジトリ内) 各柱の言寄さし(神からの助言のセリフ)
 書くもの:
   data/site.js        サイトが読むデータ(window.SITE_DATA = {...})
   reference/          Python版ロジックの写し(core.py, questions.json, gods.json)。テスト用
@@ -148,6 +149,7 @@ def main():
     songs = parse_songs(music_readme.read_text(encoding="utf-8")) if music_readme.exists() else {}
 
     questions = json.loads((diag / "questions.json").read_text(encoding="utf-8"))
+    kotoyosashi = json.loads((ROOT / "content" / "kotoyosashi.json").read_text(encoding="utf-8"))
     diag_gods = {g["code"]: g for g in json.loads((diag / "gods.json").read_text(encoding="utf-8"))}
 
     notes_by_code = {"".join(map(str, v["axes"])): {**v, "name": k} for k, v in solvent_notes.items()}
@@ -165,6 +167,7 @@ def main():
             "code": code, "slug": slug, "solvent": g["solvent"], "god": g["god"], "reading": g["reading"],
             "gender": g["gender"], "solvent_full": note["name"], "borderline": note["borderline"], "solvent_note": note["note"],
             "profile": g["profile"], "song": songs.get(code),
+            "kotoyosashi": kotoyosashi.get(code, ""),
             "image": image if (ROOT / image).exists() else None,
             "music": music if (ROOT / music).exists() else None,
         })

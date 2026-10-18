@@ -333,6 +333,7 @@ window.SITE_DATA = {
      "C の区間で涙もろさ(休符で途切れる下行とテンポの揺れ)を見せてから、宴の主題に戻る。"
     ]
    },
+   "kotoyosashi": "盃は満たすより、分かち合うものよ。泣きたい夜は泣いて、明日の宴でまた笑いなさい。",
    "image": "assets/images/11111_ethanol.webp",
    "music": "assets/music/11111_ethanol.mp3"
   },
@@ -366,6 +367,7 @@ window.SITE_DATA = {
      "神経症傾向0なので揺らぎなし。B で C#6 まで駆け上がり、終わりは引きずらず短く切る(後に何も残さない)。"
     ]
    },
+   "kotoyosashi": "済んだことは風に流してしまいなさい。澄んだ心でいれば、誰とでもすぐに打ち解けられるわ。",
    "image": "assets/images/11110_acetone.webp",
    "music": "assets/music/11110_acetone.mp3"
   },
@@ -399,6 +401,7 @@ window.SITE_DATA = {
      "誠実性0で打楽器の拍を崩し、C(過酸化物が溜まる)で責の高音へ上ってテンポを煽る。"
     ]
    },
+   "kotoyosashi": "誰とでも組めるのは才だが、胸の内に澱を溜めてはならぬ。ときどき蓋を開けて、風を通すことだ。",
    "image": "assets/images/11101_thf.webp",
    "music": "assets/music/11101_thf.mp3"
   },
@@ -432,6 +435,7 @@ window.SITE_DATA = {
      "開放性1で音域広め、誠実性0で裏拍に食い込む旋律と崩した打楽器。神経症傾向0で揺らぎなし。"
     ]
    },
+   "kotoyosashi": "縁は結んで、ほどいて、また結べばいいのさ。面白そうな方へ、まず一歩踏み出してごらん。",
    "image": "assets/images/11100_dme.webp",
    "music": "assets/music/11100_dme.mp3"
   },
@@ -465,6 +469,7 @@ window.SITE_DATA = {
      "B で冬に固まる: ♩=60 に落として同じ音を区切って延ばし、また解けて主題へ戻る。"
     ]
    },
+   "kotoyosashi": "揺らがぬことは強さだが、凍りついたら陽に当たれ。固まるのは恥ではない。また解ければよいのだ。",
    "image": "assets/images/11011_tbutanol.webp",
    "music": "assets/music/11011_tbutanol.mp3"
   },
@@ -498,6 +503,7 @@ window.SITE_DATA = {
      "開放性0で G4〜E5 の狭い順次進行、誠実性1・神経症傾向0で揺らぎのない整った拍。"
     ]
    },
+   "kotoyosashi": "目立たなくても、灯りは灯りです。あなたがそこにいるだけで、誰かの足元が照らされているのですよ。",
    "image": null,
    "music": "assets/music/11010_1propanol.mp3"
   },
@@ -531,6 +537,7 @@ window.SITE_DATA = {
      "誠実性0で打楽器が不規則、神経症傾向1で句末にテンポがたゆたい、旋律に駆け寄るような短い音と休符。"
     ]
    },
+   "kotoyosashi": "人の傷を祓うのもよいけれど、ご自分の心配ごとも祓ってあげて。あなたも、労わられてよいのです。",
    "image": null,
    "music": "assets/music/11001_ipa.mp3"
   },
@@ -564,6 +571,7 @@ window.SITE_DATA = {
      "開放性0で D〜F# に留まり、誠実性0で打楽器が割り込むように崩れる。"
     ]
    },
+   "kotoyosashi": "頼まれる前に動くのが俺の流儀よ。ただな、相手の潮の満ち引きを見てから飛び込むと、もっと喜ばれるぜ。",
    "image": null,
    "music": "assets/music/11000_diethylamine.mp3"
   },
@@ -597,6 +605,7 @@ window.SITE_DATA = {
      "誠実性1で拍は端正、神経症傾向1で句末のテンポの揺れと、B の終わりの震えるような短い音。"
     ]
    },
+   "kotoyosashi": "群れずともよいのです。誰も溶かせぬものを溶かせるなら、それがあなたの翼。ただ、雨の日は無理をなさらぬよう。",
    "image": null,
    "music": "assets/music/10111_hfip.mp3"
   },
@@ -630,6 +639,7 @@ window.SITE_DATA = {
      "開放性1で F#4〜A5 の広い音域を3つの句で行き来し、誠実性1・神経症傾向0で揺るがない。"
     ]
    },
+   "kotoyosashi": "交わらぬ相手がいても構わん。己の仕事を涼しい顔で果たせ。それだけで、群れは自然と後ろについてくる。",
    "image": null,
    "music": "assets/music/10110_dcm.mp3"
   },
@@ -663,6 +673,7 @@ window.SITE_DATA = {
      "開放性1で D7 まで届く広い音域、誠実性0の崩れた打楽器、神経症傾向1で B で♩=104 に荒れる。"
     ]
    },
+   "kotoyosashi": "迷うくらいなら踏み込みなさい。……ただし、焦がしたくないものの前では、牙を一本しまっておくこと。",
    "image": null,
    "music": "assets/music/10101_tfa.mp3"
   },
@@ -696,6 +707,7 @@ window.SITE_DATA = {
      "B で甘い表の顔を高音で見せ、最後の A から終止にかけて♩=80→70→58 と眠りに落ちていく。"
     ]
    },
+   "kotoyosashi": "誰にも見せない顔のひとつやふたつ、あってよいのよ。疲れたら、霞の中でひと眠りなさいな。",
    "image": null,
    "music": "assets/music/10100_chloroform.mp3"
   },
@@ -729,6 +741,7 @@ window.SITE_DATA = {
      "神経症傾向1で句末にテンポが沈み、句の途中に短い休符(ためらい)を入れる。"
     ]
    },
+   "kotoyosashi": "すべての者と分かり合えずともよい。分かり合える者を大切にせよ。静かな炎ほど、長く燃える。",
    "image": null,
    "music": "assets/music/10011_methanol.mp3"
   },
@@ -762,6 +775,7 @@ window.SITE_DATA = {
      "開放性0で D を軸にほぼ同じ動機を繰り返し、誠実性1・神経症傾向0でテンポは一切揺れない。"
     ]
    },
+   "kotoyosashi": "あれこれ溶かそうとするな。己に合うものだけを灯せばいい。変わらぬことも、ひとつの道だ。",
    "image": null,
    "music": "assets/music/10010_hexane.mp3"
   },
@@ -795,6 +809,7 @@ window.SITE_DATA = {
      "開放性0で狭い音域、誠実性0で打楽器が不揃い、神経症傾向1で句末が涙ぐむように遅れ、休符で途切れる。"
     ]
    },
+   "kotoyosashi": "得意なことが少なくても、香りはちゃんと届くものよ。崩れそうな日は、甘いものでも食べて休みましょう。",
    "image": null,
    "music": "assets/music/10001_ethyl_acetate.mp3"
   },
@@ -828,6 +843,7 @@ window.SITE_DATA = {
      "開放性0で狭い音域、誠実性0で打楽器が気まぐれ、神経症傾向0で揺らぎなし。終わりは一音だけ鳴らしてふっと消える。"
     ]
    },
+   "kotoyosashi": "気が向いたら飛んでいけばいいの。でも、火の気のそばでは少しだけ用心してね。燃え尽きるには、まだ早いもの。",
    "image": null,
    "music": "assets/music/10000_diethyl_ether.mp3"
   },
@@ -861,6 +877,7 @@ window.SITE_DATA = {
      "誠実性1で整った拍、神経症傾向1で句末のテンポの沈みと、気苦労を表す休符。"
     ]
    },
+   "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
    "image": null,
    "music": "assets/music/01111_pgme.mp3"
   },
@@ -894,6 +911,7 @@ window.SITE_DATA = {
      "開放性1で C#6 まで、誠実性1・神経症傾向0で揺らぎのない拍。"
     ]
    },
+   "kotoyosashi": "汚れを落とすのに、大きな声は要りません。黙って箒を動かす日々が、いつか誰かの晴れの日になるのです。",
    "image": null,
    "music": "assets/music/01110_butoxyethanol.mp3"
   },
@@ -927,6 +945,7 @@ window.SITE_DATA = {
      "協調性1で全楽器、開放性1で D7 まで、誠実性0で崩れた打楽器、神経症傾向1で句末のテンポの揺れ。"
     ]
    },
+   "kotoyosashi": "何でも見えてしまうから、つい口が出る。だがな、言わずに待つのもまた、力のうちだぞ。",
    "image": null,
    "music": "assets/music/01101_pyridine.mp3"
   },
@@ -960,6 +979,7 @@ window.SITE_DATA = {
      "協調性1で全楽器、開放性1で C#6 まで、誠実性0で打楽器だけがわずかに対称を崩す(放っておくと毒を孕む)。"
     ]
    },
+   "kotoyosashi": "光と影は、対になってこそ美しいもの。心の片側に澱が溜まったら、もう片側の光で釣り合いを取りなさい。",
    "image": null,
    "music": "assets/music/01100_dioxane.mp3"
   },
@@ -993,6 +1013,7 @@ window.SITE_DATA = {
      "B で寒さに凍りつく(♩=56、長い音を区切る)。誠実性1で拍は整い、神経症傾向1で句末が沈む。"
     ]
    },
+   "kotoyosashi": "……べ、別にあなたのために言ってるんじゃないわ。酸っぱい言葉も、ちゃんと効くんだから。冷えないようにしなさいよ。",
    "image": null,
    "music": "assets/music/01011_acetic_acid.mp3"
   },
@@ -1026,6 +1047,7 @@ window.SITE_DATA = {
      "開放性0で G4〜E5 の順次進行、誠実性1・神経症傾向0で一切揺れない。"
     ]
    },
+   "kotoyosashi": "まあ、お茶でも一服どうぞ。急がずとも、湯が冷めるころには、たいていのことは収まっていますよ。",
    "image": null,
    "music": "assets/music/01010_dpm.mp3"
   },
@@ -1059,6 +1081,7 @@ window.SITE_DATA = {
      "誠実性0で打楽器が不揃い、神経症傾向1で句末のテンポが沈む(しっとりした霧雨)。"
     ]
    },
+   "kotoyosashi": "不器用でもいい、手を差し伸べることをやめないで。……まあ、俺もよく空回りするんだけどね。",
    "image": null,
    "music": "assets/music/01001_morpholine.mp3"
   },
@@ -1092,6 +1115,7 @@ window.SITE_DATA = {
      "協調性1で全楽器、2回目の A は筝も旋律をなぞって三本の組紐に。開放性0で狭く、誠実性0で打楽器が少し崩れる。"
     ]
    },
+   "kotoyosashi": "弟ほど器用でなくてもいい。長く結んだ縁は、それだけで力になる。ただ、古い煙はときどき払っておけよ。",
    "image": null,
    "music": "assets/music/01000_diglyme.mp3"
   },
@@ -1125,6 +1149,7 @@ window.SITE_DATA = {
      "開放性1で C6 まで広く、誠実性1で整然、神経症傾向1で C の区間は寒さに凍りつき(♩=52)震える。"
     ]
    },
+   "kotoyosashi": "どんなものも、まずは受け納めてごらんなさい。ただ、心が冷えたときは、無理に抱えず温まるのが先ですよ。",
    "image": null,
    "music": "assets/music/00111_dmso.mp3"
   },
@@ -1158,6 +1183,7 @@ window.SITE_DATA = {
      "開放性1で F#4〜B5 の三つの句、神経症傾向0で揺らぎなし。どの句も主音 E に帰る誠実さ。"
     ]
    },
+   "kotoyosashi": "合わぬ相手がいてもいい。受け止められるものを、誠実に受け止め続けよ。琥珀は、時をかけて輝く。",
    "image": null,
    "music": "assets/music/00110_toluene.mp3"
   },
@@ -1191,6 +1217,7 @@ window.SITE_DATA = {
      "開放性1で B5 まで。B では旋律がほつれる(半拍の音と休符)。誠実性0で打楽器が崩れ、神経症傾向1で句末が沈む。"
     ]
    },
+   "kotoyosashi": "学びは誰のことも拒みません。けれど、読み疲れたら巻物を閉じて。ほつれは、休めば繕えます。",
    "image": null,
    "music": "assets/music/00101_dmf.mp3"
   },
@@ -1224,6 +1251,7 @@ window.SITE_DATA = {
      "開放性1で D7 まで飛び、誠実性0で鞨鼓が火花のように不規則、神経症傾向0で揺らぎはない。"
     ]
    },
+   "kotoyosashi": "ひびのひとつやふたつ、入っていた方が光はよく通る。火花を恐れず、好きなものを溶かしにいけ。",
    "image": null,
    "music": "assets/music/00100_tetralin.mp3"
   },
@@ -1257,6 +1285,7 @@ window.SITE_DATA = {
      "開放性0で C#5〜F#5 の狭い音域、誠実性1で整然、神経症傾向1で句末のテンポが沈み、休符で気をもむ。"
     ]
    },
+   "kotoyosashi": "凍える夜には、この金平糖をひとつどうぞ。心配しすぎてしまうのは、あなたが誠実な証ですよ。",
    "image": null,
    "music": "assets/music/00011_ethylene_glycol.mp3"
   },
@@ -1290,6 +1319,7 @@ window.SITE_DATA = {
      "開放性0で E を中心に狭く、誠実性1・神経症傾向0で揺らがず、A は何度戻っても変わらない。"
     ]
    },
+   "kotoyosashi": "すべての者と混ざらなくてよいのです。何者にも濁らされず、あなたのまま流れていきなさい。",
    "image": null,
    "music": "assets/music/00010_water.mp3"
   },
@@ -1323,6 +1353,7 @@ window.SITE_DATA = {
      "開放性0で A4〜E5 の狭さ、誠実性0で鞨鼓がそわそわ崩れ、神経症傾向1で句末のテンポが落ち着かない。"
     ]
    },
+   "kotoyosashi": "小さな一歩でも、蟻は山を越える。そわそわしたっていいさ。止まらなければ、ちゃんと着く。",
    "image": null,
    "music": "assets/music/00001_formic_acid.mp3"
   },
@@ -1356,6 +1387,7 @@ window.SITE_DATA = {
      "B で胸の内の火が一瞬燃え上がる(♩=76、A5 まで上がり太鼓が入る)が、すぐまた静かな A に隠れる。"
     ]
    },
+   "kotoyosashi": "多くを語らずともよい。胸の火は、消さずに隠しておけ。燃やすべき時は、おのずと来る。",
    "image": null,
    "music": "assets/music/00000_cumene.mp3"
   }

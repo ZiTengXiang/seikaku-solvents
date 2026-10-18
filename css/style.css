@@ -236,11 +236,15 @@ main { flex: 1; padding-bottom: 64px; outline: none; }
 @media (max-width: 480px) { .profile { grid-template-columns: 1fr; } .profile dd { margin-bottom: 8px; } }
 .solvent-note { font-size: .92rem; padding: 10px 14px; border-radius: 10px; background: var(--surface-2); margin: 14px 0 0; }
 .song { margin-top: 16px; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--gold-soft); }
-.song-title { font-family: var(--serif); font-weight: 600; margin: 0; }
-.song-meta { font-size: .82rem; color: var(--muted); margin: 0 0 8px; }
+.song-head { font-family: var(--serif); font-weight: 700; font-size: 1.1rem; letter-spacing: .12em; margin: 0; color: var(--gold); }
+.oracle {
+  margin: 10px 0 14px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent);
+  font-family: var(--serif); font-size: 1.08rem; line-height: 1.9; color: var(--ink);
+}
+.oracle::before { content: "「"; }
+.oracle::after { content: "」"; }
+.song-title { font-family: var(--serif); font-weight: 600; margin: 0 0 6px; }
 .song audio { width: 100%; height: 40px; }
-.song ul { margin: 8px 0 0; padding-left: 1.2em; font-size: .85rem; color: var(--muted); }
-.song.missing { background: var(--surface-2); color: var(--muted); font-size: .9rem; }
 
 .traits { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: center; padding: 20px; }
 @media (max-width: 760px) { .traits { grid-template-columns: 1fr; } }
@@ -277,6 +281,14 @@ main { flex: 1; padding-bottom: 64px; outline: none; }
 .mini-aff { font-size: .85rem; }
 .mini-aff b { color: var(--accent); font-size: 1.15rem; font-family: var(--serif); }
 .mini-aff .err { font-size: .75rem; display: block; }
+.mini-link { display: flex; flex-direction: column; flex: 1; color: inherit; text-decoration: none; }
+.mini-foot { padding: 0 12px 12px; }
+.clip {
+  width: 100%; font: inherit; font-size: .85rem; letter-spacing: .06em; cursor: pointer;
+  padding: .45em .8em; border-radius: 99px; border: 1px solid var(--gold); background: var(--gold-soft); color: var(--ink);
+}
+.clip:hover { border-color: var(--accent); }
+.clip.playing { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 
 /* ---- 画像(なければプレースホルダー) ---- */
 .portrait { width: 100%; height: auto; aspect-ratio: 600 / 877; object-fit: cover; border-radius: var(--radius); background: var(--surface-2); }
