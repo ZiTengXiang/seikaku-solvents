@@ -717,7 +717,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "迷うくらいなら踏み込みなさい。……ただし、焦がしたくないものの前では、牙を一本しまっておくこと。",
-   "image": null,
+   "image": "assets/images/10101_tfa.webp",
    "music": "assets/music/10101_tfa.mp3"
   },
   {
