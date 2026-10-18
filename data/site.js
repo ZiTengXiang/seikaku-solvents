@@ -945,7 +945,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
-   "image": "assets/images/01111_pgme.webp?v=ab124c46",
+   "image": "assets/images/01111_pgme.webp?v=be9ff50e",
    "music": "assets/music/01111_pgme.mp3?v=01fc860d"
   },
   {
