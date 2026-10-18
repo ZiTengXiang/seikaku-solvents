@@ -947,7 +947,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "何でも見えてしまうから、つい口が出る。だがな、言わずに待つのもまた、力のうちだぞ。",
-   "image": null,
+   "image": "assets/images/01101_pyridine.webp",
    "music": "assets/music/01101_pyridine.mp3"
   },
   {
@@ -1015,7 +1015,7 @@ window.SITE_DATA = {
     ]
    },
    "kotoyosashi": "……べ、別にあなたのために言ってるんじゃないわ。酸っぱい言葉も、ちゃんと効くんだから。冷えないようにしなさいよ。",
-   "image": null,
+   "image": "assets/images/01011_acetic_acid.webp",
    "music": "assets/music/01011_acetic_acid.mp3"
   },
   {
