@@ -1403,7 +1403,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "凍える夜には、この金平糖をひとつどうぞ。心配しすぎてしまうのは、あなたが誠実な証ですよ。",
-   "image": null,
+   "image": "assets/images/00011_ethylene_glycol.webp",
    "music": "assets/music/00011_ethylene_glycol.mp3"
   },
   {
