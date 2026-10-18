@@ -336,8 +336,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "盃は満たすより、分かち合うものよ。泣きたい夜は泣いて、明日の宴でまた笑いなさい。",
-   "image": "assets/images/11111_ethanol.webp",
-   "music": "assets/music/11111_ethanol.mp3"
+   "image": "assets/images/11111_ethanol.webp?v=3709d49e",
+   "music": "assets/music/11111_ethanol.mp3?v=9d331b26"
   },
   {
    "code": "11110",
@@ -374,8 +374,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "済んだことは風に流してしまいなさい。澄んだ心でいれば、誰とでもすぐに打ち解けられるわ。",
-   "image": "assets/images/11110_acetone.webp",
-   "music": "assets/music/11110_acetone.mp3"
+   "image": "assets/images/11110_acetone.webp?v=72313a1e",
+   "music": "assets/music/11110_acetone.mp3?v=ee762971"
   },
   {
    "code": "11101",
@@ -412,8 +412,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "誰とでも組めるのは才だが、胸の内に澱を溜めてはならぬ。ときどき蓋を開けて、風を通すことだ。",
-   "image": "assets/images/11101_thf.webp",
-   "music": "assets/music/11101_thf.mp3"
+   "image": "assets/images/11101_thf.webp?v=490929c9",
+   "music": "assets/music/11101_thf.mp3?v=4cb42d1c"
   },
   {
    "code": "11100",
@@ -450,8 +450,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "縁は結んで、ほどいて、また結べばいいのさ。面白そうな方へ、まず一歩踏み出してごらん。",
-   "image": "assets/images/11100_dme.webp",
-   "music": "assets/music/11100_dme.mp3"
+   "image": "assets/images/11100_dme.webp?v=75efc215",
+   "music": "assets/music/11100_dme.mp3?v=b13dc6c9"
   },
   {
    "code": "11011",
@@ -488,8 +488,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "揺らがぬことは強さだが、凍りついたら陽に当たれ。固まるのは恥ではない。また解ければよいのだ。",
-   "image": "assets/images/11011_tbutanol.webp",
-   "music": "assets/music/11011_tbutanol.mp3"
+   "image": "assets/images/11011_tbutanol.webp?v=8cb7ab16",
+   "music": "assets/music/11011_tbutanol.mp3?v=8832bb5b"
   },
   {
    "code": "11010",
@@ -526,8 +526,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "目立たなくても、灯りは灯りです。あなたがそこにいるだけで、誰かの足元が照らされているのですよ。",
-   "image": "assets/images/11010_1propanol.webp",
-   "music": "assets/music/11010_1propanol.mp3"
+   "image": "assets/images/11010_1propanol.webp?v=7d27958f",
+   "music": "assets/music/11010_1propanol.mp3?v=d6a93c72"
   },
   {
    "code": "11001",
@@ -564,8 +564,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "人の傷を祓うのもよいけれど、ご自分の心配ごとも祓ってあげて。あなたも、労わられてよいのです。",
-   "image": "assets/images/11001_ipa.webp",
-   "music": "assets/music/11001_ipa.mp3"
+   "image": "assets/images/11001_ipa.webp?v=fe3476db",
+   "music": "assets/music/11001_ipa.mp3?v=847c0426"
   },
   {
    "code": "11000",
@@ -603,8 +603,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "頼まれる前に動くのが俺の流儀よ。ただな、相手の潮の満ち引きを見てから飛び込むと、もっと喜ばれるぜ。",
-   "image": "assets/images/11000_diethylamine.webp",
-   "music": "assets/music/11000_diethylamine.mp3"
+   "image": "assets/images/11000_diethylamine.webp?v=dee3d826",
+   "music": "assets/music/11000_diethylamine.mp3?v=1ff56df3"
   },
   {
    "code": "10111",
@@ -641,8 +641,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "群れずともよいのです。誰も溶かせぬものを溶かせるなら、それがあなたの翼。ただ、雨の日は無理をなさらぬよう。",
-   "image": "assets/images/10111_hfip.webp",
-   "music": "assets/music/10111_hfip.mp3"
+   "image": "assets/images/10111_hfip.webp?v=36a7c982",
+   "music": "assets/music/10111_hfip.mp3?v=704357c1"
   },
   {
    "code": "10110",
@@ -679,8 +679,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "交わらぬ相手がいても構わん。己の仕事を涼しい顔で果たせ。それだけで、群れは自然と後ろについてくる。",
-   "image": "assets/images/10110_dcm.webp",
-   "music": "assets/music/10110_dcm.mp3"
+   "image": "assets/images/10110_dcm.webp?v=0ee609aa",
+   "music": "assets/music/10110_dcm.mp3?v=393083a0"
   },
   {
    "code": "10101",
@@ -717,8 +717,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "迷うくらいなら踏み込みなさい。……ただし、焦がしたくないものの前では、牙を一本しまっておくこと。",
-   "image": "assets/images/10101_tfa.webp",
-   "music": "assets/music/10101_tfa.mp3"
+   "image": "assets/images/10101_tfa.webp?v=c6f71276",
+   "music": "assets/music/10101_tfa.mp3?v=a15db9df"
   },
   {
    "code": "10100",
@@ -755,8 +755,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "誰にも見せない顔のひとつやふたつ、あってよいのよ。疲れたら、霞の中でひと眠りなさいな。",
-   "image": "assets/images/10100_chloroform.webp",
-   "music": "assets/music/10100_chloroform.mp3"
+   "image": "assets/images/10100_chloroform.webp?v=754fa36f",
+   "music": "assets/music/10100_chloroform.mp3?v=6474746b"
   },
   {
    "code": "10011",
@@ -793,8 +793,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "すべての者と分かり合えずともよい。分かり合える者を大切にせよ。静かな炎ほど、長く燃える。",
-   "image": "assets/images/10011_methanol.webp",
-   "music": "assets/music/10011_methanol.mp3"
+   "image": "assets/images/10011_methanol.webp?v=4ec414d4",
+   "music": "assets/music/10011_methanol.mp3?v=5445ccc1"
   },
   {
    "code": "10010",
@@ -831,8 +831,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "あれこれ溶かそうとするな。己に合うものだけを灯せばいい。変わらぬことも、ひとつの道だ。",
-   "image": "assets/images/10010_hexane.webp",
-   "music": "assets/music/10010_hexane.mp3"
+   "image": "assets/images/10010_hexane.webp?v=d04d2dd4",
+   "music": "assets/music/10010_hexane.mp3?v=6371f49f"
   },
   {
    "code": "10001",
@@ -869,8 +869,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "得意なことが少なくても、香りはちゃんと届くものよ。崩れそうな日は、甘いものでも食べて休みましょう。",
-   "image": "assets/images/10001_ethyl_acetate.webp",
-   "music": "assets/music/10001_ethyl_acetate.mp3"
+   "image": "assets/images/10001_ethyl_acetate.webp?v=c81aa6d4",
+   "music": "assets/music/10001_ethyl_acetate.mp3?v=73c5c5fa"
   },
   {
    "code": "10000",
@@ -907,8 +907,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "気が向いたら飛んでいけばいいの。でも、火の気のそばでは少しだけ用心してね。燃え尽きるには、まだ早いもの。",
-   "image": "assets/images/10000_diethyl_ether.webp",
-   "music": "assets/music/10000_diethyl_ether.mp3"
+   "image": "assets/images/10000_diethyl_ether.webp?v=ec065158",
+   "music": "assets/music/10000_diethyl_ether.mp3?v=cf6b5242"
   },
   {
    "code": "01111",
@@ -945,8 +945,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
-   "image": "assets/images/01111_pgme.webp",
-   "music": "assets/music/01111_pgme.mp3"
+   "image": "assets/images/01111_pgme.webp?v=ab124c46",
+   "music": "assets/music/01111_pgme.mp3?v=01fc860d"
   },
   {
    "code": "01110",
@@ -983,8 +983,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "汚れを落とすのに、大きな声は要りません。黙って箒を動かす日々が、いつか誰かの晴れの日になるのです。",
-   "image": "assets/images/01110_butoxyethanol.webp",
-   "music": "assets/music/01110_butoxyethanol.mp3"
+   "image": "assets/images/01110_butoxyethanol.webp?v=da879520",
+   "music": "assets/music/01110_butoxyethanol.mp3?v=cf57524b"
   },
   {
    "code": "01101",
@@ -1021,8 +1021,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "何でも見えてしまうから、つい口が出る。だがな、言わずに待つのもまた、力のうちだぞ。",
-   "image": "assets/images/01101_pyridine.webp",
-   "music": "assets/music/01101_pyridine.mp3"
+   "image": "assets/images/01101_pyridine.webp?v=de0e5865",
+   "music": "assets/music/01101_pyridine.mp3?v=cc6a981e"
   },
   {
    "code": "01100",
@@ -1059,8 +1059,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "光と影は、対になってこそ美しいもの。心の片側に澱が溜まったら、もう片側の光で釣り合いを取りなさい。",
-   "image": "assets/images/01100_dioxane.webp",
-   "music": "assets/music/01100_dioxane.mp3"
+   "image": "assets/images/01100_dioxane.webp?v=7d85dd08",
+   "music": "assets/music/01100_dioxane.mp3?v=0597718d"
   },
   {
    "code": "01011",
@@ -1097,8 +1097,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "……べ、別にあなたのために言ってるんじゃないわ。酸っぱい言葉も、ちゃんと効くんだから。冷えないようにしなさいよ。",
-   "image": "assets/images/01011_acetic_acid.webp",
-   "music": "assets/music/01011_acetic_acid.mp3"
+   "image": "assets/images/01011_acetic_acid.webp?v=243d1396",
+   "music": "assets/music/01011_acetic_acid.mp3?v=7a056fc9"
   },
   {
    "code": "01010",
@@ -1135,8 +1135,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "まあ、お茶でも一服どうぞ。急がずとも、湯が冷めるころには、たいていのことは収まっていますよ。",
-   "image": "assets/images/01010_dpm.webp",
-   "music": "assets/music/01010_dpm.mp3"
+   "image": "assets/images/01010_dpm.webp?v=7d53b20c",
+   "music": "assets/music/01010_dpm.mp3?v=3eb4c3f5"
   },
   {
    "code": "01001",
@@ -1173,8 +1173,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "不器用でもいい、手を差し伸べることをやめないで。……まあ、俺もよく空回りするんだけどね。",
-   "image": "assets/images/01001_morpholine.webp",
-   "music": "assets/music/01001_morpholine.mp3"
+   "image": "assets/images/01001_morpholine.webp?v=99d3604c",
+   "music": "assets/music/01001_morpholine.mp3?v=79af2c3e"
   },
   {
    "code": "01000",
@@ -1211,8 +1211,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "弟ほど器用でなくてもいい。長く結んだ縁は、それだけで力になる。ただ、古い煙はときどき払っておけよ。",
-   "image": "assets/images/01000_diglyme.webp",
-   "music": "assets/music/01000_diglyme.mp3"
+   "image": "assets/images/01000_diglyme.webp?v=1e3bfdf1",
+   "music": "assets/music/01000_diglyme.mp3?v=9e20023f"
   },
   {
    "code": "00111",
@@ -1249,8 +1249,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "どんなものも、まずは受け納めてごらんなさい。ただ、心が冷えたときは、無理に抱えず温まるのが先ですよ。",
-   "image": "assets/images/00111_dmso.webp",
-   "music": "assets/music/00111_dmso.mp3"
+   "image": "assets/images/00111_dmso.webp?v=e9ae20f4",
+   "music": "assets/music/00111_dmso.mp3?v=4de40b80"
   },
   {
    "code": "00110",
@@ -1287,8 +1287,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "合わぬ相手がいてもいい。受け止められるものを、誠実に受け止め続けよ。琥珀は、時をかけて輝く。",
-   "image": "assets/images/00110_toluene.webp",
-   "music": "assets/music/00110_toluene.mp3"
+   "image": "assets/images/00110_toluene.webp?v=4e7d5bb9",
+   "music": "assets/music/00110_toluene.mp3?v=15bb2a4d"
   },
   {
    "code": "00101",
@@ -1326,7 +1326,7 @@ window.SITE_DATA = {
    },
    "kotoyosashi": "学びは誰のことも拒みません。けれど、読み疲れたら巻物を閉じて。ほつれは、休めば繕えます。",
    "image": null,
-   "music": "assets/music/00101_dmf.mp3"
+   "music": "assets/music/00101_dmf.mp3?v=e241a9f1"
   },
   {
    "code": "00100",
@@ -1363,8 +1363,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "ひびのひとつやふたつ、入っていた方が光はよく通る。火花を恐れず、好きなものを溶かしにいけ。",
-   "image": "assets/images/00100_tetralin.webp",
-   "music": "assets/music/00100_tetralin.mp3"
+   "image": "assets/images/00100_tetralin.webp?v=07379536",
+   "music": "assets/music/00100_tetralin.mp3?v=5cd7bc04"
   },
   {
    "code": "00011",
@@ -1401,8 +1401,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "凍える夜には、この金平糖をひとつどうぞ。心配しすぎてしまうのは、あなたが誠実な証ですよ。",
-   "image": "assets/images/00011_ethylene_glycol.webp",
-   "music": "assets/music/00011_ethylene_glycol.mp3"
+   "image": "assets/images/00011_ethylene_glycol.webp?v=8710cdc0",
+   "music": "assets/music/00011_ethylene_glycol.mp3?v=90013df8"
   },
   {
    "code": "00010",
@@ -1439,8 +1439,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "すべての者と混ざらなくてよいのです。何者にも濁らされず、あなたのまま流れていきなさい。",
-   "image": "assets/images/00010_water.webp",
-   "music": "assets/music/00010_water.mp3"
+   "image": "assets/images/00010_water.webp?v=f8a3a03e",
+   "music": "assets/music/00010_water.mp3?v=d4f2445e"
   },
   {
    "code": "00001",
@@ -1477,8 +1477,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "小さな一歩でも、蟻は山を越える。そわそわしたっていいさ。止まらなければ、ちゃんと着く。",
-   "image": "assets/images/00001_formic_acid.webp",
-   "music": "assets/music/00001_formic_acid.mp3"
+   "image": "assets/images/00001_formic_acid.webp?v=d955061a",
+   "music": "assets/music/00001_formic_acid.mp3?v=b8216c88"
   },
   {
    "code": "00000",
@@ -1515,8 +1515,8 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "多くを語らずともよい。胸の火は、消さずに隠しておけ。燃やすべき時は、おのずと来る。",
-   "image": "assets/images/00000_cumene.webp",
-   "music": "assets/music/00000_cumene.mp3"
+   "image": "assets/images/00000_cumene.webp?v=7700748c",
+   "music": "assets/music/00000_cumene.mp3?v=cdea79ec"
   }
  ],
  "myth": {
@@ -1529,31 +1529,31 @@ window.SITE_DATA = {
     "name": "天大輝星主",
     "reading": "あめのおおてるほしのぬし",
     "role": "恒星。溶媒の神々の太祖",
-    "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg"
+    "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg?v=ce78461b"
    },
    {
     "name": "成星大主",
     "reading": "なるほしのおおぬし",
     "role": "水素",
-    "icon": "assets/icons/naruhoshi-no-oonushi.svg"
+    "icon": "assets/icons/naruhoshi-no-oonushi.svg?v=200b03ea"
    },
    {
     "name": "大炭主",
     "reading": "おおすみぬし",
     "role": "炭素",
-    "icon": "assets/icons/oosumi-nushi.svg"
+    "icon": "assets/icons/oosumi-nushi.svg?v=2bce9cf0"
    },
    {
     "name": "八塵大主",
     "reading": "やちりのおおぬし",
     "role": "酸素",
-    "icon": "assets/icons/yachiri-no-oonushi.svg"
+    "icon": "assets/icons/yachiri-no-oonushi.svg?v=5e2a68db"
    },
    {
     "name": "大硝主",
     "reading": "おおささらぬし",
     "role": "窒素",
-    "icon": "assets/icons/oosasara-nushi.svg"
+    "icon": "assets/icons/oosasara-nushi.svg?v=752876a6"
    }
   ],
   "chapters": [
@@ -2874,13 +2874,13 @@ window.SITE_DATA = {
       "恒星の神で32柱の太祖。笙の合竹を8〜16拍ずつ持続させ、小節の終わりごとに間を取る(ma: 1)。太鼓は16拍に一度だけ、大きな間を置いて図・百を打ち、格の高さを表す。",
       "篳篥が源の動機を倍の長さで吹き出し、竜笛が遅れて加わって責の A6 まで光を放つ。全楽器がそろうのはこの曲だけ。"
      ],
-     "music": "assets/music/primordial/ame-no-oteru-hoshi-no-nushi.mp3",
-     "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg",
+     "music": "assets/music/primordial/ame-no-oteru-hoshi-no-nushi.mp3?v=4a7c6afa",
+     "icon": "assets/icons/ame-no-oteru-hoshi-no-nushi.svg?v=ce78461b",
      "score": {
       "json": "data/scores/ame-no-oteru-hoshi-no-nushi.json?v=c5f8e167",
       "gaku": "assets/scores/ame-no-oteru-hoshi-no-nushi.gaku"
      },
-     "background": "assets/images/primordial/ame-no-oteru-hoshi-no-nushi_bg.webp"
+     "background": "assets/images/primordial/ame-no-oteru-hoshi-no-nushi_bg.webp?v=eda61794"
     },
     {
      "name": "大炭主",
@@ -2890,8 +2890,8 @@ window.SITE_DATA = {
       "炭素の神。姿はないが、すべての骨格になる。琵琶が4本の弦を同時に打つ割撥(一+乚+ク+八 など)を毎小節、柱のように据えて、炭素の4つの結合を表す。筝は D・A の4音を格子のように刻み続け、13〜16小節目で倍の細かさに密になる。",
       "鞨鼓は毎小節の頭に1打、太鼓は4小節ごとに1打の骨組み。管は旋律を足さず、源の動機を骨組みに通すだけ。金属の鉦鼓は使わない。"
      ],
-     "music": "assets/music/primordial/oosumi-nushi.mp3",
-     "icon": "assets/icons/oosumi-nushi.svg",
+     "music": "assets/music/primordial/oosumi-nushi.mp3?v=d0b8ce7f",
+     "icon": "assets/icons/oosumi-nushi.svg?v=2bce9cf0",
      "score": {
       "json": "data/scores/oosumi-nushi.json?v=c7200995",
       "gaku": "assets/scores/oosumi-nushi.gaku"
@@ -2906,8 +2906,8 @@ window.SITE_DATA = {
       "酸素の神。姿はなく、息吹と燃焼として現れる。息で鳴る管(笙・篳篥・竜笛)だけを使い、息継ぎの休みを挟んだ長い音から始める。",
       "息が短くなるにつれてテンポが上がって燃え上がり、竜笛が責の高音(C7 まで)で炎のように揺らめく。笙の「比」(C)が火の揺らぎ。鞨鼓の片来・諸来は火のはぜる音。最後は息を収めて♩=38 に戻る。"
      ],
-     "music": "assets/music/primordial/yachiri-no-oonushi.mp3",
-     "icon": "assets/icons/yachiri-no-oonushi.svg",
+     "music": "assets/music/primordial/yachiri-no-oonushi.mp3?v=4af11084",
+     "icon": "assets/icons/yachiri-no-oonushi.svg?v=5e2a68db",
      "score": {
       "json": "data/scores/yachiri-no-oonushi.json?v=40ced0c4",
       "gaku": "assets/scores/yachiri-no-oonushi.gaku"
@@ -2922,8 +2922,8 @@ window.SITE_DATA = {
       "窒素の神。大気の大半を満たしながら、何とも結びつかない(不活性)。5曲で最も遅く、笙はほぼ同じ合竹「凢」を8拍ずつ吹き継ぐだけで、ほとんど変化しない。",
       "竜笛が和(低い音域)で源の動機をゆっくりなぞり、2回目だけ少し縮める。打楽器は鉦鼓の2打のみ。最後は笙が一本の竹(単凢)にほどけて消える。"
      ],
-     "music": "assets/music/primordial/oosasara-nushi.mp3",
-     "icon": "assets/icons/oosasara-nushi.svg",
+     "music": "assets/music/primordial/oosasara-nushi.mp3?v=52ffc43e",
+     "icon": "assets/icons/oosasara-nushi.svg?v=752876a6",
      "score": {
       "json": "data/scores/oosasara-nushi.json?v=2c3033bc",
       "gaku": "assets/scores/oosasara-nushi.gaku"
@@ -2938,8 +2938,8 @@ window.SITE_DATA = {
       "水素の神。最も小さく、最初の一粒で、星の燃料になる。長い沈黙の中に筝の一音(八 = D5)だけが鳴り、次に二粒ずつの対(H₂)になる。笙の一本ずつの竹(単凢・単乙・単乞)が加わって粒が寄り集まり、合竹へと融け合う。",
       "竜笛の源の動機を経て、17小節目で太鼓の百・鉦鼓・篳篥と笙の合竹「凢」がそろって星が灯る(核融合)。この合竹が天大輝星主の冒頭につながる。"
      ],
-     "music": "assets/music/primordial/naruhoshi-no-oonushi.mp3",
-     "icon": "assets/icons/naruhoshi-no-oonushi.svg",
+     "music": "assets/music/primordial/naruhoshi-no-oonushi.mp3?v=64d02405",
+     "icon": "assets/icons/naruhoshi-no-oonushi.svg?v=200b03ea",
      "score": {
       "json": "data/scores/naruhoshi-no-oonushi.json?v=4cab4d36",
       "gaku": "assets/scores/naruhoshi-no-oonushi.gaku"

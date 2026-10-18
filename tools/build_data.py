@@ -147,7 +147,7 @@ def parse_icons(lines):
     for r in table_rows(lines):
         m = re.search(r"\]\((?:seikaku_solvents_site/)?([^)]+\.svg)\)", r[-1])
         if m and (ROOT / m[1]).exists():
-            out[r[0]] = m[1]
+            out[r[0]] = vurl(m[1])
     return out
 
 
@@ -290,11 +290,22 @@ def parse_primordial_songs(text, icons, scores=None):
             cur["meta"] = line.split(" — ", 1)[1].strip()
             m = re.match(r"^\[([a-z-]+)\.gaku\]", line)
             mp3 = f"assets/music/primordial/{m[1]}.mp3" if m else ""
-            cur["music"] = mp3 if mp3 and (ROOT / mp3).exists() else None
+            cur["music"] = vurl(mp3) if mp3 else None
             cur["score"] = (scores or {}).get(m[1]) if m else None
         elif line.startswith("- "):
             cur["notes"].append(strip_md(line[2:].strip()))
     return {"lead": lead, "common": common, "songs": songs}
+
+
+def vurl(rel):
+    """サイト内のファイルの URL に中身のハッシュを付ける(差し替えたら URL が変わり、古いキャッシュを読まない)。
+    ファイルが無ければ None。"""
+    if not rel:
+        return None
+    path = ROOT / rel.split("?")[0]
+    if not path.exists():
+        return None
+    return f"{rel}?v={hashlib.sha1(path.read_bytes()).hexdigest()[:8]}"
 
 
 SITE_HIDDEN_COMMON = ("見た目は若々しいが", "体の線を強調しない")
@@ -404,8 +415,8 @@ def main():
             "gender": g["gender"], "solvent_full": note["name"], "borderline": note["borderline"], "solvent_note": note["note"],
             "profile": g["profile"], "song": songs.get(code),
             "kotoyosashi": kotoyosashi.get(code, ""),
-            "image": image if (ROOT / image).exists() else None,
-            "music": music if (ROOT / music).exists() else None,
+            "image": vurl(image),
+            "music": vurl(music),
         })
     # 楽譜(縦をそろえた譜面)。曲ごとに別ファイルにして、開いたときだけ読み込む
     music_dir = args.src / "solvent_gods" / "music"
@@ -449,7 +460,7 @@ def main():
     pr = site["music_page"]["primordial"]
     for song in (pr["songs"] if pr else []):
         bg = backgrounds.get(song["name"])
-        song["background"] = bg if bg and (ROOT / bg).exists() else None
+        song["background"] = vurl(bg)
 
     (ROOT / "data").mkdir(exist_ok=True)
     body = json.dumps(site, ensure_ascii=False, indent=1)
