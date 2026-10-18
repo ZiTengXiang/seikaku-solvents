@@ -422,6 +422,8 @@ def main():
         raise RuntimeError(f"32柱が揃っていない: {len(codes)}件")
 
     # 「共通の要件」のうち、絵姿を作るときの制作上の指示はサイトには出さない(.md には残す)
+    music_page = json.loads((ROOT / "content" / "music_page.json").read_text(encoding="utf-8"))
+    backgrounds = music_page.pop("primordial_backgrounds", {})
     intro["common"] = [c for c in intro["common"] if not c.startswith(SITE_HIDDEN_COMMON)]
     intro["common"] = [c.replace("離れ袖や肩の露出はなし。", "").strip() for c in intro["common"]]
 
@@ -436,7 +438,7 @@ def main():
         "gods": gods,
         "myth": myth,
         "music_page": {
-            **json.loads((ROOT / "content" / "music_page.json").read_text(encoding="utf-8")),
+            **music_page,
             "axes": parse_music_axes(music_readme.read_text(encoding="utf-8")) if music_readme.exists() else [],
             "primordial": parse_primordial_songs(primordial_readme.read_text(encoding="utf-8"), icons, scores)
             if primordial_readme.exists() else None,
@@ -444,6 +446,11 @@ def main():
     }
     if myth:
         check_myth(myth, codes)
+    pr = site["music_page"]["primordial"]
+    for song in (pr["songs"] if pr else []):
+        bg = backgrounds.get(song["name"])
+        song["background"] = bg if bg and (ROOT / bg).exists() else None
+
     (ROOT / "data").mkdir(exist_ok=True)
     body = json.dumps(site, ensure_ascii=False, indent=1)
     (ROOT / "data" / "site.js").write_text(

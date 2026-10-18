@@ -7,7 +7,8 @@ set -e
 cd "$(dirname "$0")/.."
 title="$1"; shift
 .venv/Scripts/python.exe tools/convert_images.py > /dev/null
-for f in $(git status --porcelain assets/images | awk '{print $2}'); do
+# 対象は 32柱の絵姿(<コード>_<slug>.webp)だけ。サブフォルダ(最初の五柱の背景など)には触らない
+for f in $(git status --porcelain --untracked-files=all assets/images | awk '{print $2}' | grep -E '^assets/images/[01]{5}_[a-z0-9_]+\.webp$'); do
   keep=""
   for id in "$@"; do [ "$f" = "assets/images/$id.webp" ] && keep=1; done
   [ -n "$keep" ] || rm -f "$f"

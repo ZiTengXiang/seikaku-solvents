@@ -2879,7 +2879,8 @@ window.SITE_DATA = {
      "score": {
       "json": "data/scores/ame-no-oteru-hoshi-no-nushi.json?v=c5f8e167",
       "gaku": "assets/scores/ame-no-oteru-hoshi-no-nushi.gaku"
-     }
+     },
+     "background": "assets/images/primordial/ame-no-oteru-hoshi-no-nushi_bg.webp"
     },
     {
      "name": "大炭主",
@@ -2894,7 +2895,8 @@ window.SITE_DATA = {
      "score": {
       "json": "data/scores/oosumi-nushi.json?v=c7200995",
       "gaku": "assets/scores/oosumi-nushi.gaku"
-     }
+     },
+     "background": null
     },
     {
      "name": "八塵大主",
@@ -2909,7 +2911,8 @@ window.SITE_DATA = {
      "score": {
       "json": "data/scores/yachiri-no-oonushi.json?v=40ced0c4",
       "gaku": "assets/scores/yachiri-no-oonushi.gaku"
-     }
+     },
+     "background": null
     },
     {
      "name": "大硝主",
@@ -2924,7 +2927,8 @@ window.SITE_DATA = {
      "score": {
       "json": "data/scores/oosasara-nushi.json?v=2c3033bc",
       "gaku": "assets/scores/oosasara-nushi.gaku"
-     }
+     },
+     "background": null
     },
     {
      "name": "成星大主",
@@ -2939,7 +2943,8 @@ window.SITE_DATA = {
      "score": {
       "json": "data/scores/naruhoshi-no-oonushi.json?v=4cab4d36",
       "gaku": "assets/scores/naruhoshi-no-oonushi.gaku"
-     }
+     },
+     "background": null
     }
    ]
   }

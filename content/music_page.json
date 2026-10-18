@@ -34,5 +34,8 @@
       "examples": "抜頭・散手"
     }
   ],
+  "primordial_backgrounds": {
+    "天大輝星主": "assets/images/primordial/ame-no-oteru-hoshi-no-nushi_bg.webp"
+  },
   "modes_note": "代表曲は雅楽の古典曲の例で、このサイトの曲とは別のものです。"
 }

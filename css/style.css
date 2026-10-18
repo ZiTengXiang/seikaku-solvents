@@ -487,3 +487,19 @@ details.score summary { cursor: pointer; font-size: .9rem; color: var(--accent);
 .score-table td.bar-end { border-right: 1px solid var(--ink); }
 .score-table td.rest, .score-table td.hold { color: var(--muted); opacity: .6; }
 .score-raw { overflow-x: auto; font-size: .8rem; }
+
+/* 楽曲ページ: 太祖・天大輝星主の欄(恒星の絵を背景に、2列ぶんの幅で四柱の上へ) */
+.primordial-card.star-card { grid-column: 1 / -1; padding: 28px 30px; min-height: 380px; border-color: #8f7034;
+  background-size: cover; background-position: center; color: #f6efe3; }
+.star-card .music-icon { width: 104px; height: 104px; flex-basis: 104px; }
+.star-card .music-title { font-size: 1.6rem; color: #fff8ec; }
+.star-card .music-title rt { color: #e9d9b8; }
+.star-card .music-sub { color: #e8c77a; }
+.star-card p, .star-card .song-meta dd { color: #f6efe3; }
+.star-card .song-meta dt, .star-card .muted, .star-card .mode-line { color: #d8ccb8 !important; }
+.star-card .mode-tag { background: rgb(255 255 255 / .1); border-color: rgb(255 255 255 / .35); color: #ffd9a0; }
+.star-card a { color: #ffd9a0; }
+.star-card details.score { border-top-color: rgb(255 255 255 / .3); }
+.star-card details.score summary { color: #ffd9a0; }
+.star-card .score-comments p { color: #d8ccb8 !important; }
+@media (min-width: 761px) { .star-card > p, .star-card > .song-meta { max-width: 760px; } }

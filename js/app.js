@@ -840,7 +840,9 @@
 
     var primordial = pr ? pr.songs.map(function (s) {
       var m = parseMeta(s.meta);
-      return '<article class="card music-card primordial-card">' +
+      // 太祖(背景画像のある柱)は2列ぶんの幅で、四柱の上に大きく置く
+      var bg = s.background ? ' star-card" style="background-image:linear-gradient(rgb(12 8 20 / .55),rgb(12 8 20 / .82)),url(' + esc(s.background) + ')"' : "";
+      return '<article class="card music-card primordial-card' + (bg || '"') + '>' +
         '<div class="music-head">' + (s.icon ? '<img class="music-icon" src="' + esc(s.icon) + '" width="72" height="72" alt="">' : "") +
         '<div><p class="music-title">' + "<ruby>" + esc(s.name) + "<rt>" + esc(s.reading) + "</rt></ruby></p>" +
         '<p class="small muted">最初の五柱</p></div></div>' +
