@@ -75,7 +75,7 @@
   "code": "10110",
   "solvent": "ジクロロメタン(DCM)",
   "god": "翠狼彦",
-  "reading": "すいろうひこ",
+  "reading": "みどりおおかみひこ",
   "gender": "男神",
   "slug": "dcm"
  },
@@ -99,7 +99,7 @@
   "code": "10011",
   "solvent": "メタノール",
   "god": "蒼炎彦",
-  "reading": "そうえんひこ",
+  "reading": "あおほむらひこ",
   "gender": "男神",
   "slug": "methanol"
  },
@@ -107,7 +107,7 @@
   "code": "10010",
   "solvent": "ヘキサン",
   "god": "油灯彦",
-  "reading": "ゆとうひこ",
+  "reading": "あぶらともしひこ",
   "gender": "男神",
   "slug": "hexane"
  },
@@ -170,16 +170,16 @@
  {
   "code": "01010",
   "solvent": "ジプロピレングリコールモノメチルエーテル(DPM)",
-  "god": "和茶彦",
-  "reading": "にこさひこ",
+  "god": "和湯彦",
+  "reading": "にこゆひこ",
   "gender": "男神",
   "slug": "dpm"
  },
  {
   "code": "01001",
   "solvent": "モルホリン",
-  "god": "椅環彦",
-  "reading": "いわひこ",
+  "god": "添環彦",
+  "reading": "そえわひこ",
   "gender": "男神",
   "slug": "morpholine"
  },
@@ -202,15 +202,15 @@
  {
   "code": "00110",
   "solvent": "トルエン",
-  "god": "琥珀彦",
-  "reading": "こはくひこ",
+  "god": "香環彦",
+  "reading": "かおりわひこ",
   "gender": "男神",
   "slug": "toluene"
  },
  {
   "code": "00101",
   "solvent": "N,N-ジメチルホルムアミド(DMF)",
-  "god": "巻帙比売",
+  "god": "巻文比売",
   "reading": "まきふみひめ",
   "gender": "女神",
   "slug": "dmf"
@@ -218,8 +218,8 @@
  {
   "code": "00100",
   "solvent": "テトラリン",
-  "god": "琥珀裂彦",
-  "reading": "こはくさきひこ",
+  "god": "裂環彦",
+  "reading": "さきわひこ",
   "gender": "男神",
   "slug": "tetralin"
  },
