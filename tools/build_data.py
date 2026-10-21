@@ -437,7 +437,7 @@ def main():
     music_page = json.loads((ROOT / "content" / "music_page.json").read_text(encoding="utf-8"))
     backgrounds = music_page.pop("primordial_backgrounds", {})
     intro["common"] = [c for c in intro["common"] if not c.startswith(SITE_HIDDEN_COMMON)]
-    intro["common"] = [c.replace("離れ袖や肩の露出はなし。", "").strip() for c in intro["common"]]
+    intro["common"] = [c.replace("離れ袖や肩の露出はなし。", "").replace("肩の露出はなし。", "").strip() for c in intro["common"]]
 
     site = {
         "traits": questions["traits"],
