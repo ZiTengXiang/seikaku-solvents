@@ -337,7 +337,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "盃は満たすより、分かち合うものよ。泣きたい夜は泣いて、明日の宴でまた笑いなさい。",
-   "image": "assets/images/11111_ethanol.webp?v=3709d49e",
+   "image": "assets/images/11111_ethanol.webp?v=86ab58d3",
    "true_form": "assets/images/true/11111_ethanol.webp?v=e884f484",
    "music": "assets/music/11111_ethanol.mp3?v=9d331b26"
   },
@@ -376,7 +376,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "済んだことは風に流してしまいなさい。澄んだ心でいれば、誰とでもすぐに打ち解けられるわ。",
-   "image": "assets/images/11110_acetone.webp?v=72313a1e",
+   "image": "assets/images/11110_acetone.webp?v=398b851b",
    "true_form": "assets/images/true/11110_acetone.webp?v=e7e37c5f",
    "music": "assets/music/11110_acetone.mp3?v=ee762971"
   },
@@ -415,7 +415,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "誰とでも組めるのは才だが、胸の内に澱を溜めてはならぬ。ときどき蓋を開けて、風を通すことだ。",
-   "image": "assets/images/11101_thf.webp?v=490929c9",
+   "image": "assets/images/11101_thf.webp?v=80045153",
    "true_form": "assets/images/true/11101_thf.webp?v=9efed01e",
    "music": "assets/music/11101_thf.mp3?v=4cb42d1c"
   },
@@ -454,7 +454,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "縁は結んで、ほどいて、また結べばいいのさ。面白そうな方へ、まず一歩踏み出してごらん。",
-   "image": "assets/images/11100_dme.webp?v=75efc215",
+   "image": "assets/images/11100_dme.webp?v=fe8c68e0",
    "true_form": "assets/images/true/11100_dme.webp?v=3dd51721",
    "music": "assets/music/11100_dme.mp3?v=b13dc6c9"
   },
@@ -493,7 +493,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "揺らがぬことは強さだが、凍りついたら陽に当たれ。固まるのは恥ではない。また解ければよいのだ。",
-   "image": "assets/images/11011_tbutanol.webp?v=8cb7ab16",
+   "image": "assets/images/11011_tbutanol.webp?v=8f768947",
    "true_form": "assets/images/true/11011_tbutanol.webp?v=ff98dcf6",
    "music": "assets/music/11011_tbutanol.mp3?v=8832bb5b"
   },
@@ -532,7 +532,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "目立たなくても、灯りは灯りです。あなたがそこにいるだけで、誰かの足元が照らされているのですよ。",
-   "image": "assets/images/11010_1propanol.webp?v=7d27958f",
+   "image": "assets/images/11010_1propanol.webp?v=f36c173e",
    "true_form": "assets/images/true/11010_1propanol.webp?v=09d1611f",
    "music": "assets/music/11010_1propanol.mp3?v=d6a93c72"
   },
@@ -571,7 +571,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "人の傷を祓うのもよいけれど、ご自分の心配ごとも祓ってあげて。あなたも、労わられてよいのです。",
-   "image": "assets/images/11001_ipa.webp?v=fe3476db",
+   "image": "assets/images/11001_ipa.webp?v=58e427f1",
    "true_form": "assets/images/true/11001_ipa.webp?v=e29cf9c9",
    "music": "assets/music/11001_ipa.mp3?v=847c0426"
   },
@@ -611,7 +611,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "頼まれる前に動くのが俺の流儀よ。ただな、相手の潮の満ち引きを見てから飛び込むと、もっと喜ばれるぜ。",
-   "image": "assets/images/11000_diethylamine.webp?v=dee3d826",
+   "image": "assets/images/11000_diethylamine.webp?v=413e44c8",
    "true_form": "assets/images/true/11000_diethylamine.webp?v=73bca20d",
    "music": "assets/music/11000_diethylamine.mp3?v=1ff56df3"
   },
@@ -650,7 +650,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "群れずともよいのです。誰も溶かせぬものを溶かせるなら、それがあなたの翼。ただ、雨の日は無理をなさらぬよう。",
-   "image": "assets/images/10111_hfip.webp?v=36a7c982",
+   "image": "assets/images/10111_hfip.webp?v=78c7c550",
    "true_form": "assets/images/true/10111_hfip.webp?v=30a823ba",
    "music": "assets/music/10111_hfip.mp3?v=704357c1"
   },
@@ -689,7 +689,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "交わらぬ相手がいても構わん。己の仕事を涼しい顔で果たせ。それだけで、群れは自然と後ろについてくる。",
-   "image": "assets/images/10110_dcm.webp?v=0ee609aa",
+   "image": "assets/images/10110_dcm.webp?v=ef45f2a4",
    "true_form": "assets/images/true/10110_dcm.webp?v=7fc002e6",
    "music": "assets/music/10110_dcm.mp3?v=393083a0"
   },
@@ -728,7 +728,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "迷うくらいなら踏み込みなさい。……ただし、焦がしたくないものの前では、牙を一本しまっておくこと。",
-   "image": "assets/images/10101_tfa.webp?v=c6f71276",
+   "image": "assets/images/10101_tfa.webp?v=c84480a4",
    "true_form": "assets/images/true/10101_tfa.webp?v=4b69efd8",
    "music": "assets/music/10101_tfa.mp3?v=a15db9df"
   },
@@ -767,7 +767,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "誰にも見せない顔のひとつやふたつ、あってよいのよ。疲れたら、霞の中でひと眠りなさいな。",
-   "image": "assets/images/10100_chloroform.webp?v=754fa36f",
+   "image": "assets/images/10100_chloroform.webp?v=0abc2a8c",
    "true_form": "assets/images/true/10100_chloroform.webp?v=caccf7df",
    "music": "assets/music/10100_chloroform.mp3?v=6474746b"
   },
@@ -806,7 +806,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "すべての者と分かり合えずともよい。分かり合える者を大切にせよ。静かな炎ほど、長く燃える。",
-   "image": "assets/images/10011_methanol.webp?v=4ec414d4",
+   "image": "assets/images/10011_methanol.webp?v=35b4f53a",
    "true_form": "assets/images/true/10011_methanol.webp?v=912cecde",
    "music": "assets/music/10011_methanol.mp3?v=5445ccc1"
   },
@@ -845,7 +845,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "あれこれ溶かそうとするな。己に合うものだけを灯せばいい。変わらぬことも、ひとつの道だ。",
-   "image": "assets/images/10010_hexane.webp?v=d04d2dd4",
+   "image": "assets/images/10010_hexane.webp?v=0ee0433d",
    "true_form": "assets/images/true/10010_hexane.webp?v=673f9443",
    "music": "assets/music/10010_hexane.mp3?v=6371f49f"
   },
@@ -884,7 +884,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "得意なことが少なくても、香りはちゃんと届くものよ。崩れそうな日は、甘いものでも食べて休みましょう。",
-   "image": "assets/images/10001_ethyl_acetate.webp?v=c81aa6d4",
+   "image": "assets/images/10001_ethyl_acetate.webp?v=e5c39e8e",
    "true_form": "assets/images/true/10001_ethyl_acetate.webp?v=f12de07d",
    "music": "assets/music/10001_ethyl_acetate.mp3?v=73c5c5fa"
   },
@@ -923,7 +923,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "気が向いたら飛んでいけばいいの。でも、火の気のそばでは少しだけ用心してね。燃え尽きるには、まだ早いもの。",
-   "image": "assets/images/10000_diethyl_ether.webp?v=ec065158",
+   "image": "assets/images/10000_diethyl_ether.webp?v=06dd87a7",
    "true_form": "assets/images/true/10000_diethyl_ether.webp?v=dd2e480a",
    "music": "assets/music/10000_diethyl_ether.mp3?v=cf6b5242"
   },
@@ -962,7 +962,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "違う色どうしも、間にひと筆入れれば溶け合います。でも、皆の気苦労まで一人で引き受けなくてよいのですよ。",
-   "image": "assets/images/01111_pgme.webp?v=be9ff50e",
+   "image": "assets/images/01111_pgme.webp?v=1670da2e",
    "true_form": "assets/images/true/01111_pgme.webp?v=9e50078f",
    "music": "assets/music/01111_pgme.mp3?v=01fc860d"
   },
@@ -1001,7 +1001,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "汚れを落とすのに、大きな声は要りません。黙って箒を動かす日々が、いつか誰かの晴れの日になるのです。",
-   "image": "assets/images/01110_butoxyethanol.webp?v=da879520",
+   "image": "assets/images/01110_butoxyethanol.webp?v=531d55d2",
    "true_form": "assets/images/true/01110_butoxyethanol.webp?v=48913012",
    "music": "assets/music/01110_butoxyethanol.mp3?v=cf57524b"
   },
@@ -1040,7 +1040,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "何でも見えてしまうから、つい口が出る。だがな、言わずに待つのもまた、力のうちだぞ。",
-   "image": "assets/images/01101_pyridine.webp?v=de0e5865",
+   "image": "assets/images/01101_pyridine.webp?v=d9fc0009",
    "true_form": "assets/images/true/01101_pyridine.webp?v=f2344773",
    "music": "assets/music/01101_pyridine.mp3?v=cc6a981e"
   },
@@ -1079,7 +1079,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "光と影は、対になってこそ美しいもの。心の片側に澱が溜まったら、もう片側の光で釣り合いを取りなさい。",
-   "image": "assets/images/01100_dioxane.webp?v=7d85dd08",
+   "image": "assets/images/01100_dioxane.webp?v=d75c65cf",
    "true_form": "assets/images/true/01100_dioxane.webp?v=e8e643ef",
    "music": "assets/music/01100_dioxane.mp3?v=0597718d"
   },
@@ -1118,7 +1118,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "……べ、別にあなたのために言ってるんじゃないわ。酸っぱい言葉も、ちゃんと効くんだから。冷えないようにしなさいよ。",
-   "image": "assets/images/01011_acetic_acid.webp?v=243d1396",
+   "image": "assets/images/01011_acetic_acid.webp?v=e599413d",
    "true_form": "assets/images/true/01011_acetic_acid.webp?v=d007d621",
    "music": "assets/music/01011_acetic_acid.mp3?v=7a056fc9"
   },
@@ -1157,7 +1157,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "まあ、お茶でも一服どうぞ。急がずとも、湯が冷めるころには、たいていのことは収まっていますよ。",
-   "image": "assets/images/01010_dpm.webp?v=7d53b20c",
+   "image": "assets/images/01010_dpm.webp?v=601f20ae",
    "true_form": "assets/images/true/01010_dpm.webp?v=5cbe2a39",
    "music": "assets/music/01010_dpm.mp3?v=3eb4c3f5"
   },
@@ -1196,7 +1196,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "不器用でもいい、手を差し伸べることをやめないで。……まあ、俺もよく空回りするんだけどね。",
-   "image": "assets/images/01001_morpholine.webp?v=99d3604c",
+   "image": "assets/images/01001_morpholine.webp?v=7d1e3684",
    "true_form": "assets/images/true/01001_morpholine.webp?v=869196f2",
    "music": "assets/music/01001_morpholine.mp3?v=79af2c3e"
   },
@@ -1235,7 +1235,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "弟ほど器用でなくてもいい。長く結んだ縁は、それだけで力になる。ただ、古い煙はときどき払っておけよ。",
-   "image": "assets/images/01000_diglyme.webp?v=1e3bfdf1",
+   "image": "assets/images/01000_diglyme.webp?v=a2fada7b",
    "true_form": "assets/images/true/01000_diglyme.webp?v=dadd7706",
    "music": "assets/music/01000_diglyme.mp3?v=9e20023f"
   },
@@ -1274,7 +1274,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "どんなものも、まずは受け納めてごらんなさい。ただ、心が冷えたときは、無理に抱えず温まるのが先ですよ。",
-   "image": "assets/images/00111_dmso.webp?v=e9ae20f4",
+   "image": "assets/images/00111_dmso.webp?v=e7a74224",
    "true_form": "assets/images/true/00111_dmso.webp?v=1d940b5e",
    "music": "assets/music/00111_dmso.mp3?v=4de40b80"
   },
@@ -1313,7 +1313,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "合わぬ相手がいてもいい。受け止められるものを、誠実に受け止め続けよ。琥珀は、時をかけて輝く。",
-   "image": "assets/images/00110_toluene.webp?v=4e7d5bb9",
+   "image": "assets/images/00110_toluene.webp?v=606278b0",
    "true_form": "assets/images/true/00110_toluene.webp?v=a8b230b8",
    "music": "assets/music/00110_toluene.mp3?v=15bb2a4d"
   },
@@ -1352,7 +1352,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "学びは誰のことも拒みません。けれど、読み疲れたら巻物を閉じて。ほつれは、休めば繕えます。",
-   "image": "assets/images/00101_dmf.webp?v=32c92990",
+   "image": "assets/images/00101_dmf.webp?v=66a66474",
    "true_form": "assets/images/true/00101_dmf.webp?v=69307ed5",
    "music": "assets/music/00101_dmf.mp3?v=e241a9f1"
   },
@@ -1391,7 +1391,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "ひびのひとつやふたつ、入っていた方が光はよく通る。火花を恐れず、好きなものを溶かしにいけ。",
-   "image": "assets/images/00100_tetralin.webp?v=07379536",
+   "image": "assets/images/00100_tetralin.webp?v=17226192",
    "true_form": "assets/images/true/00100_tetralin.webp?v=81c2987d",
    "music": "assets/music/00100_tetralin.mp3?v=5cd7bc04"
   },
@@ -1430,7 +1430,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "凍える夜には、この金平糖をひとつどうぞ。心配しすぎてしまうのは、あなたが誠実な証ですよ。",
-   "image": "assets/images/00011_ethylene_glycol.webp?v=8710cdc0",
+   "image": "assets/images/00011_ethylene_glycol.webp?v=c498eaed",
    "true_form": "assets/images/true/00011_ethylene_glycol.webp?v=1cd78417",
    "music": "assets/music/00011_ethylene_glycol.mp3?v=90013df8"
   },
@@ -1469,7 +1469,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "すべての者と混ざらなくてよいのです。何者にも濁らされず、あなたのまま流れていきなさい。",
-   "image": "assets/images/00010_water.webp?v=f8a3a03e",
+   "image": "assets/images/00010_water.webp?v=eeef55df",
    "true_form": "assets/images/true/00010_water.webp?v=b439a2da",
    "music": "assets/music/00010_water.mp3?v=d4f2445e"
   },
@@ -1508,7 +1508,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "小さな一歩でも、蟻は山を越える。そわそわしたっていいさ。止まらなければ、ちゃんと着く。",
-   "image": "assets/images/00001_formic_acid.webp?v=d955061a",
+   "image": "assets/images/00001_formic_acid.webp?v=4e8b478d",
    "true_form": "assets/images/true/00001_formic_acid.webp?v=40619233",
    "music": "assets/music/00001_formic_acid.mp3?v=b8216c88"
   },
@@ -1547,7 +1547,7 @@ window.SITE_DATA = {
     }
    },
    "kotoyosashi": "多くを語らずともよい。胸の火は、消さずに隠しておけ。燃やすべき時は、おのずと来る。",
-   "image": "assets/images/00000_cumene.webp?v=7700748c",
+   "image": "assets/images/00000_cumene.webp?v=8149591e",
    "true_form": "assets/images/true/00000_cumene.webp?v=3f62088e",
    "music": "assets/music/00000_cumene.mp3?v=cdea79ec"
   }

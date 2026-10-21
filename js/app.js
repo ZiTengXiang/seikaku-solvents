@@ -188,7 +188,6 @@
     }).join("");
     render(
       '<section class="hero">' +
-      '<p class="eyebrow">性格診断 × 溶媒 × 神社</p>' +
       "<h1>性格そるべんつ</h1>" +
       '<p class="lead">三十の問いに答えると、あなたの性格に近い<strong>溶媒の神様</strong>を五柱、ご縁の深い順にお示しします。' +
       "ビッグファイブの五つの特性を、溶媒の五つの性質に読み替えました。</p>" +
@@ -814,7 +813,7 @@
       "<ul>" +
       "<li>ビッグファイブに着想を得た<b>娯楽用</b>の診断です。質問文は自作で、標準化された心理検査ではありません。結果を人の評価や判断に使わないでください。</li>" +
       "<li>回答はお使いのブラウザの中だけで計算し、どこにも送信しません。アクセス解析やCookieは使っていません(途中の回答と配色の設定だけ、ブラウザ内に保存します)。</li>" +
-      "<li>神様の絵姿は画像生成モデル <b>Animagine XL 4.0</b>(CreativeML Open RAIL++-M ライセンス)による AI 生成です。</li>" +
+      "<li>神様の絵姿は画像生成モデル <b>Animagine XL 4.0</b>(CreativeML Open RAIL++-M ライセンス)による AI 生成です。画風には zura_janai 氏の LoRA「<a href=\"https://civitai.com/models/933523\">Traditional japanese art illustriousXL</a>」を使っています。</li>" +
       '<li>楽曲は<a href="https://github.com/ZiTengXiang/gagaku-player">雅楽譜プレイヤー</a>で作曲・合成しました。</li>' +
       '<li>まことの御姿は、各溶媒の分子を <a href="https://github.com/HiroYokoyama/python_molecular_editor">MoleditPy</a> の CPK(空間充填)表示の設定(元素色・ファンデルワールス半径・照明)で描き、加工したものです。立体構造は RDKit(ETKDG + MMFF)で求めました。</li>' +
       "<li>溶媒の性質の判定は、32溶媒の中での相対評価を含む遊びのための単純化です。実験の参考にはしないでください。</li>" +

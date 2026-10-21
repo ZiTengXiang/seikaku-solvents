@@ -81,7 +81,7 @@ python -m venv .venv
 
 ## クレジット
 
-- **キャラクター画像・天大輝星主の背景**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)と [LCM-LoRA](https://huggingface.co/latent-consistency/lcm-lora-sdxl) による AI 生成です。
+- **キャラクター画像・天大輝星主の背景**: 画像生成モデル [Animagine XL 4.0](https://huggingface.co/cagliostrolab/animagine-xl-4.0)(CreativeML Open RAIL++-M ライセンス)と [LCM-LoRA](https://huggingface.co/latent-consistency/lcm-lora-sdxl) による AI 生成です。絵姿(古墳〜飛鳥時代風の装束)の画風には zura_janai 氏の LoRA [Traditional japanese art illustriousXL](https://civitai.com/models/933523) を重み0.9で使っています(生成スクリプトは元フォルダの `solvent_gods/generate_kofun.py`)。
 - **まことの御姿**(柱の詳細ページで絵姿を押すと裏返る画像): 各溶媒の分子を [MoleditPy](https://github.com/HiroYokoyama/python_molecular_editor) の CPK(空間充填)表示の設定で描き、加工したもの。立体構造は [RDKit](https://www.rdkit.org/)、描画は [PyVista](https://pyvista.org/)。描画は `tools/render_true_forms.py`、変換は `tools/convert_true_forms.py`。
 - **最初の五柱のアイコン**: このサイトのために作成した SVG です。
 - **楽曲**: [雅楽譜プレイヤー](https://github.com/ZiTengXiang/gagaku-player)で作曲・合成した雅楽風の曲です。
